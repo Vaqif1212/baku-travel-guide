@@ -11,12 +11,13 @@ import { ThemeToggle } from "./ThemeToggle";
 export function Header({ locale, whatsapp }: { locale: Locale; whatsapp: string }) {
   const dict = getDict(locale);
   const [open, setOpen] = useState(false);
+  const home = locale === "ru" ? "" : `/${locale}`;
   const navItems = [
-    { href: "#tours", label: dict.nav.tours },
-    { href: "#about", label: dict.nav.about },
-    { href: "#reviews", label: dict.nav.reviews },
-    { href: "#faq", label: dict.nav.blog },
-    { href: "#contact", label: dict.nav.contact },
+    { href: `${home}/#tours`, label: dict.nav.tours },
+    { href: `${home}/#about`, label: dict.nav.about },
+    { href: `${home}/#reviews`, label: dict.nav.reviews },
+    { href: "/blog", label: dict.nav.blog },
+    { href: `${home}/#contact`, label: dict.nav.contact },
   ];
 
   return (

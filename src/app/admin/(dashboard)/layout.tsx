@@ -5,6 +5,7 @@ import { isAdminAuthenticated, clearAdminSessionCookie } from "@/lib/session";
 const NAV = [
   { href: "/admin", label: "Обзор" },
   { href: "/admin/tours", label: "Туры" },
+  { href: "/admin/blog", label: "Блог" },
   { href: "/admin/testimonials", label: "Отзывы" },
   { href: "/admin/messages", label: "Сообщения" },
   { href: "/admin/settings", label: "Настройки" },

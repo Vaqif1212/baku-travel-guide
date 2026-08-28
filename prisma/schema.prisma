@@ -53,6 +53,23 @@ model Testimonial {
   createdAt DateTime @default(now())
 }
 
+// Blog posts are Russian-only for now (the primary audience and the
+// main SEO target) to keep writing realistic for a single admin.
+model Post {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  order       Int      @default(0)
+  published   Boolean  @default(true)
+  coverImageUrl String @default("")
+
+  title       String
+  excerpt     String
+  body        String
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
 model Message {
   id        String   @id @default(cuid())
   name      String

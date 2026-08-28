@@ -32,12 +32,13 @@ export function ContactSection({ locale, contact }: { locale: Locale; contact: C
 
 export function Footer({ locale, contact }: { locale: Locale; contact: ContactInfo }) {
   const dict = getDict(locale);
+  const home = locale === "ru" ? "" : `/${locale}`;
   const nav = [
-    { href: "#tours", label: dict.nav.tours },
-    { href: "#about", label: dict.nav.about },
-    { href: "#reviews", label: dict.nav.reviews },
-    { href: "#faq", label: dict.nav.blog },
-    { href: "#contact", label: dict.nav.contact },
+    { href: `${home}/#tours`, label: dict.nav.tours },
+    { href: `${home}/#about`, label: dict.nav.about },
+    { href: `${home}/#reviews`, label: dict.nav.reviews },
+    { href: "/blog", label: dict.nav.blog },
+    { href: `${home}/#contact`, label: dict.nav.contact },
   ];
   return (
     <footer className="bg-green-darker pt-16 text-cream/70">
