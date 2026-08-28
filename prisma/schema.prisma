@@ -1,15 +1,14 @@
 // Prisma schema for Baku Travel Guide
-// Dev uses SQLite (file-based, zero setup). For production on Vercel,
-// switch `provider` below to "postgresql" and point DATABASE_URL at
-// your Postgres instance (Vercel Postgres / Supabase / Neon) — the
-// schema itself needs no other changes.
+// Postgres (Neon, via Vercel's Storage integration) for both local dev
+// and production — DATABASE_URL comes from .env locally and from the
+// Vercel project's environment variables in production.
 
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
