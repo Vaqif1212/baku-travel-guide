@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --bg: #FBF6EA;
+  --bg-alt: #FFFFFF;
+  --bg-header: #1F3B2E;
+  --fg: #241C10;
+  --muted: #6B6154;
+  --gold: #C9A227;
+  --gold-light: #E4C765;
+  --green-deep: #1F3B2E;
+  --green-mid: #2E5140;
+  --green-darker: #16291F;
+  --border: #E9DFC4;
+  --cream-text: #FBF6EA;
+}
+
+.dark {
+  --bg: #0F1F17;
+  --bg-alt: #16281F;
+  --bg-header: #0F1F17;
+  --fg: #F3EFE3;
+  --muted: #9FB0A4;
+  --gold: #D4AF37;
+  --gold-light: #E9CD73;
+  --green-deep: #0a1710;
+  --green-mid: #24402f;
+  --green-darker: #0a1710;
+  --border: rgba(212, 175, 55, 0.25);
+  --cream-text: #F3EFE3;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-alt: var(--bg-alt);
+  --color-bg-header: var(--bg-header);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-green-deep: var(--green-deep);
+  --color-green-mid: var(--green-mid);
+  --color-green-darker: var(--green-darker);
+  --color-border: var(--border);
+  --color-cream: var(--cream-text);
+  --font-display: var(--font-playfair);
+  --font-body: var(--font-ptsans);
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body), Arial, sans-serif;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+::selection {
+  background: var(--gold);
+  color: var(--green-deep);
+}

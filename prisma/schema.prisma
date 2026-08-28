@@ -1,0 +1,85 @@
+// Prisma schema for Baku Travel Guide
+// Dev uses SQLite (file-based, zero setup). For production on Vercel,
+// switch `provider` below to "postgresql" and point DATABASE_URL at
+// your Postgres instance (Vercel Postgres / Supabase / Neon) — the
+// schema itself needs no other changes.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Tour {
+  id              String   @id @default(cuid())
+  slug            String   @unique
+  order           Int      @default(0)
+  published       Boolean  @default(true)
+
+  titleRu         String
+  titleAz         String
+  titleEn         String
+  descriptionRu   String
+  descriptionAz   String
+  descriptionEn   String
+  durationRu      String
+  durationAz      String
+  durationEn      String
+
+  // Canonical prices, stored in AZN. The site converts to USD/RUB
+  // for display using the exchange rates in Setting.
+  priceIndividualAzn Int
+  priceGroupAzn      Int
+
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model Testimonial {
+  id        String   @id @default(cuid())
+  order     Int      @default(0)
+  published Boolean  @default(true)
+
+  textRu    String
+  textAz    String
+  textEn    String
+  name      String
+  country   String
+
+  createdAt DateTime @default(now())
+}
+
+model Message {
+  id        String   @id @default(cuid())
+  name      String
+  contact   String
+  text      String
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+// Singleton row (id is always "singleton") holding site-wide settings
+// editable from the admin panel.
+model Setting {
+  id                String  @id @default("singleton")
+
+  adminPasswordHash String  @default("")
+
+  promoEnabled      Boolean @default(false)
+  promoTextRu       String  @default("")
+  promoTextAz       String  @default("")
+  promoTextEn       String  @default("")
+
+  // AZN per 1 unit of foreign currency, editable by admin.
+  usdRate           Float   @default(1.70)
+  rubRate           Float   @default(0.019)
+
+  whatsapp          String  @default("")
+  telegram          String  @default("")
+  phone             String  @default("")
+  email             String  @default("")
+  instagram         String  @default("")
+}
