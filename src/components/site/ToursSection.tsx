@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import type { Locale } from "@/lib/i18n";
 import { getDict } from "@/lib/i18n";
 import { convertFromAzn, formatPrice, currencies, type Currency } from "@/lib/currency";
@@ -8,6 +9,7 @@ import { whatsappHref } from "@/lib/contact";
 
 export type TourViewModel = {
   id: string;
+  imageUrl: string;
   title: string;
   description: string;
   durationHours: string;
@@ -83,8 +85,18 @@ function TourCard({
 
   return (
     <article className="overflow-hidden rounded border border-border bg-bg-alt">
-      <div className="relative flex h-52 items-end bg-linear-to-br from-green-mid to-green-deep p-5">
-        <span className="rounded-sm bg-gold px-3 py-1.5 text-xs font-bold text-green-deep">
+      <div className="relative flex h-52 items-end overflow-hidden bg-linear-to-br from-green-mid to-green-deep p-5">
+        {tour.imageUrl && (
+          <Image
+            src={tour.imageUrl}
+            alt={tour.title}
+            fill
+            sizes="(min-width: 1024px) 50vw, 100vw"
+            className="object-cover"
+          />
+        )}
+        <div className="absolute inset-0 bg-linear-to-t from-green-deep/70 via-transparent to-transparent" />
+        <span className="relative rounded-sm bg-gold px-3 py-1.5 text-xs font-bold text-green-deep">
           {dict.tours.dayTour} · {tour.durationHours} {dict.tours.hours}
         </span>
       </div>

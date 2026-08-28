@@ -11,6 +11,7 @@ function field<T extends Record<string, unknown>>(obj: T, base: string, locale: 
 export function localizeTour(tour: Tour, locale: Locale): TourViewModel {
   return {
     id: tour.id,
+    imageUrl: tour.imageUrl,
     title: field(tour, "title", locale),
     description: field(tour, "description", locale),
     durationHours: field(tour, "duration", locale),

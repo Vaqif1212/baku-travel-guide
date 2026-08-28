@@ -1,13 +1,23 @@
+import Image from "next/image";
 import type { Locale } from "@/lib/i18n";
 import { getDict } from "@/lib/i18n";
 import { whatsappHref, telHref } from "@/lib/contact";
-import { SkylineDecor, OrnamentDecor } from "./Decor";
+import { OrnamentDecor } from "./Decor";
 
 export function Hero({ locale, whatsapp, phone }: { locale: Locale; whatsapp: string; phone: string }) {
   const dict = getDict(locale);
   return (
-    <section className="relative overflow-hidden bg-linear-to-b from-bg-header to-green-darker py-24 sm:py-32">
-      <SkylineDecor className="absolute bottom-0 left-0 h-[220px] w-full opacity-50 sm:h-[300px]" />
+    <section className="relative overflow-hidden py-24 sm:py-32">
+      <Image
+        src="/images/hero-flame-towers.jpg"
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover"
+      />
+      <div className="absolute inset-0 bg-linear-to-r from-green-darker via-green-darker/75 to-green-darker/30" />
+      <div className="absolute inset-0 bg-linear-to-t from-green-darker via-transparent to-green-darker/20" />
       <OrnamentDecor className="absolute -right-6 top-10 hidden opacity-35 sm:block" />
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
         <div className="max-w-2xl">

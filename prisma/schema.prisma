@@ -18,6 +18,7 @@ model Tour {
   slug            String   @unique
   order           Int      @default(0)
   published       Boolean  @default(true)
+  imageUrl        String   @default("")
 
   titleRu         String
   titleAz         String
