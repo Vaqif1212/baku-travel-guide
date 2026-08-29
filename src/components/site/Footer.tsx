@@ -1,8 +1,9 @@
 import type { Locale } from "@/lib/i18n";
 import { getDict } from "@/lib/i18n";
 import { ContactForm } from "./ContactForm";
+import { Logo } from "./Logo";
 
-type ContactInfo = { phone: string; email: string; instagram: string; whatsapp: string; telegram: string };
+type ContactInfo = { phone: string; email: string; instagram: string; whatsapp: string; telegram: string; facebook: string };
 
 export function ContactSection({ locale, contact }: { locale: Locale; contact: ContactInfo }) {
   const dict = getDict(locale);
@@ -45,18 +46,30 @@ export function Footer({ locale, contact }: { locale: Locale; contact: ContactIn
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="grid gap-10 border-b border-gold/15 pb-12 sm:grid-cols-3">
           <div>
-            <div className="font-display text-lg text-cream">{dict.siteName}</div>
+            <div className="flex items-center gap-2.5">
+              <Logo size={24} />
+              <div className="font-display text-lg text-cream">{dict.siteName}</div>
+            </div>
             <p className="mt-3.5 max-w-xs text-sm leading-relaxed">{dict.footer.tagline}</p>
-            <div className="mt-5 flex gap-5 text-sm">
-              <a href={`https://instagram.com/${contact.instagram}`} target="_blank" rel="noopener noreferrer" className="hover:text-gold">
-                Instagram
-              </a>
+            <div className="mt-5 flex flex-wrap gap-5 text-sm">
+              {contact.instagram && (
+                <a href={`https://instagram.com/${contact.instagram}`} target="_blank" rel="noopener noreferrer" className="hover:text-gold">
+                  Instagram
+                </a>
+              )}
+              {contact.facebook && (
+                <a href={`https://facebook.com/${contact.facebook}`} target="_blank" rel="noopener noreferrer" className="hover:text-gold">
+                  Facebook
+                </a>
+              )}
               <a href={`https://wa.me/${contact.whatsapp}`} target="_blank" rel="noopener noreferrer" className="hover:text-gold">
                 WhatsApp
               </a>
-              <a href={`https://t.me/${contact.telegram}`} target="_blank" rel="noopener noreferrer" className="hover:text-gold">
-                Telegram
-              </a>
+              {contact.telegram && (
+                <a href={`https://t.me/${contact.telegram}`} target="_blank" rel="noopener noreferrer" className="hover:text-gold">
+                  Telegram
+                </a>
+              )}
             </div>
           </div>
           <div>

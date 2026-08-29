@@ -53,6 +53,7 @@ export function SettingsForm({ settings }: { settings: Setting }) {
           <Field label="Телефон (для отображения)" name="phone" defaultValue={settings.phone} />
           <Field label="Email" name="email" defaultValue={settings.email} />
           <Field label="Instagram (без @)" name="instagram" defaultValue={settings.instagram} />
+          <Field label="Facebook (часть ссылки после facebook.com/)" name="facebook" defaultValue={settings.facebook} />
         </div>
       </fieldset>
 

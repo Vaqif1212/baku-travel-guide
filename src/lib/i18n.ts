@@ -64,6 +64,11 @@ function buildDict(locale: Locale) {
         perPerson: "с человека",
         more: "Подробнее",
       },
+      gallery: {
+        eyebrow: "Репортаж",
+        title: "Кадры с настоящих туров",
+        subtitle: "Ичери-шехер, Хыналыг, Атешгях и горы Кавказа — то, что вы увидите своими глазами.",
+      },
       testimonials: {
         eyebrow: "Отзывы",
         title: "Что говорят туристы",
@@ -139,6 +144,11 @@ function buildDict(locale: Locale) {
         perPerson: "nəfər başına",
         more: "Ətraflı",
       },
+      gallery: {
+        eyebrow: "Reportaj",
+        title: "Əsl turlardan kadrlar",
+        subtitle: "İçərişəhər, Xınalıq, Atəşgah və Qafqaz dağları — öz gözünüzlə görəcəkləriniz.",
+      },
       testimonials: {
         eyebrow: "Rəylər",
         title: "Turistlər nə deyir",
@@ -213,6 +223,11 @@ function buildDict(locale: Locale) {
         perCar: "per car (1–4 people)",
         perPerson: "per person",
         more: "Learn more",
+      },
+      gallery: {
+        eyebrow: "Reportage",
+        title: "Moments from real tours",
+        subtitle: "The Old City, Khinalig, Ateshgah and the Caucasus mountains — what you'll see with your own eyes.",
       },
       testimonials: {
         eyebrow: "Reviews",

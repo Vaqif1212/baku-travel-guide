@@ -25,6 +25,7 @@ export default async function BlogPage() {
     instagram: settings.instagram,
     whatsapp: settings.whatsapp,
     telegram: settings.telegram,
+    facebook: settings.facebook,
   };
 
   return (

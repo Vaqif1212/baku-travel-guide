@@ -26,6 +26,7 @@ export async function updateSettings(_prevState: { message?: string } | undefine
       phone: str(formData, "phone"),
       email: str(formData, "email"),
       instagram: str(formData, "instagram"),
+      facebook: str(formData, "facebook"),
     },
   });
 

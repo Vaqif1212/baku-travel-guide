@@ -5,7 +5,7 @@ const prisma = new PrismaClient();
 
 async function main() {
   // --- Settings (singleton) ---
-  const passwordHash = await bcrypt.hash("baku2026", 10);
+  const passwordHash = await bcrypt.hash("anar2026", 10);
   await prisma.setting.upsert({
     where: { id: "singleton" },
     update: {},
@@ -18,11 +18,12 @@ async function main() {
       promoTextEn: "10% off when you book a week ahead",
       usdRate: 1.7,
       rubRate: 0.019,
-      whatsapp: "994000000000",
-      telegram: "bakutravelguide",
-      phone: "+994 XX XXX XX XX",
+      whatsapp: "994702537570",
+      telegram: "",
+      phone: "+994 70 253 75 70",
       email: "info@bakutravelguide.example",
-      instagram: "bakutravelguide",
+      instagram: "rustamlianar",
+      facebook: "share/1EfPcAGUkc/",
     },
   });
 
@@ -34,7 +35,7 @@ async function main() {
       slug: "gobustan-yanardag",
       order: 1,
       published: true,
-      imageUrl: "/images/tour-yanar-dag.jpg",
+      imageUrl: "/images/tour-rock-formations.jpg",
       titleRu: "Гобустан, Янардаг и грязевые вулканы",
       titleAz: "Qobustan, Yanardağ və palçıq vulkanları",
       titleEn: "Gobustan, Yanar Dag and mud volcanoes",
@@ -59,7 +60,7 @@ async function main() {
       slug: "old-city-modern-baku",
       order: 2,
       published: true,
-      imageUrl: "/images/tour-old-city.jpg",
+      imageUrl: "/images/anar-vintage-car.jpg",
       titleRu: "Баку: Ичери-шехер и современный город",
       titleAz: "Bakı: İçərişəhər və müasir şəhər",
       titleEn: "Baku: Old City and the modern skyline",
@@ -147,7 +148,7 @@ async function main() {
     });
   }
 
-  console.log("Seed complete. Admin login: password 'baku2026' (change it in /admin/settings).");
+  console.log("Seed complete. Admin login: password 'anar2026' (change it in /admin/settings).");
 }
 
 main()

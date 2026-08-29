@@ -7,6 +7,7 @@ import { getDict } from "@/lib/i18n";
 import { whatsappHref } from "@/lib/contact";
 import { LangSwitcher } from "./LangSwitcher";
 import { ThemeToggle } from "./ThemeToggle";
+import { Logo } from "./Logo";
 
 export function Header({ locale, whatsapp }: { locale: Locale; whatsapp: string }) {
   const dict = getDict(locale);
@@ -24,13 +25,7 @@ export function Header({ locale, whatsapp }: { locale: Locale; whatsapp: string 
     <header className="sticky top-0 z-40 bg-bg-header">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 sm:px-8">
         <Link href={locale === "ru" ? "/" : `/${locale}`} className="flex items-center gap-3">
-          <svg width="30" height="30" viewBox="0 0 34 34" fill="none">
-            <rect x="1" y="1" width="32" height="32" rx="2" stroke="var(--gold)" strokeWidth="1.5" />
-            <path
-              d="M17 6 L20 15 L29 15 L21.5 20.5 L24.5 29 L17 23.5 L9.5 29 L12.5 20.5 L5 15 L14 15 Z"
-              fill="var(--gold)"
-            />
-          </svg>
+          <Logo size={30} />
           <span className="font-display text-lg font-bold text-cream sm:text-xl">{dict.siteName}</span>
         </Link>
 

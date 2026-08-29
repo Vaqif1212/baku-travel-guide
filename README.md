@@ -18,7 +18,7 @@ npm run dev        # http://localhost:3300
 `.env` faylında artıq canlı Postgres (Neon) bazasına qoşulan `DATABASE_URL` var —
 yerli inkişaf da elə həmin bazadan istifadə edir (ayrıca lokal baza saxlanmır).
 
-Admin panel: `/admin/login` — dev şifrəsi **`baku2026`** (seed-dən gəlir).
+Admin panel: `/admin/login` — şifrə **`anar2026`** (seed-dən gəlir).
 İstifadəyə başlamazdan əvvəl `/admin/settings`-dən dəyişin.
 
 Sxemi dəyişəndən sonra: `npx prisma db push`. Nümunə datanı yenidən yükləmək üçün: `npm run db:seed`.

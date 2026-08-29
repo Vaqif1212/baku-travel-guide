@@ -99,4 +99,5 @@ model Setting {
   phone             String  @default("")
   email             String  @default("")
   instagram         String  @default("")
+  facebook          String  @default("")
 }

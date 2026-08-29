@@ -10,6 +10,7 @@ import { Hero } from "./Hero";
 import { TrustStats } from "./TrustStats";
 import { About } from "./About";
 import { ToursSection } from "./ToursSection";
+import { Gallery } from "./Gallery";
 import { Testimonials } from "./Testimonials";
 import { Faq } from "./Faq";
 import { CtaBand } from "./CtaBand";
@@ -32,6 +33,7 @@ export async function HomePage({ locale }: { locale: Locale }) {
     instagram: settings.instagram,
     whatsapp: settings.whatsapp,
     telegram: settings.telegram,
+    facebook: settings.facebook,
   };
 
   return (
@@ -48,6 +50,7 @@ export async function HomePage({ locale }: { locale: Locale }) {
           rates={{ usdRate: settings.usdRate, rubRate: settings.rubRate }}
           whatsapp={settings.whatsapp}
         />
+        <Gallery locale={locale} />
         <Testimonials locale={locale} testimonials={testimonials.map((t) => localizeTestimonial(t, locale))} />
         <Faq locale={locale} />
         <CtaBand locale={locale} whatsapp={settings.whatsapp} />
