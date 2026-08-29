@@ -51,7 +51,11 @@ export async function HomePage({ locale }: { locale: Locale }) {
           whatsapp={settings.whatsapp}
         />
         <Gallery locale={locale} />
-        <Testimonials locale={locale} testimonials={testimonials.map((t) => localizeTestimonial(t, locale))} />
+        <Testimonials
+          locale={locale}
+          testimonials={testimonials.map((t) => localizeTestimonial(t, locale))}
+          googleReviewLink={settings.googleReviewLink}
+        />
         <Faq locale={locale} />
         <CtaBand locale={locale} whatsapp={settings.whatsapp} />
         <ContactSection locale={locale} contact={contact} />

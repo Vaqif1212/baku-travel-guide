@@ -55,6 +55,9 @@ export function SettingsForm({ settings }: { settings: Setting }) {
           <Field label="Instagram (без @)" name="instagram" defaultValue={settings.instagram} />
           <Field label="Facebook (часть ссылки после facebook.com/)" name="facebook" defaultValue={settings.facebook} />
         </div>
+        <div className="mt-4">
+          <Field label="Ссылка на отзыв в Google (Business Profile → Ask for reviews)" name="googleReviewLink" defaultValue={settings.googleReviewLink} />
+        </div>
       </fieldset>
 
       <fieldset className="rounded-lg border border-neutral-200 p-5">

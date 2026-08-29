@@ -3,7 +3,15 @@ import { getDict } from "@/lib/i18n";
 
 export type TestimonialViewModel = { id: string; text: string; name: string; country: string };
 
-export function Testimonials({ locale, testimonials }: { locale: Locale; testimonials: TestimonialViewModel[] }) {
+export function Testimonials({
+  locale,
+  testimonials,
+  googleReviewLink,
+}: {
+  locale: Locale;
+  testimonials: TestimonialViewModel[];
+  googleReviewLink?: string;
+}) {
   const dict = getDict(locale);
   return (
     <section id="reviews" className="bg-green-deep py-20 sm:py-24">
@@ -25,6 +33,19 @@ export function Testimonials({ locale, testimonials }: { locale: Locale; testimo
           ))}
         </div>
         <p className="mt-7 text-center text-xs text-cream/40">{dict.testimonials.disclaimer}</p>
+
+        {googleReviewLink && (
+          <div className="mt-8 text-center">
+            <a
+              href={googleReviewLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2.5 rounded-sm border border-gold/40 px-6 py-3 text-sm font-bold text-gold hover:bg-gold/10 transition-colors"
+            >
+              {dict.testimonials.leaveGoogleReview}
+            </a>
+          </div>
+        )}
       </div>
     </section>
   );

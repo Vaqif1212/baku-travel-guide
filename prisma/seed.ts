@@ -24,6 +24,7 @@ async function main() {
       email: "anarrustamlii@gmail.com",
       instagram: "rustamlianar",
       facebook: "share/1EfPcAGUkc/",
+      googleReviewLink: "https://g.page/r/CUzsor8b_bhkEBM/review",
     },
   });
 

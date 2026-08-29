@@ -27,6 +27,7 @@ export async function updateSettings(_prevState: { message?: string } | undefine
       email: str(formData, "email"),
       instagram: str(formData, "instagram"),
       facebook: str(formData, "facebook"),
+      googleReviewLink: str(formData, "googleReviewLink"),
     },
   });
 
