@@ -21,7 +21,7 @@ async function main() {
       whatsapp: "994702537570",
       telegram: "",
       phone: "+994 70 253 75 70",
-      email: "info@bakutravelguide.example",
+      email: "anarrustamlii@gmail.com",
       instagram: "rustamlianar",
       facebook: "share/1EfPcAGUkc/",
     },
