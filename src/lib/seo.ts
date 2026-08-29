@@ -42,14 +42,40 @@ export function buildMetadata(locale: Locale): Metadata {
   };
 }
 
-export function localBusinessJsonLd() {
+type ContactForSchema = { phone: string; email: string; instagram: string; facebook: string };
+
+export function localBusinessJsonLd(contact: ContactForSchema) {
+  const siteUrl = process.env.SITE_URL ?? "https://baku-travel-guide.vercel.app";
+  const sameAs = [
+    contact.instagram ? `https://instagram.com/${contact.instagram}` : null,
+    contact.facebook ? `https://facebook.com/${contact.facebook}` : null,
+  ].filter((x): x is string => Boolean(x));
+
   return {
     "@context": "https://schema.org",
     "@type": "TouristInformationCenter",
     name: "Baku Travel Guide",
     description: "Private tour guide, driver and translator service in Baku, Azerbaijan.",
+    url: siteUrl,
+    image: `${siteUrl}/images/anar-bottle-house.jpg`,
+    telephone: contact.phone || undefined,
+    email: contact.email || undefined,
     areaServed: { "@type": "City", name: "Baku" },
     address: { "@type": "PostalAddress", addressLocality: "Baku", addressCountry: "AZ" },
     availableLanguage: ["Russian", "Azerbaijani", "English"],
+    sameAs: sameAs.length ? sameAs : undefined,
+    founder: { "@type": "Person", name: "Anar Rustamov", jobTitle: "Tour Guide" },
+  };
+}
+
+export function faqJsonLd(items: readonly { q: string; a: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: { "@type": "Answer", text: item.a },
+    })),
   };
 }

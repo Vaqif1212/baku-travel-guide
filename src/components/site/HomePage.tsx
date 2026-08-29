@@ -3,6 +3,7 @@ import { getSettings } from "@/lib/settings";
 import { localizeTour, localizeTestimonial } from "@/lib/localize";
 import type { Locale } from "@/lib/i18n";
 import { getDict } from "@/lib/i18n";
+import { localBusinessJsonLd, faqJsonLd } from "@/lib/seo";
 
 import { PromoBanner } from "./PromoBanner";
 import { Header } from "./Header";
@@ -36,8 +37,18 @@ export async function HomePage({ locale }: { locale: Locale }) {
     facebook: settings.facebook,
   };
 
+  const businessJsonLd = localBusinessJsonLd({
+    phone: settings.phone,
+    email: settings.email,
+    instagram: settings.instagram,
+    facebook: settings.facebook,
+  });
+  const faqSchema = faqJsonLd(dict.faq.items);
+
   return (
     <div className="min-h-screen bg-bg" lang={dict.htmlLang}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(businessJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       {settings.promoEnabled && promoText && <PromoBanner text={promoText} />}
       <Header locale={locale} whatsapp={settings.whatsapp} />
       <main>
