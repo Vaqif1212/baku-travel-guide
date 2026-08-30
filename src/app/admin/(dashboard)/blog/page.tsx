@@ -9,7 +9,7 @@ import { deletePost } from "./actions";
 
 export default async function AdminBlogPage() {
   const dict = getAdminDict(await getAdminLocale());
-  const posts = await prisma.post.findMany({ orderBy: { order: "asc" } });
+  const posts = await prisma.post.findMany({ orderBy: { createdAt: "desc" } });
 
   return (
     <div>

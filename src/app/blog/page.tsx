@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 export default async function BlogPage() {
   const [posts, settings] = await Promise.all([
-    prisma.post.findMany({ where: { published: true }, orderBy: { order: "asc" } }),
+    prisma.post.findMany({ where: { published: true }, orderBy: { createdAt: "desc" } }),
     getSettings(),
   ]);
 

@@ -1,6 +1,7 @@
 import type { Tour } from "@prisma/client";
 import type { AdminDict } from "@/lib/adminI18n";
 import { ImageUploadField } from "@/components/admin/ImageUploadField";
+import { SlugField } from "@/components/admin/SlugField";
 
 function Field({ label, name, defaultValue, type = "text", required = true }: { label: string; name: string; defaultValue?: string | number; type?: string; required?: boolean }) {
   return (
@@ -43,14 +44,10 @@ export function TourForm({
 }) {
   return (
     <form action={action} className="max-w-3xl space-y-8">
-      <div className="grid gap-4 sm:grid-cols-3">
-        <Field label={dict.tours.slug} name="slug" defaultValue={tour?.slug} />
-        <Field label={dict.common.order} name="order" type="number" defaultValue={tour?.order ?? 0} />
-        <label className="flex items-center gap-2 pt-6 text-sm">
-          <input type="checkbox" name="published" defaultChecked={tour?.published ?? true} className="h-4 w-4" />
-          {dict.tours.publishedCheckbox}
-        </label>
-      </div>
+      <label className="flex items-center gap-2 text-sm">
+        <input type="checkbox" name="published" defaultChecked={tour?.published ?? true} className="h-4 w-4" />
+        {dict.tours.publishedCheckbox}
+      </label>
 
       <ImageUploadField
         label={dict.tours.imageUrl}
@@ -84,6 +81,16 @@ export function TourForm({
         <Field label={dict.tours.priceIndividual} name="priceIndividualAzn" type="number" defaultValue={tour?.priceIndividualAzn ?? 0} />
         <Field label={dict.tours.priceGroup} name="priceGroupAzn" type="number" defaultValue={tour?.priceGroupAzn ?? 0} />
       </div>
+
+      <details className="rounded-lg border border-neutral-200 px-4 py-3">
+        <summary className="cursor-pointer select-none text-xs font-bold uppercase tracking-wide text-neutral-500">
+          {dict.common.advanced}
+        </summary>
+        <div className="mt-3 grid gap-4 sm:grid-cols-2">
+          <SlugField label={dict.tours.slug} name="slug" defaultValue={tour?.slug} watchName="titleRu" hint={dict.common.slugHint} />
+          <Field label={dict.common.order} name="order" type="number" defaultValue={tour?.order ?? 0} required={false} />
+        </div>
+      </details>
 
       <button type="submit" className="rounded-lg bg-[#1F3B2E] px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-[#16291F]">
         {dict.common.save}
