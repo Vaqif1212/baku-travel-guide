@@ -4,6 +4,7 @@ import { useActionState } from "react";
 import type { Setting } from "@prisma/client";
 import type { AdminDict } from "@/lib/adminI18n";
 import { updateSettings } from "./actions";
+import { QrCodeCard } from "@/components/admin/QrCodeCard";
 
 function Field({ label, name, defaultValue, type = "text" }: { label: string; name: string; defaultValue?: string | number; type?: string }) {
   return (
@@ -58,6 +59,12 @@ export function SettingsForm({ settings, dict }: { settings: Setting; dict: Admi
         </div>
         <div className="mt-4">
           <Field label={dict.settings.googleReviewLink} name="googleReviewLink" defaultValue={settings.googleReviewLink} />
+          <QrCodeCard
+            value={settings.googleReviewLink ?? ""}
+            title={dict.settings.qrTitle}
+            downloadLabel={dict.settings.qrDownload}
+            filename="google-review-qr"
+          />
         </div>
       </fieldset>
 
