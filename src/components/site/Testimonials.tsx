@@ -32,8 +32,6 @@ export function Testimonials({
             </div>
           ))}
         </div>
-        <p className="mt-7 text-center text-xs text-cream/40">{dict.testimonials.disclaimer}</p>
-
         {googleReviewLink && (
           <div className="mt-8 text-center">
             <a
@@ -46,6 +44,7 @@ export function Testimonials({
             </a>
           </div>
         )}
+        <p className="mt-6 text-center text-[10px] text-cream/25">{dict.testimonials.disclaimer}</p>
       </div>
     </section>
   );

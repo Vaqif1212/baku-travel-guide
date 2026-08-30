@@ -72,7 +72,7 @@ function buildDict(locale: Locale) {
       testimonials: {
         eyebrow: "Отзывы",
         title: "Что говорят туристы",
-        disclaimer: "* Отзывы-примеры для сайта — будут заменены на реальные после первых туров",
+        disclaimer: "Примеры отзывов",
         leaveGoogleReview: "Оставить отзыв в Google →",
       },
       faq: {
@@ -153,7 +153,7 @@ function buildDict(locale: Locale) {
       testimonials: {
         eyebrow: "Rəylər",
         title: "Turistlər nə deyir",
-        disclaimer: "* Nümunəvi rəylərdir — ilk turlardan sonra real rəylərlə əvəz olunacaq",
+        disclaimer: "Nümunə rəylər",
         leaveGoogleReview: "Google-da rəy qoyun →",
       },
       faq: {
@@ -234,7 +234,7 @@ function buildDict(locale: Locale) {
       testimonials: {
         eyebrow: "Reviews",
         title: "What travelers say",
-        disclaimer: "* Sample reviews for now — real ones will replace them after the first tours",
+        disclaimer: "Sample reviews",
         leaveGoogleReview: "Leave a review on Google →",
       },
       faq: {
