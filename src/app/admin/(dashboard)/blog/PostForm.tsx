@@ -18,7 +18,7 @@ export function PostForm({ post, action }: { post?: Post; action: (formData: For
         </label>
       </div>
       <label className="block">
-        <span className="mb-1.5 block text-xs font-semibold text-neutral-600">Обложка (путь к файлу, например /images/tour-old-city.jpg)</span>
+        <span className="mb-1.5 block text-xs font-semibold text-neutral-600">Обложка (путь к файлу, например /images/anar-vintage-car.jpg)</span>
         <input name="coverImageUrl" defaultValue={post?.coverImageUrl} className="w-full rounded border border-neutral-300 px-3 py-2 text-sm focus:border-neutral-900 focus:outline-none" />
       </label>
       <label className="block">
