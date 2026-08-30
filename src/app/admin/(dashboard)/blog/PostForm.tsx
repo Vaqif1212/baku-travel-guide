@@ -1,5 +1,6 @@
 import type { Post } from "@prisma/client";
 import type { AdminDict } from "@/lib/adminI18n";
+import { ImageUploadField } from "@/components/admin/ImageUploadField";
 
 export function PostForm({ post, action, dict }: { post?: Post; action: (formData: FormData) => void | Promise<void>; dict: AdminDict }) {
   return (
@@ -18,10 +19,14 @@ export function PostForm({ post, action, dict }: { post?: Post; action: (formDat
           {dict.blog.publishedCheckbox}
         </label>
       </div>
-      <label className="block">
-        <span className="mb-1.5 block text-xs font-semibold text-neutral-600">{dict.blog.cover}</span>
-        <input name="coverImageUrl" defaultValue={post?.coverImageUrl} className="w-full rounded-lg border border-neutral-300 px-3 py-2.5 text-sm transition-colors focus:border-[#1F3B2E] focus:outline-none focus:ring-2 focus:ring-[#1F3B2E]/15" />
-      </label>
+      <ImageUploadField
+        label={dict.blog.cover}
+        name="coverImageUrl"
+        defaultValue={post?.coverImageUrl}
+        chooseLabel={dict.common.imageChoose}
+        uploadingLabel={dict.common.imageUploading}
+        removeLabel={dict.common.imageRemove}
+      />
       <label className="block">
         <span className="mb-1.5 block text-xs font-semibold text-neutral-600">{dict.blog.titleField}</span>
         <input name="title" defaultValue={post?.title} required className="w-full rounded-lg border border-neutral-300 px-3 py-2.5 text-sm transition-colors focus:border-[#1F3B2E] focus:outline-none focus:ring-2 focus:ring-[#1F3B2E]/15" />

@@ -1,5 +1,6 @@
 import type { Tour } from "@prisma/client";
 import type { AdminDict } from "@/lib/adminI18n";
+import { ImageUploadField } from "@/components/admin/ImageUploadField";
 
 function Field({ label, name, defaultValue, type = "text", required = true }: { label: string; name: string; defaultValue?: string | number; type?: string; required?: boolean }) {
   return (
@@ -51,7 +52,14 @@ export function TourForm({
         </label>
       </div>
 
-      <Field label={dict.tours.imageUrl} name="imageUrl" defaultValue={tour?.imageUrl} required={false} />
+      <ImageUploadField
+        label={dict.tours.imageUrl}
+        name="imageUrl"
+        defaultValue={tour?.imageUrl}
+        chooseLabel={dict.common.imageChoose}
+        uploadingLabel={dict.common.imageUploading}
+        removeLabel={dict.common.imageRemove}
+      />
 
       {(["Ru", "Az", "En"] as const).map((lang) => (
         <fieldset key={lang} className="rounded-lg border border-neutral-200 p-5">
