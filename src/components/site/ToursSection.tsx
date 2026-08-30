@@ -39,9 +39,9 @@ export function ToursSection({
           <p className="text-center text-sm font-bold tracking-widest text-gold uppercase">{dict.tours.eyebrow}</p>
           <h2 className="mt-3 text-center font-display text-3xl font-bold text-fg sm:text-4xl">{dict.tours.title}</h2>
 
-          <div className="mt-6 flex items-center justify-center gap-3">
+          <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <span className="text-sm text-muted">{dict.tours.subtitle}</span>
-            <div className="flex overflow-hidden rounded border border-border text-xs font-bold">
+            <div className="flex shrink-0 overflow-hidden rounded border border-border text-xs font-bold">
               {currencies.map((c) => (
                 <button
                   key={c}
