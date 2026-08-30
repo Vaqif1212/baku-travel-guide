@@ -1,7 +1,10 @@
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
+import { getAdminDict } from "@/lib/adminI18n";
+import { getAdminLocale } from "@/lib/adminLocale";
 
 export default async function AdminOverviewPage() {
+  const dict = getAdminDict(await getAdminLocale());
   const [tourCount, testimonialCount, postCount, unreadCount] = await Promise.all([
     prisma.tour.count(),
     prisma.testimonial.count(),
@@ -10,15 +13,15 @@ export default async function AdminOverviewPage() {
   ]);
 
   const cards = [
-    { label: "Туров опубликовано", value: tourCount, href: "/admin/tours" },
-    { label: "Отзывов", value: testimonialCount, href: "/admin/testimonials" },
-    { label: "Статей в блоге", value: postCount, href: "/admin/blog" },
-    { label: "Непрочитанных сообщений", value: unreadCount, href: "/admin/messages" },
+    { label: dict.overview.toursPublished, value: tourCount, href: "/admin/tours" },
+    { label: dict.overview.testimonialsCount, value: testimonialCount, href: "/admin/testimonials" },
+    { label: dict.overview.postsCount, value: postCount, href: "/admin/blog" },
+    { label: dict.overview.unreadMessages, value: unreadCount, href: "/admin/messages" },
   ];
 
   return (
     <div>
-      <h1 className="text-xl font-bold text-neutral-900">Обзор</h1>
+      <h1 className="text-xl font-bold text-neutral-900">{dict.overview.title}</h1>
       <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {cards.map((c) => (
           <Link

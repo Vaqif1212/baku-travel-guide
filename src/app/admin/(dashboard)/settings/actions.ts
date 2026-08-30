@@ -4,6 +4,8 @@ import bcrypt from "bcryptjs";
 import { revalidatePath } from "next/cache";
 import { prisma } from "@/lib/prisma";
 import { getSettings } from "@/lib/settings";
+import { getAdminDict } from "@/lib/adminI18n";
+import { getAdminLocale } from "@/lib/adminLocale";
 
 function str(formData: FormData, key: string): string {
   return String(formData.get(key) ?? "").trim();
@@ -39,5 +41,6 @@ export async function updateSettings(_prevState: { message?: string } | undefine
 
   revalidatePath("/");
   revalidatePath("/admin/settings");
-  return { message: newPassword ? "Сохранено, пароль обновлён." : "Сохранено." };
+  const dict = getAdminDict(await getAdminLocale());
+  return { message: newPassword ? dict.settings.savedWithPassword : dict.settings.saved };
 }

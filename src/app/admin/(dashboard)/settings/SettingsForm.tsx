@@ -2,6 +2,7 @@
 
 import { useActionState } from "react";
 import type { Setting } from "@prisma/client";
+import type { AdminDict } from "@/lib/adminI18n";
 import { updateSettings } from "./actions";
 
 function Field({ label, name, defaultValue, type = "text" }: { label: string; name: string; defaultValue?: string | number; type?: string }) {
@@ -19,56 +20,56 @@ function Field({ label, name, defaultValue, type = "text" }: { label: string; na
   );
 }
 
-export function SettingsForm({ settings }: { settings: Setting }) {
+export function SettingsForm({ settings, dict }: { settings: Setting; dict: AdminDict }) {
   const [state, formAction, pending] = useActionState(updateSettings, undefined);
 
   return (
     <form action={formAction} className="max-w-2xl space-y-10">
       <fieldset className="rounded-lg border border-neutral-200 p-5">
-        <legend className="px-1.5 text-xs font-bold uppercase tracking-wide text-neutral-500">Промо-баннер</legend>
+        <legend className="px-1.5 text-xs font-bold uppercase tracking-wide text-neutral-500">{dict.settings.promoLegend}</legend>
         <label className="mb-4 flex items-center gap-2 text-sm">
           <input type="checkbox" name="promoEnabled" defaultChecked={settings.promoEnabled} className="h-4 w-4" />
-          Показывать баннер на сайте
+          {dict.settings.promoShow}
         </label>
         <div className="space-y-3">
-          <Field label="Текст (RU)" name="promoTextRu" defaultValue={settings.promoTextRu} />
-          <Field label="Текст (AZ)" name="promoTextAz" defaultValue={settings.promoTextAz} />
-          <Field label="Текст (EN)" name="promoTextEn" defaultValue={settings.promoTextEn} />
+          <Field label={`${dict.settings.promoText} (RU)`} name="promoTextRu" defaultValue={settings.promoTextRu} />
+          <Field label={`${dict.settings.promoText} (AZ)`} name="promoTextAz" defaultValue={settings.promoTextAz} />
+          <Field label={`${dict.settings.promoText} (EN)`} name="promoTextEn" defaultValue={settings.promoTextEn} />
         </div>
       </fieldset>
 
       <fieldset className="rounded-lg border border-neutral-200 p-5">
-        <legend className="px-1.5 text-xs font-bold uppercase tracking-wide text-neutral-500">Курсы валют (AZN за 1 единицу)</legend>
+        <legend className="px-1.5 text-xs font-bold uppercase tracking-wide text-neutral-500">{dict.settings.currencyLegend}</legend>
         <div className="grid gap-4 sm:grid-cols-2">
-          <Field label="USD → AZN" name="usdRate" type="number" defaultValue={settings.usdRate} />
-          <Field label="RUB → AZN" name="rubRate" type="number" defaultValue={settings.rubRate} />
+          <Field label={dict.settings.usdRate} name="usdRate" type="number" defaultValue={settings.usdRate} />
+          <Field label={dict.settings.rubRate} name="rubRate" type="number" defaultValue={settings.rubRate} />
         </div>
       </fieldset>
 
       <fieldset className="rounded-lg border border-neutral-200 p-5">
-        <legend className="px-1.5 text-xs font-bold uppercase tracking-wide text-neutral-500">Контакты</legend>
+        <legend className="px-1.5 text-xs font-bold uppercase tracking-wide text-neutral-500">{dict.settings.contactLegend}</legend>
         <div className="grid gap-4 sm:grid-cols-2">
-          <Field label="WhatsApp (только цифры, с кодом страны)" name="whatsapp" defaultValue={settings.whatsapp} />
-          <Field label="Telegram (без @)" name="telegram" defaultValue={settings.telegram} />
-          <Field label="Телефон (для отображения)" name="phone" defaultValue={settings.phone} />
-          <Field label="Email" name="email" defaultValue={settings.email} />
-          <Field label="Instagram (без @)" name="instagram" defaultValue={settings.instagram} />
-          <Field label="Facebook (часть ссылки после facebook.com/)" name="facebook" defaultValue={settings.facebook} />
+          <Field label={dict.settings.whatsapp} name="whatsapp" defaultValue={settings.whatsapp} />
+          <Field label={dict.settings.telegram} name="telegram" defaultValue={settings.telegram} />
+          <Field label={dict.settings.phone} name="phone" defaultValue={settings.phone} />
+          <Field label={dict.settings.email} name="email" defaultValue={settings.email} />
+          <Field label={dict.settings.instagram} name="instagram" defaultValue={settings.instagram} />
+          <Field label={dict.settings.facebook} name="facebook" defaultValue={settings.facebook} />
         </div>
         <div className="mt-4">
-          <Field label="Ссылка на отзыв в Google (Business Profile → Ask for reviews)" name="googleReviewLink" defaultValue={settings.googleReviewLink} />
+          <Field label={dict.settings.googleReviewLink} name="googleReviewLink" defaultValue={settings.googleReviewLink} />
         </div>
       </fieldset>
 
       <fieldset className="rounded-lg border border-neutral-200 p-5">
-        <legend className="px-1.5 text-xs font-bold uppercase tracking-wide text-neutral-500">Пароль администратора</legend>
-        <Field label="Новый пароль (оставьте пустым, чтобы не менять)" name="newPassword" type="password" />
+        <legend className="px-1.5 text-xs font-bold uppercase tracking-wide text-neutral-500">{dict.settings.passwordLegend}</legend>
+        <Field label={dict.settings.newPassword} name="newPassword" type="password" />
       </fieldset>
 
       {state?.message && <p className="text-sm font-medium text-green-700">{state.message}</p>}
 
       <button type="submit" disabled={pending} className="rounded bg-neutral-900 px-5 py-2.5 text-sm font-semibold text-white hover:bg-neutral-800 disabled:opacity-60">
-        {pending ? "Сохранение…" : "Сохранить"}
+        {pending ? dict.common.saving : dict.common.save}
       </button>
     </form>
   );
