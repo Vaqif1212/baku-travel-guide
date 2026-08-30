@@ -10,7 +10,7 @@ function Field({ label, name, defaultValue, type = "text", required = true }: { 
         type={type}
         defaultValue={defaultValue}
         required={required}
-        className="w-full rounded border border-neutral-300 px-3 py-2 text-sm focus:border-neutral-900 focus:outline-none"
+        className="w-full rounded-lg border border-neutral-300 px-3 py-2.5 text-sm transition-colors focus:border-[#1F3B2E] focus:outline-none focus:ring-2 focus:ring-[#1F3B2E]/15"
       />
     </label>
   );
@@ -25,7 +25,7 @@ function TextAreaField({ label, name, defaultValue }: { label: string; name: str
         defaultValue={defaultValue}
         rows={3}
         required
-        className="w-full rounded border border-neutral-300 px-3 py-2 text-sm focus:border-neutral-900 focus:outline-none"
+        className="w-full rounded-lg border border-neutral-300 px-3 py-2.5 text-sm transition-colors focus:border-[#1F3B2E] focus:outline-none focus:ring-2 focus:ring-[#1F3B2E]/15"
       />
     </label>
   );
@@ -77,7 +77,7 @@ export function TourForm({
         <Field label={dict.tours.priceGroup} name="priceGroupAzn" type="number" defaultValue={tour?.priceGroupAzn ?? 0} />
       </div>
 
-      <button type="submit" className="rounded bg-neutral-900 px-5 py-2.5 text-sm font-semibold text-white hover:bg-neutral-800">
+      <button type="submit" className="rounded-lg bg-[#1F3B2E] px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-[#16291F]">
         {dict.common.save}
       </button>
     </form>

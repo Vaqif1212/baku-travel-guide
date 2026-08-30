@@ -14,7 +14,7 @@ function Field({ label, name, defaultValue, type = "text" }: { label: string; na
         type={type}
         step={type === "number" ? "0.001" : undefined}
         defaultValue={defaultValue}
-        className="w-full rounded border border-neutral-300 px-3 py-2 text-sm focus:border-neutral-900 focus:outline-none"
+        className="w-full rounded-lg border border-neutral-300 px-3 py-2.5 text-sm transition-colors focus:border-[#1F3B2E] focus:outline-none focus:ring-2 focus:ring-[#1F3B2E]/15"
       />
     </label>
   );
@@ -68,7 +68,7 @@ export function SettingsForm({ settings, dict }: { settings: Setting; dict: Admi
 
       {state?.message && <p className="text-sm font-medium text-green-700">{state.message}</p>}
 
-      <button type="submit" disabled={pending} className="rounded bg-neutral-900 px-5 py-2.5 text-sm font-semibold text-white hover:bg-neutral-800 disabled:opacity-60">
+      <button type="submit" disabled={pending} className="rounded-lg bg-[#1F3B2E] px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-[#16291F] disabled:opacity-60">
         {pending ? dict.common.saving : dict.common.save}
       </button>
     </form>
