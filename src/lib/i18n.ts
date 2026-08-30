@@ -66,7 +66,7 @@ function buildDict(locale: Locale) {
       },
       gallery: {
         eyebrow: "Репортаж",
-        title: "Кадры с настоящих туров",
+        title: "Кадры с туров",
         subtitle: "Ичери-шехер, Хыналыг, Атешгях и горы Кавказа — то, что вы увидите своими глазами.",
       },
       testimonials: {
@@ -147,7 +147,7 @@ function buildDict(locale: Locale) {
       },
       gallery: {
         eyebrow: "Reportaj",
-        title: "Əsl turlardan kadrlar",
+        title: "Turlardan kadrlar",
         subtitle: "İçərişəhər, Xınalıq, Atəşgah və Qafqaz dağları — öz gözünüzlə görəcəkləriniz.",
       },
       testimonials: {
@@ -228,7 +228,7 @@ function buildDict(locale: Locale) {
       },
       gallery: {
         eyebrow: "Reportage",
-        title: "Moments from real tours",
+        title: "Moments from tours",
         subtitle: "The Old City, Khinalig, Ateshgah and the Caucasus mountains — what you'll see with your own eyes.",
       },
       testimonials: {
