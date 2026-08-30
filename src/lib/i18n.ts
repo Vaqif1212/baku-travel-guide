@@ -78,7 +78,7 @@ function buildDict(locale: Locale) {
       faq: {
         title: "Частые вопросы",
         items: [
-          { q: "Как забронировать тур?", a: "Напишите в WhatsApp или Telegram — согласуем дату, маршрут и способ оплаты." },
+          { q: "Как забронировать тур?", a: "Напишите в WhatsApp — согласуем дату, маршрут и способ оплаты." },
           { q: "Сколько человек может быть в группе?", a: "Провожу как индивидуальные туры (1–4 человека), так и группы до 15 человек." },
           { q: "На каком языке проводятся экскурсии?", a: "Провожу туры на русском, азербайджанском и английском языках." },
         ],
@@ -159,7 +159,7 @@ function buildDict(locale: Locale) {
       faq: {
         title: "Tez-tez verilən suallar",
         items: [
-          { q: "Turu necə bron etmək olar?", a: "WhatsApp və ya Telegram-a yazın — tarix, marşrut və ödəniş üsulunu razılaşdıraq." },
+          { q: "Turu necə bron etmək olar?", a: "WhatsApp-a yazın — tarix, marşrut və ödəniş üsulunu razılaşdıraq." },
           { q: "Qrupda neçə nəfər ola bilər?", a: "Fərdi turlar 1–4 nəfər, qruplar isə 15 nəfərədək ola bilər." },
           { q: "Ekskursiyalar hansı dildə keçirilir?", a: "Rus, azərbaycan və ingilis dillərində." },
         ],
@@ -240,7 +240,7 @@ function buildDict(locale: Locale) {
       faq: {
         title: "Frequently asked questions",
         items: [
-          { q: "How do I book a tour?", a: "Message me on WhatsApp or Telegram and we'll agree on a date, route and payment." },
+          { q: "How do I book a tour?", a: "Message me on WhatsApp and we'll agree on a date, route and payment." },
           { q: "How many people can join a group?", a: "Private tours fit 1–4 people; groups can go up to 15." },
           { q: "What languages are the tours in?", a: "Russian, Azerbaijani and English." },
         ],

@@ -47,7 +47,9 @@ model Testimonial {
   textAz    String
   textEn    String
   name      String
-  country   String
+  countryRu String @default("")
+  countryAz String @default("")
+  countryEn String @default("")
 
   createdAt DateTime @default(now())
 }

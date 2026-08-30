@@ -25,6 +25,6 @@ export function localizeTestimonial(t: Testimonial, locale: Locale): Testimonial
     id: t.id,
     text: field(t, "text", locale),
     name: t.name,
-    country: t.country,
+    country: field(t, "country", locale),
   };
 }

@@ -19,7 +19,7 @@ export default async function AdminTestimonialsPage() {
           <div key={t.id} className="flex items-start justify-between rounded-lg border border-neutral-200 bg-white p-5">
             <div>
               <div className="text-sm font-semibold text-neutral-900">
-                {t.name}, {t.country}{" "}
+                {t.name}, {t.countryRu}{" "}
                 {!t.published && <span className="ml-2 rounded-full bg-neutral-100 px-2 py-0.5 text-xs text-neutral-500">Скрыт</span>}
               </div>
               <p className="mt-1.5 max-w-xl text-sm text-neutral-500">{t.textRu}</p>
