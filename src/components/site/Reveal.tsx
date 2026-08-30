@@ -45,7 +45,13 @@ export function Reveal({
       { threshold: 0.15, rootMargin: "0px 0px -60px 0px" },
     );
     observer.observe(el);
-    return () => observer.disconnect();
+    // Safety net: if the observer never fires for any reason, don't leave
+    // the content permanently invisible — just show it plainly.
+    const fallback = setTimeout(() => setVisible(true), 3000);
+    return () => {
+      observer.disconnect();
+      clearTimeout(fallback);
+    };
   }, [immediate]);
 
   return (

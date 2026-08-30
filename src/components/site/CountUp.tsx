@@ -26,6 +26,7 @@ export function CountUp({ value, durationMs = 1200 }: { value: string; durationM
       ([entry]) => {
         if (!entry.isIntersecting) return;
         observer.disconnect();
+        clearTimeout(fallback);
         const start = performance.now();
         function tick(now: number) {
           const progress = Math.min((now - start) / durationMs, 1);
@@ -38,7 +39,12 @@ export function CountUp({ value, durationMs = 1200 }: { value: string; durationM
       { threshold: 0.4 },
     );
     observer.observe(el);
-    return () => observer.disconnect();
+    // Safety net: if the observer never fires for any reason, just show the final number.
+    const fallback = setTimeout(() => setDisplay(String(target)), 3000);
+    return () => {
+      observer.disconnect();
+      clearTimeout(fallback);
+    };
   }, [target, durationMs]);
 
   return (
