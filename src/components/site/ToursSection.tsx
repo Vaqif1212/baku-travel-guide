@@ -6,6 +6,7 @@ import type { Locale } from "@/lib/i18n";
 import { getDict } from "@/lib/i18n";
 import { convertFromAzn, formatPrice, currencies, type Currency } from "@/lib/currency";
 import { whatsappHref } from "@/lib/contact";
+import { Reveal } from "./Reveal";
 
 export type TourViewModel = {
   id: string;
@@ -34,30 +35,34 @@ export function ToursSection({
   return (
     <section id="tours" className="bg-bg py-20 sm:py-24">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
-        <p className="text-center text-sm font-bold tracking-widest text-gold uppercase">{dict.tours.eyebrow}</p>
-        <h2 className="mt-3 text-center font-display text-3xl font-bold text-fg sm:text-4xl">{dict.tours.title}</h2>
+        <Reveal>
+          <p className="text-center text-sm font-bold tracking-widest text-gold uppercase">{dict.tours.eyebrow}</p>
+          <h2 className="mt-3 text-center font-display text-3xl font-bold text-fg sm:text-4xl">{dict.tours.title}</h2>
 
-        <div className="mt-6 flex items-center justify-center gap-3">
-          <span className="text-sm text-muted">{dict.tours.subtitle}</span>
-          <div className="flex overflow-hidden rounded border border-border text-xs font-bold">
-            {currencies.map((c) => (
-              <button
-                key={c}
-                type="button"
-                onClick={() => setCurrency(c)}
-                className={`px-3 py-1.5 transition-colors ${
-                  currency === c ? "bg-green-deep text-cream" : "text-muted hover:text-fg"
-                }`}
-              >
-                {c}
-              </button>
-            ))}
+          <div className="mt-6 flex items-center justify-center gap-3">
+            <span className="text-sm text-muted">{dict.tours.subtitle}</span>
+            <div className="flex overflow-hidden rounded border border-border text-xs font-bold">
+              {currencies.map((c) => (
+                <button
+                  key={c}
+                  type="button"
+                  onClick={() => setCurrency(c)}
+                  className={`px-3 py-1.5 transition-colors ${
+                    currency === c ? "bg-green-deep text-cream" : "text-muted hover:text-fg"
+                  }`}
+                >
+                  {c}
+                </button>
+              ))}
+            </div>
           </div>
-        </div>
+        </Reveal>
 
         <div className="mt-12 grid gap-8 lg:grid-cols-2">
-          {tours.map((tour) => (
-            <TourCard key={tour.id} tour={tour} dict={dict} currency={currency} rates={rates} whatsapp={whatsapp} />
+          {tours.map((tour, i) => (
+            <Reveal key={tour.id} delay={i * 100}>
+              <TourCard tour={tour} dict={dict} currency={currency} rates={rates} whatsapp={whatsapp} />
+            </Reveal>
           ))}
         </div>
       </div>
@@ -84,7 +89,7 @@ function TourCard({
   const unit = mode === "individual" ? dict.tours.perCar : dict.tours.perPerson;
 
   return (
-    <article className="overflow-hidden rounded border border-border bg-bg-alt">
+    <article className="group overflow-hidden rounded border border-border bg-bg-alt transition-shadow duration-300 hover:shadow-xl">
       <div className="relative flex h-52 items-end overflow-hidden bg-linear-to-br from-green-mid to-green-deep p-5">
         {tour.imageUrl && (
           <Image
@@ -92,7 +97,7 @@ function TourCard({
             alt={tour.title}
             fill
             sizes="(min-width: 1024px) 50vw, 100vw"
-            className="object-cover"
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
           />
         )}
         <div className="absolute inset-0 bg-linear-to-t from-green-deep/70 via-transparent to-transparent" />
@@ -133,7 +138,7 @@ function TourCard({
           href={whatsappHref(whatsapp, tour.title)}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-6 block rounded-sm bg-gold py-3.5 text-center text-sm font-bold text-green-deep hover:bg-gold-light transition-colors"
+          className="mt-6 block rounded-sm bg-gold py-3.5 text-center text-sm font-bold text-green-deep transition-all hover:scale-[1.02] hover:bg-gold-light active:scale-[0.98]"
         >
           {dict.tours.more}
         </a>

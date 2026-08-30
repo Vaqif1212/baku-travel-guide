@@ -41,14 +41,14 @@ export function ContactForm({ locale }: { locale: Locale }) {
           required
           maxLength={200}
           placeholder={dict.contactForm.name}
-          className="w-full rounded-sm border border-border bg-bg-alt px-4 py-3 text-sm text-fg placeholder:text-muted focus:border-gold focus:outline-none"
+          className="w-full rounded-sm border border-border bg-bg-alt px-4 py-3 text-sm text-fg transition-colors placeholder:text-muted focus:border-gold focus:outline-none"
         />
         <input
           name="contact"
           required
           maxLength={200}
           placeholder={dict.contactForm.contact}
-          className="w-full rounded-sm border border-border bg-bg-alt px-4 py-3 text-sm text-fg placeholder:text-muted focus:border-gold focus:outline-none"
+          className="w-full rounded-sm border border-border bg-bg-alt px-4 py-3 text-sm text-fg transition-colors placeholder:text-muted focus:border-gold focus:outline-none"
         />
         <textarea
           name="text"
@@ -56,17 +56,19 @@ export function ContactForm({ locale }: { locale: Locale }) {
           maxLength={4000}
           rows={4}
           placeholder={dict.contactForm.message}
-          className="w-full resize-none rounded-sm border border-border bg-bg-alt px-4 py-3 text-sm text-fg placeholder:text-muted focus:border-gold focus:outline-none"
+          className="w-full resize-none rounded-sm border border-border bg-bg-alt px-4 py-3 text-sm text-fg transition-colors placeholder:text-muted focus:border-gold focus:outline-none"
         />
         <button
           type="submit"
           disabled={status === "sending"}
-          className="w-full rounded-sm bg-green-deep py-3.5 text-sm font-bold text-cream hover:bg-green-mid transition-colors disabled:opacity-60"
+          className="w-full rounded-sm bg-green-deep py-3.5 text-sm font-bold text-cream transition-all hover:scale-[1.01] hover:bg-green-mid active:scale-[0.99] disabled:opacity-60 disabled:hover:scale-100"
         >
           {status === "sending" ? dict.contactForm.sending : dict.contactForm.submit}
         </button>
-        {status === "success" && <p className="text-sm font-semibold text-green-deep dark:text-gold">{dict.contactForm.success}</p>}
-        {status === "error" && <p className="text-sm font-semibold text-red-600">{dict.contactForm.error}</p>}
+        {status === "success" && (
+          <p className="animate-fade-in-down text-sm font-semibold text-green-deep dark:text-gold">{dict.contactForm.success}</p>
+        )}
+        {status === "error" && <p className="animate-fade-in-down text-sm font-semibold text-red-600">{dict.contactForm.error}</p>}
       </form>
     </div>
   );

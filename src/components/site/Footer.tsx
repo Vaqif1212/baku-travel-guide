@@ -2,6 +2,7 @@ import type { Locale } from "@/lib/i18n";
 import { getDict } from "@/lib/i18n";
 import { ContactForm } from "./ContactForm";
 import { Logo } from "./Logo";
+import { Reveal } from "./Reveal";
 
 type ContactInfo = { phone: string; email: string; instagram: string; whatsapp: string; telegram: string; facebook: string };
 
@@ -10,7 +11,7 @@ export function ContactSection({ locale, contact }: { locale: Locale; contact: C
   return (
     <section id="contact" className="bg-bg py-20 sm:py-24">
       <div className="mx-auto grid max-w-5xl gap-14 px-5 sm:px-8 lg:grid-cols-2">
-        <div>
+        <Reveal>
           <h2 className="font-display text-2xl font-bold text-fg sm:text-3xl">{dict.nav.contact}</h2>
           <div className="mt-6 space-y-2 text-sm text-muted">
             <p>{contact.phone}</p>
@@ -24,8 +25,10 @@ export function ContactSection({ locale, contact }: { locale: Locale; contact: C
             </svg>
             <span className="ml-3 text-sm">Баку, Азербайджан</span>
           </div>
-        </div>
-        <ContactForm locale={locale} />
+        </Reveal>
+        <Reveal delay={120}>
+          <ContactForm locale={locale} />
+        </Reveal>
       </div>
     </section>
   );
@@ -53,20 +56,20 @@ export function Footer({ locale, contact }: { locale: Locale; contact: ContactIn
             <p className="mt-3.5 max-w-xs text-sm leading-relaxed">{dict.footer.tagline}</p>
             <div className="mt-5 flex flex-wrap gap-5 text-sm">
               {contact.instagram && (
-                <a href={`https://instagram.com/${contact.instagram}`} target="_blank" rel="noopener noreferrer" className="hover:text-gold">
+                <a href={`https://instagram.com/${contact.instagram}`} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-gold">
                   Instagram
                 </a>
               )}
               {contact.facebook && (
-                <a href={`https://facebook.com/${contact.facebook}`} target="_blank" rel="noopener noreferrer" className="hover:text-gold">
+                <a href={`https://facebook.com/${contact.facebook}`} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-gold">
                   Facebook
                 </a>
               )}
-              <a href={`https://wa.me/${contact.whatsapp}`} target="_blank" rel="noopener noreferrer" className="hover:text-gold">
+              <a href={`https://wa.me/${contact.whatsapp}`} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-gold">
                 WhatsApp
               </a>
               {contact.telegram && (
-                <a href={`https://t.me/${contact.telegram}`} target="_blank" rel="noopener noreferrer" className="hover:text-gold">
+                <a href={`https://t.me/${contact.telegram}`} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-gold">
                   Telegram
                 </a>
               )}
@@ -76,7 +79,7 @@ export function Footer({ locale, contact }: { locale: Locale; contact: ContactIn
             <div className="text-sm font-bold text-cream">{dict.footer.navTitle}</div>
             <div className="mt-4 flex flex-col gap-2.5 text-sm">
               {nav.map((item) => (
-                <a key={item.href} href={item.href} className="hover:text-gold">
+                <a key={item.href} href={item.href} className="transition-colors hover:text-gold">
                   {item.label}
                 </a>
               ))}
@@ -92,7 +95,7 @@ export function Footer({ locale, contact }: { locale: Locale; contact: ContactIn
         </div>
         <div className="flex flex-col gap-2 py-6 text-xs sm:flex-row sm:justify-between">
           <span>{dict.footer.rights}</span>
-          <a href="#" className="hover:text-gold">
+          <a href="#" className="transition-colors hover:text-gold">
             {dict.footer.privacy}
           </a>
         </div>

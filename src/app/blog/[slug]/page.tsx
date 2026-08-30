@@ -77,7 +77,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               href={whatsappHref(settings.whatsapp, post.title)}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-6 inline-flex items-center gap-2.5 rounded-sm bg-gold px-7 py-4 text-sm font-bold text-green-deep hover:bg-gold-light transition-colors"
+              className="mt-6 inline-flex items-center gap-2.5 rounded-sm bg-gold px-7 py-4 text-sm font-bold text-green-deep transition-all hover:scale-[1.03] hover:bg-gold-light active:scale-[0.97]"
             >
               Спросить в WhatsApp
             </a>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n";
 import { getDict } from "@/lib/i18n";
@@ -12,7 +12,15 @@ import { Logo } from "./Logo";
 export function Header({ locale, whatsapp }: { locale: Locale; whatsapp: string }) {
   const dict = getDict(locale);
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const home = locale === "ru" ? "" : `/${locale}`;
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
   const navItems = [
     { href: `${home}/#tours`, label: dict.nav.tours },
     { href: `${home}/#about`, label: dict.nav.about },
@@ -22,7 +30,11 @@ export function Header({ locale, whatsapp }: { locale: Locale; whatsapp: string 
   ];
 
   return (
-    <header className="sticky top-0 z-40 bg-bg-header">
+    <header
+      className={`sticky top-0 z-40 bg-bg-header transition-shadow duration-300 ${
+        scrolled ? "shadow-lg shadow-black/20" : ""
+      }`}
+    >
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 sm:px-8">
         <Link href={locale === "ru" ? "/" : `/${locale}`} className="flex items-center gap-3">
           <Logo size={30} />
@@ -31,8 +43,13 @@ export function Header({ locale, whatsapp }: { locale: Locale; whatsapp: string 
 
         <nav className="hidden items-center gap-8 lg:flex">
           {navItems.map((item) => (
-            <a key={item.href} href={item.href} className="text-sm text-cream hover:text-gold transition-colors">
+            <a
+              key={item.href}
+              href={item.href}
+              className="group relative text-sm text-cream transition-colors hover:text-gold"
+            >
               {item.label}
+              <span className="absolute -bottom-1 left-0 h-px w-0 bg-gold transition-all duration-300 group-hover:w-full" />
             </a>
           ))}
         </nav>
@@ -44,7 +61,7 @@ export function Header({ locale, whatsapp }: { locale: Locale; whatsapp: string 
             href={whatsappHref(whatsapp)}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-sm bg-gold px-5 py-2.5 text-sm font-bold text-green-deep hover:bg-gold-light transition-colors"
+            className="rounded-sm bg-gold px-5 py-2.5 text-sm font-bold text-green-deep transition-all hover:scale-[1.05] hover:bg-gold-light active:scale-[0.97]"
           >
             {dict.headerCta}
           </a>
@@ -63,7 +80,7 @@ export function Header({ locale, whatsapp }: { locale: Locale; whatsapp: string 
       </div>
 
       {open && (
-        <div className="border-t border-gold/20 px-5 pb-6 lg:hidden">
+        <div className="animate-fade-in-down border-t border-gold/20 px-5 pb-6 lg:hidden">
           <nav className="flex flex-col gap-4 pt-5">
             {navItems.map((item) => (
               <a
