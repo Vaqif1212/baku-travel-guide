@@ -4,13 +4,13 @@ import { getDict } from "@/lib/i18n";
 import { Reveal } from "./Reveal";
 
 const PHOTOS = [
-  { src: "/images/anar-mountain-peak.jpg", tall: true },
-  { src: "/images/tour-diri-baba-group.jpg", tall: false },
-  { src: "/images/tour-ateshgah-fire.jpg", tall: false },
-  { src: "/images/tour-xinaliq-village.jpg", tall: true },
-  { src: "/images/tour-jeep-safari.jpg", tall: false },
-  { src: "/images/anar-canyon-river.jpg", tall: false },
-  { src: "/images/tour-group-statue.jpg", tall: true },
+  { src: "/images/anar-mountain-peak.jpg", tall: true, alt: "Гид Анар на вершине горы в Азербайджане" },
+  { src: "/images/tour-diri-baba-group.jpg", tall: false, alt: "Группа туристов у мавзолея Диri-баба" },
+  { src: "/images/tour-ateshgah-fire.jpg", tall: false, alt: "Вечный огонь в храме огнепоклонников Атешгях" },
+  { src: "/images/tour-xinaliq-village.jpg", tall: true, alt: "Горное село Хыналыг в Азербайджане" },
+  { src: "/images/tour-jeep-safari.jpg", tall: false, alt: "Джип-сафари по горам Азербайджана" },
+  { src: "/images/anar-canyon-river.jpg", tall: false, alt: "Каньон с рекой в горах Азербайджана" },
+  { src: "/images/tour-group-statue.jpg", tall: true, alt: "Экскурсионная группа у памятника в Баку" },
 ];
 
 export function Gallery({ locale }: { locale: Locale }) {
@@ -32,7 +32,7 @@ export function Gallery({ locale }: { locale: Locale }) {
               >
                 <Image
                   src={photo.src}
-                  alt=""
+                  alt={photo.alt}
                   fill
                   sizes="(min-width: 1024px) 25vw, 50vw"
                   className="object-cover transition-transform duration-500 group-hover:scale-110"

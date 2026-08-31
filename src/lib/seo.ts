@@ -38,6 +38,13 @@ export function buildMetadata(locale: Locale): Metadata {
       siteName: "Baku Travel Guide",
       locale: locale === "ru" ? "ru_RU" : locale === "az" ? "az_AZ" : "en_US",
       type: "website",
+      images: [{ url: "/images/hero-flame-towers.jpg", width: 1920, height: 1280, alt: copy.title }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: copy.title,
+      description: copy.description,
+      images: ["/images/hero-flame-towers.jpg"],
     },
   };
 }

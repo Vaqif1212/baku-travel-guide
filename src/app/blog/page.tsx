@@ -9,10 +9,28 @@ import { PromoBanner } from "@/components/site/PromoBanner";
 import { OrnamentDecor } from "@/components/site/Decor";
 import { Reveal } from "@/components/site/Reveal";
 
+const BLOG_TITLE = "Блог о Баку и Азербайджане";
+const BLOG_DESCRIPTION = "Маршруты, советы и истории о путешествиях по Баку и Азербайджану от личного гида Анара.";
+
 export const metadata: Metadata = {
-  title: "Блог о Баку и Азербайджане",
-  description: "Маршруты, советы и истории о путешествиях по Баку и Азербайджану от личного гида Анара.",
+  title: BLOG_TITLE,
+  description: BLOG_DESCRIPTION,
   alternates: { canonical: "/blog" },
+  openGraph: {
+    title: BLOG_TITLE,
+    description: BLOG_DESCRIPTION,
+    url: "/blog",
+    siteName: "Baku Travel Guide",
+    locale: "ru_RU",
+    type: "website",
+    images: [{ url: "/images/hero-flame-towers.jpg", alt: BLOG_TITLE }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: BLOG_TITLE,
+    description: BLOG_DESCRIPTION,
+    images: ["/images/hero-flame-towers.jpg"],
+  },
 };
 
 const MONTHS_RU = [
