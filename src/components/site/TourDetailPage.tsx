@@ -43,7 +43,7 @@ export async function TourDetailPage({ locale, slug }: { locale: Locale; slug: s
             {dict.tours.backToTours}
           </Link>
           <p className="mt-6 text-sm font-bold tracking-widest text-gold uppercase">
-            {dict.tours.dayTour} · {view.durationHours} {dict.tours.hours}
+            {dict.tours.dayTour} · {view.durationHours}
           </p>
           <h1 className="mt-3 font-display text-3xl font-bold leading-tight text-fg sm:text-4xl">{view.title}</h1>
         </div>

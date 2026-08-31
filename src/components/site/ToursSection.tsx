@@ -102,7 +102,7 @@ function TourCard({
         )}
         <div className="absolute inset-0 bg-linear-to-t from-green-deep/70 via-transparent to-transparent" />
         <span className="relative rounded-full bg-gold px-3 py-1.5 text-xs font-bold text-green-deep">
-          {dict.tours.dayTour} · {tour.durationHours} {dict.tours.hours}
+          {dict.tours.dayTour} · {tour.durationHours}
         </span>
       </div>
       <div className="p-7">
