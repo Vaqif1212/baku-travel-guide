@@ -28,7 +28,7 @@ export function Gallery({ locale }: { locale: Locale }) {
           {PHOTOS.map((photo, i) => (
             <Reveal key={photo.src} delay={(i % 4) * 80} y={16}>
               <div
-                className={`group relative mb-4 w-full overflow-hidden rounded border border-border ${photo.tall ? "aspect-3/4" : "aspect-4/3"}`}
+                className={`group relative mb-4 w-full overflow-hidden rounded-2xl border border-border ${photo.tall ? "aspect-3/4" : "aspect-4/3"}`}
               >
                 <Image
                   src={photo.src}

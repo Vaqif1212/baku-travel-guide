@@ -24,7 +24,7 @@ export function ThemeToggle({ labels }: { labels: { light: string; dark: string 
       onClick={toggle}
       aria-label={isDark ? labels.light : labels.dark}
       title={isDark ? labels.light : labels.dark}
-      className="flex h-8 w-8 items-center justify-center rounded border border-gold/30 text-gold hover:bg-gold/10 transition-colors"
+      className="flex h-8 w-8 items-center justify-center rounded-full border border-gold/30 text-gold hover:bg-gold/10 transition-colors"
     >
       {isDark ? (
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">

@@ -2,34 +2,42 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+/*
+  Nature palette (approved 2026-08-31, replacing the gold+dark-green
+  "Ornamental Luxury" theme the client found old-fashioned). Ratio
+  target: ~50% nature green, ~40% white, ~10% orange accent.
+  The `--gold`/`--gold-light` variable names are kept so every
+  existing `text-gold`/`bg-gold` class site-wide repaints for free —
+  they now resolve to the orange accent, not gold.
+*/
 :root {
-  --bg: #FBF6EA;
-  --bg-alt: #FFFFFF;
-  --bg-header: #1F3B2E;
-  --fg: #241C10;
-  --muted: #6B6154;
-  --gold: #C9A227;
-  --gold-light: #E4C765;
-  --green-deep: #1F3B2E;
-  --green-mid: #2E5140;
-  --green-darker: #16291F;
-  --border: #E9DFC4;
-  --cream-text: #FBF6EA;
+  --bg: #FFFFFF;
+  --bg-alt: #EEF6EC;
+  --bg-header: #1B4A30;
+  --fg: #17241B;
+  --muted: #5C6B5E;
+  --gold: #F2851F;
+  --gold-light: #FBAA5D;
+  --green-deep: #1B4A30;
+  --green-mid: #2E7D4F;
+  --green-darker: #123825;
+  --border: #DCE8DC;
+  --cream-text: #F5FAF3;
 }
 
 .dark {
-  --bg: #0F1F17;
+  --bg: #10221A;
   --bg-alt: #16281F;
   --bg-header: #0F1F17;
-  --fg: #F3EFE3;
-  --muted: #9FB0A4;
-  --gold: #D4AF37;
-  --gold-light: #E9CD73;
+  --fg: #EAF3E7;
+  --muted: #9DB89F;
+  --gold: #F79A52;
+  --gold-light: #FBBF86;
   --green-deep: #0a1710;
-  --green-mid: #24402f;
+  --green-mid: #2E5940;
   --green-darker: #0a1710;
-  --border: rgba(212, 175, 55, 0.25);
-  --cream-text: #F3EFE3;
+  --border: rgba(126, 189, 148, 0.22);
+  --cream-text: #EAF3E7;
 }
 
 @theme inline {
@@ -45,8 +53,8 @@
   --color-green-darker: var(--green-darker);
   --color-border: var(--border);
   --color-cream: var(--cream-text);
-  --font-display: var(--font-playfair);
-  --font-body: var(--font-ptsans);
+  --font-display: var(--font-unbounded);
+  --font-body: var(--font-jakarta);
 }
 
 body {

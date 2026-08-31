@@ -13,7 +13,7 @@ export function CtaBand({ locale, whatsapp }: { locale: Locale; whatsapp: string
           href={whatsappHref(whatsapp)}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-7 inline-flex items-center gap-2.5 rounded-sm bg-green-deep px-7 py-4 text-sm font-bold text-cream transition-all hover:scale-[1.03] hover:bg-green-mid active:scale-[0.97]"
+          className="mt-7 inline-flex items-center gap-2.5 rounded-full bg-green-deep px-7 py-4 text-sm font-bold text-cream transition-all hover:scale-[1.03] hover:bg-green-mid active:scale-[0.97]"
         >
           {dict.cta.button}
         </a>

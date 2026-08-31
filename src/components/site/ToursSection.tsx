@@ -41,7 +41,7 @@ export function ToursSection({
 
           <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <span className="text-sm text-muted">{dict.tours.subtitle}</span>
-            <div className="flex shrink-0 overflow-hidden rounded border border-border text-xs font-bold">
+            <div className="flex shrink-0 overflow-hidden rounded-full border border-border text-xs font-bold">
               {currencies.map((c) => (
                 <button
                   key={c}
@@ -89,7 +89,7 @@ function TourCard({
   const unit = mode === "individual" ? dict.tours.perCar : dict.tours.perPerson;
 
   return (
-    <article className="group overflow-hidden rounded border border-border bg-bg-alt transition-shadow duration-300 hover:shadow-xl">
+    <article className="group overflow-hidden rounded-2xl border border-border bg-bg-alt transition-shadow duration-300 hover:shadow-xl">
       <div className="relative flex h-52 items-end overflow-hidden bg-linear-to-br from-green-mid to-green-deep p-5">
         {tour.imageUrl && (
           <Image
@@ -101,7 +101,7 @@ function TourCard({
           />
         )}
         <div className="absolute inset-0 bg-linear-to-t from-green-deep/70 via-transparent to-transparent" />
-        <span className="relative rounded-sm bg-gold px-3 py-1.5 text-xs font-bold text-green-deep">
+        <span className="relative rounded-full bg-gold px-3 py-1.5 text-xs font-bold text-green-deep">
           {dict.tours.dayTour} · {tour.durationHours} {dict.tours.hours}
         </span>
       </div>
@@ -109,7 +109,7 @@ function TourCard({
         <h3 className="font-display text-xl font-bold text-fg sm:text-2xl">{tour.title}</h3>
         <p className="mt-3.5 text-sm leading-relaxed text-muted">{tour.description}</p>
 
-        <div className="mt-5 inline-flex overflow-hidden rounded border border-border text-xs">
+        <div className="mt-5 inline-flex overflow-hidden rounded-full border border-border text-xs">
           <button
             type="button"
             onClick={() => setMode("individual")}
@@ -138,7 +138,7 @@ function TourCard({
           href={whatsappHref(whatsapp, tour.title)}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-6 block rounded-sm bg-gold py-3.5 text-center text-sm font-bold text-green-deep transition-all hover:scale-[1.02] hover:bg-gold-light active:scale-[0.98]"
+          className="mt-6 block rounded-full bg-gold py-3.5 text-center text-sm font-bold text-green-deep transition-all hover:scale-[1.02] hover:bg-gold-light active:scale-[0.98]"
         >
           {dict.tours.more}
         </a>

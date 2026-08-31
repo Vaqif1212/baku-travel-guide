@@ -58,7 +58,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         </div>
 
         {post.coverImageUrl && (
-          <div className="relative mx-auto mt-8 h-72 max-w-4xl overflow-hidden border border-border sm:mt-10 sm:h-96 sm:rounded">
+          <div className="relative mx-auto mt-8 h-72 max-w-4xl overflow-hidden border border-border sm:mt-10 sm:h-96 sm:rounded-3xl">
             <Image src={post.coverImageUrl} alt={post.title} fill sizes="(min-width: 1024px) 896px, 100vw" className="object-cover" priority />
           </div>
         )}
@@ -70,14 +70,14 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             ))}
           </div>
 
-          <div className="mt-14 rounded border border-gold/30 bg-bg-alt p-7 text-center sm:p-9">
+          <div className="mt-14 rounded-2xl border border-gold/30 bg-bg-alt p-7 text-center sm:p-9">
             <p className="font-display text-xl font-bold text-fg sm:text-2xl">Понравился маршрут?</p>
             <p className="mx-auto mt-2 max-w-sm text-sm text-muted">Напишите мне в WhatsApp — подберём тур и ответим на все вопросы.</p>
             <a
               href={whatsappHref(settings.whatsapp, post.title)}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-6 inline-flex items-center gap-2.5 rounded-sm bg-gold px-7 py-4 text-sm font-bold text-green-deep transition-all hover:scale-[1.03] hover:bg-gold-light active:scale-[0.97]"
+              className="mt-6 inline-flex items-center gap-2.5 rounded-full bg-gold px-7 py-4 text-sm font-bold text-green-deep transition-all hover:scale-[1.03] hover:bg-gold-light active:scale-[0.97]"
             >
               Спросить в WhatsApp
             </a>

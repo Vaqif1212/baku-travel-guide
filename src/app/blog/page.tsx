@@ -64,7 +64,7 @@ export default async function BlogPage() {
               <Reveal key={post.id} delay={(i % 3) * 100}>
                 <Link
                   href={`/blog/${post.slug}`}
-                  className="group flex flex-col overflow-hidden rounded border border-border bg-bg-alt transition-all hover:-translate-y-1 hover:shadow-lg"
+                  className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-bg-alt transition-all hover:-translate-y-1 hover:shadow-lg"
                 >
                   <div className="relative aspect-4/3 overflow-hidden bg-linear-to-br from-green-mid to-green-deep">
                     {post.coverImageUrl && (
@@ -77,7 +77,7 @@ export default async function BlogPage() {
                       />
                     )}
                     <div className="absolute inset-0 bg-linear-to-t from-green-deep/60 via-transparent to-transparent" />
-                    <span className="absolute bottom-3 left-3 rounded-sm bg-gold px-2.5 py-1 text-[11px] font-bold text-green-deep">
+                    <span className="absolute bottom-3 left-3 rounded-full bg-gold px-2.5 py-1 text-[11px] font-bold text-green-deep">
                       {formatDate(post.createdAt)}
                     </span>
                   </div>

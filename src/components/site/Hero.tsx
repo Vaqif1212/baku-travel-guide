@@ -41,7 +41,7 @@ export function Hero({ locale, whatsapp, phone }: { locale: Locale; whatsapp: st
                 href={whatsappHref(whatsapp)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2.5 rounded-sm bg-gold px-7 py-4 text-sm font-bold text-green-deep transition-all hover:scale-[1.03] hover:bg-gold-light active:scale-[0.97]"
+                className="flex items-center justify-center gap-2.5 rounded-full bg-gold px-7 py-4 text-sm font-bold text-green-deep transition-all hover:scale-[1.03] hover:bg-gold-light active:scale-[0.97]"
               >
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.5L3 20l1.1-5.4A8.5 8.5 0 1 1 21 11.5Z" />
@@ -50,7 +50,7 @@ export function Hero({ locale, whatsapp, phone }: { locale: Locale; whatsapp: st
               </a>
               <a
                 href={telHref(phone)}
-                className="flex items-center justify-center gap-2.5 rounded-sm border border-cream/40 px-7 py-4 text-sm font-bold text-cream transition-all hover:scale-[1.03] hover:border-gold hover:text-gold active:scale-[0.97]"
+                className="flex items-center justify-center gap-2.5 rounded-full border border-cream/40 px-7 py-4 text-sm font-bold text-cream transition-all hover:scale-[1.03] hover:border-gold hover:text-gold active:scale-[0.97]"
               >
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 3a2 2 0 0 1-.5 2.1L8 10.1a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c1 .3 2 .5 3 .7a2 2 0 0 1 1.6 2Z" />

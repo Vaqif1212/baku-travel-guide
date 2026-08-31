@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
-import { Playfair_Display, PT_Sans } from "next/font/google";
+import { Unbounded, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
+const unbounded = Unbounded({
+  variable: "--font-unbounded",
   subsets: ["latin", "cyrillic"],
   weight: ["600", "700"],
   display: "swap",
 });
 
-const ptSans = PT_Sans({
-  variable: "--font-ptsans",
-  subsets: ["latin", "cyrillic"],
-  weight: ["400", "700"],
+const jakarta = Plus_Jakarta_Sans({
+  variable: "--font-jakarta",
+  subsets: ["latin", "cyrillic-ext"],
+  weight: ["400", "500", "700"],
   display: "swap",
 });
 
@@ -41,7 +41,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
-      <body className={`${playfair.variable} ${ptSans.variable} min-h-full antialiased`}>{children}</body>
+      <body className={`${unbounded.variable} ${jakarta.variable} min-h-full antialiased`}>{children}</body>
     </html>
   );
 }

@@ -61,7 +61,7 @@ export function Header({ locale, whatsapp }: { locale: Locale; whatsapp: string 
             href={whatsappHref(whatsapp)}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-sm bg-gold px-5 py-2.5 text-sm font-bold text-green-deep transition-all hover:scale-[1.05] hover:bg-gold-light active:scale-[0.97]"
+            className="rounded-full bg-gold px-5 py-2.5 text-sm font-bold text-green-deep transition-all hover:scale-[1.05] hover:bg-gold-light active:scale-[0.97]"
           >
             {dict.headerCta}
           </a>
@@ -101,7 +101,7 @@ export function Header({ locale, whatsapp }: { locale: Locale; whatsapp: string 
             href={whatsappHref(whatsapp)}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-5 block rounded-sm bg-gold px-5 py-3 text-center text-sm font-bold text-green-deep"
+            className="mt-5 block rounded-full bg-gold px-5 py-3 text-center text-sm font-bold text-green-deep"
           >
             {dict.headerCta}
           </a>
