@@ -98,6 +98,7 @@ model Setting {
   rubRate           Float   @default(0.019)
 
   whatsapp          String  @default("")
+  whatsapp2         String  @default("")
   telegram          String  @default("")
   phone             String  @default("")
   email             String  @default("")

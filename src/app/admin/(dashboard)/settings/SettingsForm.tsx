@@ -51,6 +51,7 @@ export function SettingsForm({ settings, dict }: { settings: Setting; dict: Admi
         <legend className="px-1.5 text-xs font-bold uppercase tracking-wide text-neutral-500">{dict.settings.contactLegend}</legend>
         <div className="grid gap-4 sm:grid-cols-2">
           <Field label={dict.settings.whatsapp} name="whatsapp" defaultValue={settings.whatsapp} />
+          <Field label={dict.settings.whatsapp2} name="whatsapp2" defaultValue={settings.whatsapp2} />
           <Field label={dict.settings.telegram} name="telegram" defaultValue={settings.telegram} />
           <Field label={dict.settings.phone} name="phone" defaultValue={settings.phone} />
           <Field label={dict.settings.email} name="email" defaultValue={settings.email} />

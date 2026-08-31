@@ -4,7 +4,15 @@ import { ContactForm } from "./ContactForm";
 import { Logo } from "./Logo";
 import { Reveal } from "./Reveal";
 
-type ContactInfo = { phone: string; email: string; instagram: string; whatsapp: string; telegram: string; facebook: string };
+type ContactInfo = {
+  phone: string;
+  email: string;
+  instagram: string;
+  whatsapp: string;
+  whatsapp2: string;
+  telegram: string;
+  facebook: string;
+};
 
 export function ContactSection({ locale, contact }: { locale: Locale; contact: ContactInfo }) {
   const dict = getDict(locale);
@@ -15,6 +23,7 @@ export function ContactSection({ locale, contact }: { locale: Locale; contact: C
           <h2 className="font-display text-2xl font-bold text-fg sm:text-3xl">{dict.nav.contact}</h2>
           <div className="mt-6 space-y-2 text-sm text-muted">
             <p>{contact.phone}</p>
+            {contact.whatsapp2 && <p>+{contact.whatsapp2}</p>}
             <p>{contact.email}</p>
             <p>Баку, Азербайджан</p>
           </div>
@@ -68,6 +77,11 @@ export function Footer({ locale, contact }: { locale: Locale; contact: ContactIn
               <a href={`https://wa.me/${contact.whatsapp}`} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-gold">
                 WhatsApp
               </a>
+              {contact.whatsapp2 && (
+                <a href={`https://wa.me/${contact.whatsapp2}`} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-gold">
+                  WhatsApp 2
+                </a>
+              )}
               {contact.telegram && (
                 <a href={`https://t.me/${contact.telegram}`} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-gold">
                   Telegram

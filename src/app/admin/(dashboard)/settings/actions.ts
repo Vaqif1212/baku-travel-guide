@@ -24,6 +24,7 @@ export async function updateSettings(_prevState: { message?: string } | undefine
       usdRate: Number(formData.get("usdRate")) || 1.7,
       rubRate: Number(formData.get("rubRate")) || 0.019,
       whatsapp: str(formData, "whatsapp"),
+      whatsapp2: str(formData, "whatsapp2"),
       telegram: str(formData, "telegram"),
       phone: str(formData, "phone"),
       email: str(formData, "email"),
@@ -40,6 +41,13 @@ export async function updateSettings(_prevState: { message?: string } | undefine
   }
 
   revalidatePath("/");
+  revalidatePath("/az");
+  revalidatePath("/en");
+  revalidatePath("/blog");
+  revalidatePath("/blog/[slug]", "page");
+  revalidatePath("/tours/[slug]", "page");
+  revalidatePath("/az/tours/[slug]", "page");
+  revalidatePath("/en/tours/[slug]", "page");
   revalidatePath("/admin/settings");
   const dict = getAdminDict(await getAdminLocale());
   return { message: newPassword ? dict.settings.savedWithPassword : dict.settings.saved };

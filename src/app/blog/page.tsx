@@ -53,6 +53,7 @@ export default async function BlogPage() {
     email: settings.email,
     instagram: settings.instagram,
     whatsapp: settings.whatsapp,
+    whatsapp2: settings.whatsapp2,
     telegram: settings.telegram,
     facebook: settings.facebook,
   };
