@@ -67,7 +67,7 @@ export async function TourDetailPage({ locale, slug }: { locale: Locale; slug: s
                         alt={`${view.title} ${i + 1}`}
                         fill
                         sizes="(min-width: 640px) 672px, 100vw"
-                        className="object-cover"
+                        className="object-cover object-top"
                       />
                     </Reveal>
                   )}
