@@ -54,10 +54,26 @@ export async function TourDetailPage({ locale, slug }: { locale: Locale; slug: s
         )}
 
         <div className="mx-auto max-w-2xl px-5 sm:px-8">
-          <div className="mt-10 space-y-5 text-base leading-relaxed text-fg/85 sm:text-lg">
-            {view.description.split("\n\n").map((para, i) => (
-              <p key={i}>{para}</p>
-            ))}
+          <div className="mt-10 space-y-8 text-base leading-relaxed text-fg/85 sm:text-lg">
+            {view.description.split("\n\n").map((para, i) => {
+              const img = tour.galleryImages[i];
+              return (
+                <div key={i}>
+                  <p>{para}</p>
+                  {img && (
+                    <Reveal y={16} className="relative mt-8 aspect-video overflow-hidden rounded-2xl border border-border">
+                      <Image
+                        src={img}
+                        alt={`${view.title} ${i + 1}`}
+                        fill
+                        sizes="(min-width: 640px) 672px, 100vw"
+                        className="object-cover"
+                      />
+                    </Reveal>
+                  )}
+                </div>
+              );
+            })}
           </div>
 
           <Reveal delay={100} className="mt-10">
@@ -74,11 +90,11 @@ export async function TourDetailPage({ locale, slug }: { locale: Locale; slug: s
             />
           </Reveal>
 
-          {tour.galleryImages.length > 0 && (
+          {tour.galleryImages.length > view.description.split("\n\n").length && (
             <Reveal delay={150} className="mt-14">
               <h2 className="font-display text-xl font-bold text-fg sm:text-2xl">{dict.tours.galleryTitle}</h2>
               <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3">
-                {tour.galleryImages.map((src, i) => (
+                {tour.galleryImages.slice(view.description.split("\n\n").length).map((src, i) => (
                   <div key={src} className="group relative aspect-4/3 overflow-hidden rounded-2xl border border-border">
                     <Image
                       src={src}
