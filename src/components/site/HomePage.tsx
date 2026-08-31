@@ -61,7 +61,6 @@ export async function HomePage({ locale }: { locale: Locale }) {
           locale={locale}
           tours={tours.map((t) => localizeTour(t, locale))}
           rates={{ usdRate: settings.usdRate, rubRate: settings.rubRate }}
-          whatsapp={settings.whatsapp}
         />
         <Gallery locale={locale} />
         <Testimonials

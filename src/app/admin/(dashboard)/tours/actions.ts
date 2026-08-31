@@ -13,13 +13,23 @@ function num(formData: FormData, key: string): number {
   return Number.isFinite(n) ? n : 0;
 }
 
+function revalidateTourPages(slug: string) {
+  revalidatePath("/");
+  revalidatePath("/az");
+  revalidatePath("/en");
+  revalidatePath(`/tours/${slug}`);
+  revalidatePath("/admin/tours");
+}
+
 export async function createTour(formData: FormData) {
+  const slug = str(formData, "slug");
   await prisma.tour.create({
     data: {
-      slug: str(formData, "slug"),
+      slug,
       order: num(formData, "order"),
       published: formData.get("published") === "on",
       imageUrl: str(formData, "imageUrl"),
+      galleryImages: formData.getAll("galleryImages").map(String),
       titleRu: str(formData, "titleRu"),
       titleAz: str(formData, "titleAz"),
       titleEn: str(formData, "titleEn"),
@@ -33,19 +43,21 @@ export async function createTour(formData: FormData) {
       priceGroupAzn: num(formData, "priceGroupAzn"),
     },
   });
-  revalidatePath("/");
-  revalidatePath("/admin/tours");
+  revalidateTourPages(slug);
   redirect("/admin/tours");
 }
 
 export async function updateTour(id: string, formData: FormData) {
+  const existing = await prisma.tour.findUnique({ where: { id }, select: { slug: true } });
+  const slug = str(formData, "slug");
   await prisma.tour.update({
     where: { id },
     data: {
-      slug: str(formData, "slug"),
+      slug,
       order: num(formData, "order"),
       published: formData.get("published") === "on",
       imageUrl: str(formData, "imageUrl"),
+      galleryImages: formData.getAll("galleryImages").map(String),
       titleRu: str(formData, "titleRu"),
       titleAz: str(formData, "titleAz"),
       titleEn: str(formData, "titleEn"),
@@ -59,14 +71,13 @@ export async function updateTour(id: string, formData: FormData) {
       priceGroupAzn: num(formData, "priceGroupAzn"),
     },
   });
-  revalidatePath("/");
-  revalidatePath("/admin/tours");
+  revalidateTourPages(slug);
+  if (existing && existing.slug !== slug) revalidatePath(`/tours/${existing.slug}`);
   redirect("/admin/tours");
 }
 
 export async function deleteTour(id: string) {
   "use server";
-  await prisma.tour.delete({ where: { id } });
-  revalidatePath("/");
-  revalidatePath("/admin/tours");
+  const deleted = await prisma.tour.delete({ where: { id } });
+  revalidateTourPages(deleted.slug);
 }

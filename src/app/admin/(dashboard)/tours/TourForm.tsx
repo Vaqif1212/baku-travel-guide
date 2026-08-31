@@ -1,6 +1,7 @@
 import type { Tour } from "@prisma/client";
 import type { AdminDict } from "@/lib/adminI18n";
 import { ImageUploadField } from "@/components/admin/ImageUploadField";
+import { GalleryUploadField } from "@/components/admin/GalleryUploadField";
 import { SlugField } from "@/components/admin/SlugField";
 
 function Field({ label, name, defaultValue, type = "text", required = true }: { label: string; name: string; defaultValue?: string | number; type?: string; required?: boolean }) {
@@ -53,6 +54,15 @@ export function TourForm({
         label={dict.tours.imageUrl}
         name="imageUrl"
         defaultValue={tour?.imageUrl}
+        chooseLabel={dict.common.imageChoose}
+        uploadingLabel={dict.common.imageUploading}
+        removeLabel={dict.common.imageRemove}
+      />
+
+      <GalleryUploadField
+        label={dict.tours.galleryImages}
+        name="galleryImages"
+        defaultValue={tour?.galleryImages}
         chooseLabel={dict.common.imageChoose}
         uploadingLabel={dict.common.imageUploading}
         removeLabel={dict.common.imageRemove}

@@ -2,14 +2,15 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import type { Locale } from "@/lib/i18n";
 import { getDict } from "@/lib/i18n";
 import { convertFromAzn, formatPrice, currencies, type Currency } from "@/lib/currency";
-import { whatsappHref } from "@/lib/contact";
 import { Reveal } from "./Reveal";
 
 export type TourViewModel = {
   id: string;
+  slug: string;
   imageUrl: string;
   title: string;
   description: string;
@@ -22,12 +23,10 @@ export function ToursSection({
   locale,
   tours,
   rates,
-  whatsapp,
 }: {
   locale: Locale;
   tours: TourViewModel[];
   rates: { usdRate: number; rubRate: number };
-  whatsapp: string;
 }) {
   const dict = getDict(locale);
   const [currency, setCurrency] = useState<Currency>("AZN");
@@ -61,7 +60,7 @@ export function ToursSection({
         <div className="mt-12 grid gap-8 lg:grid-cols-2">
           {tours.map((tour, i) => (
             <Reveal key={tour.id} delay={i * 100}>
-              <TourCard tour={tour} dict={dict} currency={currency} rates={rates} whatsapp={whatsapp} />
+              <TourCard tour={tour} dict={dict} currency={currency} rates={rates} locale={locale} />
             </Reveal>
           ))}
         </div>
@@ -75,18 +74,19 @@ function TourCard({
   dict,
   currency,
   rates,
-  whatsapp,
+  locale,
 }: {
   tour: TourViewModel;
   dict: ReturnType<typeof getDict>;
   currency: Currency;
   rates: { usdRate: number; rubRate: number };
-  whatsapp: string;
+  locale: Locale;
 }) {
   const [mode, setMode] = useState<"individual" | "group">("individual");
   const amountAzn = mode === "individual" ? tour.priceIndividualAzn : tour.priceGroupAzn;
   const displayPrice = formatPrice(convertFromAzn(amountAzn, currency, rates), currency);
   const unit = mode === "individual" ? dict.tours.perCar : dict.tours.perPerson;
+  const home = locale === "ru" ? "" : `/${locale}`;
 
   return (
     <article className="group overflow-hidden rounded-2xl border border-border bg-bg-alt transition-shadow duration-300 hover:shadow-xl">
@@ -134,14 +134,12 @@ function TourCard({
           {displayPrice} <span className="ml-1 font-body text-sm font-normal text-muted">{unit}</span>
         </div>
 
-        <a
-          href={whatsappHref(whatsapp, tour.title)}
-          target="_blank"
-          rel="noopener noreferrer"
+        <Link
+          href={`${home}/tours/${tour.slug}`}
           className="mt-6 block rounded-full bg-gold py-3.5 text-center text-sm font-bold text-green-deep transition-all hover:scale-[1.02] hover:bg-gold-light active:scale-[0.98]"
         >
           {dict.tours.more}
-        </a>
+        </Link>
       </div>
     </article>
   );
