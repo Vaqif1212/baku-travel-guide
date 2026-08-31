@@ -14,6 +14,9 @@
   https://commons.wikimedia.org/wiki/File:Baku_Maiden_Tower_004_7736.jpg
 - `fountains-square.jpg` — "Fountains Square, Baku 01.jpg", Wikimedia Commons, CC BY 4.0 (resized/recompressed)
   https://commons.wikimedia.org/wiki/File:Fountains_Square,_Baku_01.jpg
+- `mercedes-vito.jpg` — "Mercedes-Benz Viano Lang CDI ... Frontansicht, 2012, Düsseldorf.jpg", Wikimedia Commons,
+  CC BY-SA 3.0 de (resized/recompressed) — generic tour-van photo, not Anar's actual vehicle
+  https://commons.wikimedia.org/wiki/File:Mercedes-Benz_Viano_Lang_CDI_3.0_V6_BlueEFFICIENCY_Avantgarde_Edition_125_(V_639,_Facelift)_%E2%80%93_Frontansicht,_15._Juli_2012,_D%C3%BCsseldorf.jpg
 
 Everything else (`anar-*.jpg`, `tour-*.jpg` except the hero) is Anar's own photos from real
 tours, provided 2026-08-29 and curated for the site (near-duplicate shots dropped, only
