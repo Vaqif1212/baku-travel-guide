@@ -107,7 +107,7 @@ function TourCard({
       </div>
       <div className="p-7">
         <h3 className="font-display text-xl font-bold text-fg sm:text-2xl">{tour.title}</h3>
-        <p className="mt-3.5 text-sm leading-relaxed text-muted">{tour.description}</p>
+        <p className="mt-3.5 line-clamp-3 text-sm leading-relaxed text-muted">{tour.description.split("\n\n")[0]}</p>
 
         <div className="mt-5 inline-flex overflow-hidden rounded-full border border-border text-xs">
           <button
