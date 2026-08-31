@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { headers } from "next/headers";
 import { Unbounded, Plus_Jakarta_Sans } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
@@ -37,12 +36,9 @@ const themeInitScript = `
 })();
 `;
 
-export default async function RootLayout({ children }: LayoutProps<"/">) {
-  const pathname = (await headers()).get("x-pathname") ?? "/";
-  const lang = pathname.startsWith("/az") ? "az" : pathname.startsWith("/en") ? "en" : "ru";
-
+export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang={lang} className="h-full" suppressHydrationWarning>
+    <html lang="ru" className="h-full" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>

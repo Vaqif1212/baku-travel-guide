@@ -5,6 +5,7 @@ import type { Locale } from "@/lib/i18n";
 import { getDict } from "@/lib/i18n";
 import { localBusinessJsonLd, faqJsonLd } from "@/lib/seo";
 
+import { HtmlLangSync } from "./HtmlLangSync";
 import { PromoBanner } from "./PromoBanner";
 import { Header } from "./Header";
 import { Hero } from "./Hero";
@@ -47,6 +48,7 @@ export async function HomePage({ locale }: { locale: Locale }) {
 
   return (
     <div className="min-h-screen bg-bg" lang={dict.htmlLang}>
+      <HtmlLangSync lang={dict.htmlLang} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(businessJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       {settings.promoEnabled && promoText && <PromoBanner text={promoText} />}

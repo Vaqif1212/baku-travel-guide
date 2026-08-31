@@ -18,6 +18,14 @@ function formatDate(date: Date): string {
   return `${date.getDate()} ${MONTHS_RU[date.getMonth()]} ${date.getFullYear()}`;
 }
 
+// Pre-renders every published post at build/deploy time so visits are
+// served as static pages instead of hitting the database per request.
+// New posts still work immediately (Next renders + caches on first visit).
+export async function generateStaticParams() {
+  const posts = await prisma.post.findMany({ where: { published: true }, select: { slug: true } });
+  return posts.map((post) => ({ slug: post.slug }));
+}
+
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const post = await prisma.post.findUnique({ where: { slug } });
