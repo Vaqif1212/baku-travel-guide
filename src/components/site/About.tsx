@@ -38,6 +38,32 @@ export function About({ locale }: { locale: Locale }) {
                 </span>
               ))}
             </div>
+
+            <div className="mt-7 flex flex-col gap-4 rounded-2xl border border-gold/30 bg-bg p-4 sm:flex-row sm:items-center sm:p-5">
+              <div className="relative mx-auto h-28 w-40 shrink-0 overflow-hidden rounded-lg border border-border sm:mx-0">
+                <Image
+                  src="/images/anar-tour-guide-license.jpg"
+                  alt={dict.about.license.label}
+                  fill
+                  sizes="160px"
+                  className="object-cover"
+                />
+              </div>
+              <div className="text-center sm:text-left">
+                <p className="inline-flex items-center gap-1.5 text-sm font-bold text-green-deep dark:text-gold">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="shrink-0">
+                    <path d="M9 12l2 2 4-4" />
+                    <circle cx="12" cy="12" r="9" />
+                  </svg>
+                  {dict.about.license.label}
+                </p>
+                <p className="mt-1.5 text-xs leading-relaxed text-muted">
+                  {dict.about.license.issuer} · {dict.about.license.numberLabel} {dict.about.license.number}
+                  <br />
+                  {dict.about.license.validLabel} {dict.about.license.validUntil}
+                </p>
+              </div>
+            </div>
           </div>
         </Reveal>
       </div>

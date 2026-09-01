@@ -51,6 +51,14 @@ function buildDict(locale: Locale) {
           "Помимо экскурсий провожу мастер-классы по азербайджанской кухне, помогаю с переводом и трансфером, организую небольшие свадебные церемонии для иностранных пар, влюблённых в Баку так же, как и я.",
         ],
         tags: ["Историк по образованию", "Личный водитель", "Переводчик", "Организация свадеб", "Мастер-классы по кухне"],
+        license: {
+          label: "Лицензированный гид",
+          numberLabel: "Удостоверение №",
+          number: "0053.25",
+          validLabel: "Действительно до",
+          validUntil: "26.12.2028",
+          issuer: "Государственное агентство по туризму Азербайджанской Республики",
+        },
       },
       tours: {
         eyebrow: "Маршруты",
@@ -137,6 +145,14 @@ function buildDict(locale: Locale) {
           "Ekskursiyalardan başqa, Azərbaycan mətbəxi üzrə master-klasslar keçirir, tərcümə və transferlə kömək edir, Bakını mənim kimi sevən əcnəbi cütlüklər üçün kiçik toy mərasimləri təşkil edirəm.",
         ],
         tags: ["Tarixçi", "Şəxsi sürücü", "Tərcüməçi", "Toy təşkilatçısı", "Mətbəx master-klasları"],
+        license: {
+          label: "Lisenziyalı bələdçi",
+          numberLabel: "Vəsiqə №",
+          number: "0053.25",
+          validLabel: "Etibarlıdır",
+          validUntil: "26.12.2028",
+          issuer: "Azərbaycan Respublikasının Dövlət Turizm Agentliyi",
+        },
       },
       tours: {
         eyebrow: "Marşrutlar",
@@ -223,6 +239,14 @@ function buildDict(locale: Locale) {
           "Beyond guiding, I run Azerbaijani cooking master classes, help with translation and transfers, and organize small wedding ceremonies for foreign couples who fall in love with Baku just like I did.",
         ],
         tags: ["History graduate", "Personal driver", "Translator", "Wedding coordination", "Cooking master classes"],
+        license: {
+          label: "Licensed Tour Guide",
+          numberLabel: "Card No.",
+          number: "0053.25",
+          validLabel: "Valid until",
+          validUntil: "26.12.2028",
+          issuer: "State Tourism Agency of the Republic of Azerbaijan",
+        },
       },
       tours: {
         eyebrow: "Routes",

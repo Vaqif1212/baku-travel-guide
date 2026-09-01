@@ -124,6 +124,11 @@
 
 The "Airport Transfer" listing has no photos (a transport service, not a sightseeing tour).
 
+- `anar-tour-guide-license.jpg` — Anar's own official Tourist Guide Card (№ 0053.25), issued by the
+  Azerbaijan Tourism Bureau under the State Tourism Agency, cropped from a photo he sent 2026-09-01.
+  Only the front (photo/name/card number/validity) is shown; the back (blood group, QR code) was
+  intentionally left out as unnecessary to display publicly.
+
 Everything else (`anar-*.jpg`, `tour-*.jpg` except the hero) is Anar's own photos from real
 tours, provided 2026-08-29 and curated for the site (near-duplicate shots dropped, only
 tour-appropriate ones used).
