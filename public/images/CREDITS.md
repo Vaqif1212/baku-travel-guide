@@ -98,6 +98,15 @@
   (resized/recompressed)
   https://commons.wikimedia.org/wiki/File:%C4%B0mamzadeh_religious_complex_in_Ganja.jpg
 
+- `guba-khinalig.jpg` — "Khinalig village.jpg", Wikimedia Commons, CC BY-SA 4.0 (resized/recompressed)
+  https://commons.wikimedia.org/wiki/File:Khinalig_village.jpg
+- `guba-krasnaya-sloboda.jpg` — "Krasnaya Sloboda Guba.jpg", Wikimedia Commons, CC BY-SA 3.0
+  (resized/recompressed)
+  https://commons.wikimedia.org/wiki/File:Krasnaya_Sloboda_Guba.jpg
+- `guba-genocide-memorial.jpg` — "View of Guba Genocide Memorial Complex 2.JPG", Wikimedia Commons,
+  CC BY-SA 4.0 (resized/recompressed)
+  https://commons.wikimedia.org/wiki/File:View_of_Guba_Genocide_Memorial_Complex_2.JPG
+
 Everything else (`anar-*.jpg`, `tour-*.jpg` except the hero) is Anar's own photos from real
 tours, provided 2026-08-29 and curated for the site (near-duplicate shots dropped, only
 tour-appropriate ones used).
