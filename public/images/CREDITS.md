@@ -80,6 +80,9 @@
   CC BY-SA 3.0 (resized/recompressed)
   https://commons.wikimedia.org/wiki/File:Beshbarmag_mountain_in_Azerbaijan.jpg
 
+- `lankaran-citrus.jpg`, `lankaran-hirkan-forest.jpg` — pulled 2026-09-01 from Anar's own Sputnik8
+  listing (activities/41953-odnodnevnyy-tur-v-gorod-lenkoran).
+
 Everything else (`anar-*.jpg`, `tour-*.jpg` except the hero) is Anar's own photos from real
 tours, provided 2026-08-29 and curated for the site (near-duplicate shots dropped, only
 tour-appropriate ones used).
