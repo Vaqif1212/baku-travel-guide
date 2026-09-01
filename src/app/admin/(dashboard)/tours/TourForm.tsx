@@ -2,6 +2,8 @@ import type { Tour } from "@prisma/client";
 import type { AdminDict } from "@/lib/adminI18n";
 import { ImageUploadField } from "@/components/admin/ImageUploadField";
 import { GalleryUploadField } from "@/components/admin/GalleryUploadField";
+import { PriceTiersField } from "@/components/admin/PriceTiersField";
+import { parsePriceTiers } from "@/lib/priceTiers";
 
 function Field({ label, name, defaultValue, type = "text", required = true }: { label: string; name: string; defaultValue?: string | number; type?: string; required?: boolean }) {
   return (
@@ -86,10 +88,18 @@ export function TourForm({
         </fieldset>
       ))}
 
-      <div className="grid gap-4 sm:grid-cols-2">
-        <Field label={dict.tours.priceIndividual} name="priceIndividualAzn" type="number" defaultValue={tour?.priceIndividualAzn ?? 0} />
-        <Field label={dict.tours.priceGroup} name="priceGroupAzn" type="number" defaultValue={tour?.priceGroupAzn ?? 0} />
-      </div>
+      <PriceTiersField
+        name="priceTiers"
+        defaultValue={parsePriceTiers(tour?.priceTiers)}
+        label={dict.tours.priceTiersLabel}
+        hint={dict.tours.priceTiersHint}
+        fromLabel={dict.tours.tierFrom}
+        toLabel={dict.tours.tierTo}
+        priceLabel={dict.tours.tierPrice}
+        perPersonLabel={dict.tours.tierPerPerson}
+        addLabel={dict.tours.addTier}
+        removeLabel={dict.tours.removeTier}
+      />
 
       <button type="submit" className="rounded-lg bg-[#1F3B2E] px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-[#16291F]">
         {dict.common.save}

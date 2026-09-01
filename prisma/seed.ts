@@ -49,8 +49,10 @@ async function main() {
       durationRu: "8",
       durationAz: "8",
       durationEn: "8",
-      priceIndividualAzn: 150,
-      priceGroupAzn: 55,
+      priceTiers: [
+        { minPeople: 1, maxPeople: 4, priceAzn: 150, perPerson: false },
+        { minPeople: 5, maxPeople: null, priceAzn: 55, perPerson: true },
+      ],
     },
   });
 
@@ -74,8 +76,10 @@ async function main() {
       durationRu: "6",
       durationAz: "6",
       durationEn: "6",
-      priceIndividualAzn: 120,
-      priceGroupAzn: 40,
+      priceTiers: [
+        { minPeople: 1, maxPeople: 4, priceAzn: 120, perPerson: false },
+        { minPeople: 5, maxPeople: null, priceAzn: 40, perPerson: true },
+      ],
     },
   });
 

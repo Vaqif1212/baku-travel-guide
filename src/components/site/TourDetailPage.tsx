@@ -79,14 +79,12 @@ export async function TourDetailPage({ locale, slug }: { locale: Locale; slug: s
 
           <Reveal delay={100} className="mt-10">
             <TourPricePicker
-              priceIndividualAzn={view.priceIndividualAzn}
-              priceGroupAzn={view.priceGroupAzn}
+              tiers={view.priceTiers}
               rates={{ usdRate: settings.usdRate, rubRate: settings.rubRate }}
               labels={{
-                individual: dict.tours.individual,
-                group: dict.tours.group,
                 perCar: dict.tours.perCar,
                 perPerson: dict.tours.perPerson,
+                peopleWord: dict.tours.peopleWord,
               }}
             />
           </Reveal>

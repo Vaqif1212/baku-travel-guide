@@ -2,6 +2,7 @@ import type { Locale } from "@/lib/i18n";
 import type { Tour, Testimonial } from "@prisma/client";
 import type { TourViewModel } from "@/components/site/ToursSection";
 import type { TestimonialViewModel } from "@/components/site/Testimonials";
+import { parsePriceTiers } from "@/lib/priceTiers";
 
 function field<T extends Record<string, unknown>>(obj: T, base: string, locale: Locale): string {
   const key = `${base}${locale === "ru" ? "Ru" : locale === "az" ? "Az" : "En"}`;
@@ -16,8 +17,7 @@ export function localizeTour(tour: Tour, locale: Locale): TourViewModel {
     title: field(tour, "title", locale),
     description: field(tour, "description", locale),
     durationHours: field(tour, "duration", locale),
-    priceIndividualAzn: tour.priceIndividualAzn,
-    priceGroupAzn: tour.priceGroupAzn,
+    priceTiers: parsePriceTiers(tour.priceTiers),
   };
 }
 

@@ -6,6 +6,7 @@ import Link from "next/link";
 import type { Locale } from "@/lib/i18n";
 import { getDict } from "@/lib/i18n";
 import { convertFromAzn, formatPrice, currencies, type Currency } from "@/lib/currency";
+import { tierRangeLabel, type PriceTier } from "@/lib/priceTiers";
 import { Reveal } from "./Reveal";
 
 export type TourViewModel = {
@@ -15,8 +16,7 @@ export type TourViewModel = {
   title: string;
   description: string;
   durationHours: string;
-  priceIndividualAzn: number;
-  priceGroupAzn: number;
+  priceTiers: PriceTier[];
 };
 
 export function ToursSection({
@@ -82,10 +82,10 @@ function TourCard({
   rates: { usdRate: number; rubRate: number };
   locale: Locale;
 }) {
-  const [mode, setMode] = useState<"individual" | "group">("individual");
-  const amountAzn = mode === "individual" ? tour.priceIndividualAzn : tour.priceGroupAzn;
-  const displayPrice = formatPrice(convertFromAzn(amountAzn, currency, rates), currency);
-  const unit = mode === "individual" ? dict.tours.perCar : dict.tours.perPerson;
+  const [tierIndex, setTierIndex] = useState(0);
+  const tier = tour.priceTiers[tierIndex] ?? tour.priceTiers[0];
+  const displayPrice = tier ? formatPrice(convertFromAzn(tier.priceAzn, currency, rates), currency) : "";
+  const unit = tier?.perPerson ? dict.tours.perPerson : dict.tours.perCar;
   const home = locale === "ru" ? "" : `/${locale}`;
 
   return (
@@ -109,26 +109,22 @@ function TourCard({
         <h3 className="font-display text-xl font-bold text-fg sm:text-2xl">{tour.title}</h3>
         <p className="mt-3.5 line-clamp-3 text-sm leading-relaxed text-muted">{tour.description.split("\n\n")[0]}</p>
 
-        <div className="mt-5 inline-flex overflow-hidden rounded-full border border-border text-xs">
-          <button
-            type="button"
-            onClick={() => setMode("individual")}
-            className={`px-4 py-2 font-semibold transition-colors ${
-              mode === "individual" ? "bg-green-deep text-cream" : "text-muted hover:text-fg"
-            }`}
-          >
-            {dict.tours.individual}
-          </button>
-          <button
-            type="button"
-            onClick={() => setMode("group")}
-            className={`border-l border-border px-4 py-2 font-semibold transition-colors ${
-              mode === "group" ? "bg-green-deep text-cream" : "text-muted hover:text-fg"
-            }`}
-          >
-            {dict.tours.group}
-          </button>
-        </div>
+        {tour.priceTiers.length > 1 && (
+          <div className="mt-5 inline-flex flex-wrap overflow-hidden rounded-full border border-border text-xs">
+            {tour.priceTiers.map((t, i) => (
+              <button
+                key={i}
+                type="button"
+                onClick={() => setTierIndex(i)}
+                className={`px-4 py-2 font-semibold transition-colors ${
+                  i === tierIndex ? "bg-green-deep text-cream" : "text-muted hover:text-fg"
+                } ${i > 0 ? "border-l border-border" : ""}`}
+              >
+                {tierRangeLabel(t, dict.tours.peopleWord)}
+              </button>
+            ))}
+          </div>
+        )}
 
         <div className="mt-4 font-display text-2xl font-bold text-fg">
           {displayPrice} <span className="ml-1 font-body text-sm font-normal text-muted">{unit}</span>

@@ -30,10 +30,14 @@ model Tour {
   durationAz      String
   durationEn      String
 
-  // Canonical prices, stored in AZN. The site converts to USD/RUB
-  // for display using the exchange rates in Setting.
-  priceIndividualAzn Int
-  priceGroupAzn      Int
+  // Flexible per-tour pricing tiers, admin-editable, e.g.:
+  // [{"minPeople":1,"maxPeople":4,"priceAzn":150,"perPerson":false},
+  //  {"minPeople":5,"maxPeople":null,"priceAzn":30,"perPerson":true}]
+  // maxPeople: null means "and more". perPerson: true means priceAzn is
+  // per person in that range; false means priceAzn is a flat price for
+  // the whole range (e.g. per car). Stored in AZN; the site converts to
+  // USD/RUB for display using the exchange rates in Setting.
+  priceTiers Json @default("[]")
 
   createdAt       DateTime @default(now())
   updatedAt       DateTime @updatedAt

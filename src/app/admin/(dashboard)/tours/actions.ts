@@ -4,9 +4,18 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 import { slugify } from "@/lib/slugify";
+import { parsePriceTiers } from "@/lib/priceTiers";
 
 function str(formData: FormData, key: string): string {
   return String(formData.get(key) ?? "").trim();
+}
+
+function priceTiers(formData: FormData) {
+  try {
+    return parsePriceTiers(JSON.parse(str(formData, "priceTiers") || "[]"));
+  } catch {
+    return [];
+  }
 }
 
 /** Turns a title into a unique slug, appending -2, -3, … if it's already taken. */
@@ -18,11 +27,6 @@ async function uniqueSlug(title: string): Promise<string> {
     slug = `${base}-${n++}`;
   }
   return slug;
-}
-
-function num(formData: FormData, key: string): number {
-  const n = Number(formData.get(key));
-  return Number.isFinite(n) ? n : 0;
 }
 
 function revalidateTourPages(slug: string) {
@@ -53,8 +57,7 @@ export async function createTour(formData: FormData) {
       durationRu: str(formData, "durationRu"),
       durationAz: str(formData, "durationAz"),
       durationEn: str(formData, "durationEn"),
-      priceIndividualAzn: num(formData, "priceIndividualAzn"),
-      priceGroupAzn: num(formData, "priceGroupAzn"),
+      priceTiers: priceTiers(formData),
     },
   });
   revalidateTourPages(slug);
@@ -78,8 +81,7 @@ export async function updateTour(id: string, formData: FormData) {
       durationRu: str(formData, "durationRu"),
       durationAz: str(formData, "durationAz"),
       durationEn: str(formData, "durationEn"),
-      priceIndividualAzn: num(formData, "priceIndividualAzn"),
-      priceGroupAzn: num(formData, "priceGroupAzn"),
+      priceTiers: priceTiers(formData),
     },
   });
   if (existing) revalidateTourPages(existing.slug);

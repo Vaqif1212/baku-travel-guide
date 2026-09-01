@@ -5,6 +5,7 @@ import { getAdminDict } from "@/lib/adminI18n";
 import { getAdminLocale } from "@/lib/adminLocale";
 import { DeleteButton } from "@/components/admin/DeleteButton";
 import { IconPencil, IconPlus, IconMap } from "@/components/admin/icons";
+import { parsePriceTiers, tierRangeLabel } from "@/lib/priceTiers";
 import { deleteTour } from "./actions";
 
 export default async function AdminToursPage() {
@@ -48,7 +49,9 @@ export default async function AdminToursPage() {
                 </span>
               </div>
               <p className="mt-1 text-sm text-neutral-500">
-                {t.priceIndividualAzn} / {t.priceGroupAzn} AZN
+                {parsePriceTiers(t.priceTiers)
+                  .map((tier) => `${tierRangeLabel(tier, dict.tours.peopleWordShort)}: ${tier.priceAzn} AZN${tier.perPerson ? "/" + dict.tours.peopleWordShort : ""}`)
+                  .join(" · ")}
               </p>
             </div>
             <div className="flex w-full shrink-0 justify-end gap-1 sm:w-auto">
