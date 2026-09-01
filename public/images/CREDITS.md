@@ -113,6 +113,10 @@
 - `shahdag-summer-mountains.jpg` — pulled 2026-09-01 from Anar's own Sputnik8 listing
   (activities/41921-zimnyaya-skazka-gornolyzhnyy-tur-v-shagdag-i-tufang).
 
+- `cooking-market.jpg`, `cooking-dushbara.jpg`, `cooking-shah-plov.jpg`, `cooking-dolma.jpg`,
+  `cooking-dolma-overhead.jpg`, `cooking-eggplant-rolls.jpg` — pulled 2026-09-01 from Anar's own Tripster
+  listing for his cooking masterclass (experience/17021/).
+
 Everything else (`anar-*.jpg`, `tour-*.jpg` except the hero) is Anar's own photos from real
 tours, provided 2026-08-29 and curated for the site (near-duplicate shots dropped, only
 tour-appropriate ones used).
