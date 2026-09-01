@@ -83,6 +83,21 @@
 - `lankaran-citrus.jpg`, `lankaran-hirkan-forest.jpg` — pulled 2026-09-01 from Anar's own Sputnik8
   listing (activities/41953-odnodnevnyy-tur-v-gorod-lenkoran).
 
+- `ganja-nizami-mausoleum.jpg` — "Nizami Ganjavi mausoleum in Ganja, Azerbaijan.JPG", Wikimedia Commons,
+  CC BY-SA 3.0 (resized/recompressed)
+  https://commons.wikimedia.org/wiki/File:Nizami_Ganjavi_mausoleum_in_Ganja,_Azerbaijan.JPG
+- `ganja-shah-abbas-mosque.jpg` — "Shah Abbas mosque (Ganja city).jpg", Wikimedia Commons,
+  CC BY-SA 4.0 (resized/recompressed)
+  https://commons.wikimedia.org/wiki/File:Shah_Abbas_mosque_(Ganja_city).jpg
+- `ganja-bottle-house.jpg` — "Bottle house.jpg", Wikimedia Commons, public domain (resized/recompressed)
+  https://commons.wikimedia.org/wiki/File:Bottle_house.jpg
+- `ganja-goygol-lake.jpg` — "Göygöl lake in Azerbaijan.jpg", Wikimedia Commons, CC BY-SA 4.0
+  (resized/recompressed)
+  https://commons.wikimedia.org/wiki/File:G%C3%B6yg%C3%B6l_lake_in_Azerbaijan.jpg
+- `ganja-imamzadeh.jpg` — "İmamzadeh religious complex in Ganja.jpg", Wikimedia Commons, CC BY 4.0
+  (resized/recompressed)
+  https://commons.wikimedia.org/wiki/File:%C4%B0mamzadeh_religious_complex_in_Ganja.jpg
+
 Everything else (`anar-*.jpg`, `tour-*.jpg` except the hero) is Anar's own photos from real
 tours, provided 2026-08-29 and curated for the site (near-duplicate shots dropped, only
 tour-appropriate ones used).
