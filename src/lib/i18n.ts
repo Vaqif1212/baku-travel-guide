@@ -87,6 +87,8 @@ function buildDict(locale: Locale) {
         title: "Что говорят туристы",
         disclaimer: "Примеры отзывов",
         leaveGoogleReview: "Оставить отзыв в Google →",
+        qrHint: "Или отсканируйте QR-код телефоном",
+        qrDownload: "Скачать QR-код",
       },
       faq: {
         title: "Частые вопросы",
@@ -181,6 +183,8 @@ function buildDict(locale: Locale) {
         title: "Turistlər nə deyir",
         disclaimer: "Nümunə rəylər",
         leaveGoogleReview: "Google-da rəy qoyun →",
+        qrHint: "Və ya telefonla QR-kodu skan edin",
+        qrDownload: "QR-kodu yüklə",
       },
       faq: {
         title: "Tez-tez verilən suallar",
@@ -275,6 +279,8 @@ function buildDict(locale: Locale) {
         title: "What travelers say",
         disclaimer: "Sample reviews",
         leaveGoogleReview: "Leave a review on Google →",
+        qrHint: "Or scan the QR code with your phone",
+        qrDownload: "Download QR code",
       },
       faq: {
         title: "Frequently asked questions",
