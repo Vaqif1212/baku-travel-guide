@@ -70,6 +70,10 @@
   CC BY-SA 4.0 (resized/recompressed)
   https://commons.wikimedia.org/wiki/File:Ivanovka_Ismailli,_Azerbaijan.jpg
 
+- `old-city-ateshgah.jpg` — "Templo de fuego, Baku, Azerbaiyán, 2016-09-27, DD 33.jpg" by Diego Delso,
+  Wikimedia Commons, CC BY-SA 4.0 (resized/recompressed)
+  https://commons.wikimedia.org/wiki/File:Templo_de_fuego,_Baku,_Azerbaiy%C3%A1n,_2016-09-27,_DD_33.jpg
+
 Everything else (`anar-*.jpg`, `tour-*.jpg` except the hero) is Anar's own photos from real
 tours, provided 2026-08-29 and curated for the site (near-duplicate shots dropped, only
 tour-appropriate ones used).
