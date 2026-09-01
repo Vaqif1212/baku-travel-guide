@@ -122,6 +122,8 @@
   (a stylised captioned "Баку. Старые Дворы..." portrait) was excluded as clearly a curated/branded
   stock image rather than a candid photo.
 
+The "Airport Transfer" listing has no photos (a transport service, not a sightseeing tour).
+
 Everything else (`anar-*.jpg`, `tour-*.jpg` except the hero) is Anar's own photos from real
 tours, provided 2026-08-29 and curated for the site (near-duplicate shots dropped, only
 tour-appropriate ones used).
