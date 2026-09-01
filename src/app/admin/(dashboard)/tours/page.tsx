@@ -24,67 +24,51 @@ export default async function AdminToursPage() {
         </Link>
       </div>
 
-      <div className="mt-6 overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-sm">
-        <table className="w-full text-sm">
-          <thead>
-            <tr className="border-b border-neutral-200 bg-neutral-50 text-left text-neutral-500">
-              <th className="px-4 py-3 font-medium" />
-              <th className="px-4 py-3 font-medium">{dict.tours.colTitle}</th>
-              <th className="px-4 py-3 font-medium">{dict.tours.colPrice}</th>
-              <th className="px-4 py-3 font-medium">{dict.tours.colStatus}</th>
-              <th className="px-4 py-3" />
-            </tr>
-          </thead>
-          <tbody>
-            {tours.map((t) => (
-              <tr key={t.id} className="border-b border-neutral-100 last:border-0 hover:bg-neutral-50/60">
-                <td className="px-4 py-3">
-                  <div className="relative h-10 w-14 overflow-hidden rounded-md bg-neutral-100">
-                    {t.imageUrl ? (
-                      <Image src={t.imageUrl} alt="" fill sizes="56px" className="object-cover" />
-                    ) : (
-                      <div className="flex h-full items-center justify-center text-neutral-300">
-                        <IconMap />
-                      </div>
-                    )}
-                  </div>
-                </td>
-                <td className="px-4 py-3 font-medium text-neutral-900">{t.titleRu}</td>
-                <td className="px-4 py-3 text-neutral-600">
-                  {t.priceIndividualAzn} / {t.priceGroupAzn}
-                </td>
-                <td className="px-4 py-3">
-                  <span
-                    className={`rounded-full px-2.5 py-1 text-xs font-semibold ${
-                      t.published ? "bg-green-100 text-green-700" : "bg-neutral-100 text-neutral-500"
-                    }`}
-                  >
-                    {t.published ? dict.common.published : dict.common.hidden}
-                  </span>
-                </td>
-                <td className="px-4 py-3">
-                  <div className="flex justify-end gap-1">
-                    <Link
-                      href={`/admin/tours/${t.id}`}
-                      className="inline-flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-sm font-medium text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-neutral-900"
-                    >
-                      <IconPencil />
-                      {dict.common.edit}
-                    </Link>
-                    <DeleteButton action={deleteTour.bind(null, t.id)} confirmText={dict.common.confirmDelete} label={dict.common.delete} />
-                  </div>
-                </td>
-              </tr>
-            ))}
-            {tours.length === 0 && (
-              <tr>
-                <td colSpan={5} className="px-4 py-12 text-center text-neutral-400">
-                  {dict.tours.empty}
-                </td>
-              </tr>
-            )}
-          </tbody>
-        </table>
+      <div className="mt-6 space-y-3">
+        {tours.map((t) => (
+          <div key={t.id} className="flex flex-wrap items-center gap-4 rounded-xl border border-neutral-200 bg-white p-4 shadow-sm sm:flex-nowrap">
+            <div className="relative h-14 w-20 shrink-0 overflow-hidden rounded-lg bg-neutral-100">
+              {t.imageUrl ? (
+                <Image src={t.imageUrl} alt="" fill sizes="80px" className="object-cover" />
+              ) : (
+                <div className="flex h-full items-center justify-center text-neutral-300">
+                  <IconMap />
+                </div>
+              )}
+            </div>
+            <div className="min-w-0 flex-1">
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="font-medium text-neutral-900">{t.titleRu}</span>
+                <span
+                  className={`rounded-full px-2.5 py-0.5 text-xs font-semibold ${
+                    t.published ? "bg-green-100 text-green-700" : "bg-neutral-100 text-neutral-500"
+                  }`}
+                >
+                  {t.published ? dict.common.published : dict.common.hidden}
+                </span>
+              </div>
+              <p className="mt-1 text-sm text-neutral-500">
+                {t.priceIndividualAzn} / {t.priceGroupAzn} AZN
+              </p>
+            </div>
+            <div className="flex w-full shrink-0 justify-end gap-1 sm:w-auto">
+              <Link
+                href={`/admin/tours/${t.id}`}
+                className="inline-flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-sm font-medium text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-neutral-900"
+              >
+                <IconPencil />
+                {dict.common.edit}
+              </Link>
+              <DeleteButton action={deleteTour.bind(null, t.id)} confirmText={dict.common.confirmDelete} label={dict.common.delete} />
+            </div>
+          </div>
+        ))}
+        {tours.length === 0 && (
+          <div className="flex flex-col items-center gap-3 rounded-xl border border-dashed border-neutral-200 py-16 text-neutral-400">
+            <IconMap />
+            {dict.tours.empty}
+          </div>
+        )}
       </div>
     </div>
   );
