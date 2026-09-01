@@ -117,6 +117,11 @@
   `cooking-dolma-overhead.jpg`, `cooking-eggplant-rolls.jpg` — pulled 2026-09-01 from Anar's own Tripster
   listing for his cooking masterclass (experience/17021/).
 
+- `oldcity-secrets-*.jpg` (7 files) — pulled 2026-09-01 from Anar's own Tripster listing
+  "Тайны жителей Старого города" (experience/13812/). One photo from that listing's gallery
+  (a stylised captioned "Баку. Старые Дворы..." portrait) was excluded as clearly a curated/branded
+  stock image rather than a candid photo.
+
 Everything else (`anar-*.jpg`, `tour-*.jpg` except the hero) is Anar's own photos from real
 tours, provided 2026-08-29 and curated for the site (near-duplicate shots dropped, only
 tour-appropriate ones used).
