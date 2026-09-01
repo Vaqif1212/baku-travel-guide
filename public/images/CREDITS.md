@@ -74,6 +74,12 @@
   Wikimedia Commons, CC BY-SA 4.0 (resized/recompressed)
   https://commons.wikimedia.org/wiki/File:Templo_de_fuego,_Baku,_Azerbaiy%C3%A1n,_2016-09-27,_DD_33.jpg
 
+- `khizi-candy-mountains.jpg`, `pink-lake-masazir.jpg` — pulled 2026-09-01 from Anar's own Sputnik8
+  listing (activities/49768-agatovye-gory-rozovoe-ozero-gora-beshbarmag...).
+- `beshbarmag-mountain.jpg` — "Beshbarmag mountain in Azerbaijan.jpg", Wikimedia Commons,
+  CC BY-SA 3.0 (resized/recompressed)
+  https://commons.wikimedia.org/wiki/File:Beshbarmag_mountain_in_Azerbaijan.jpg
+
 Everything else (`anar-*.jpg`, `tour-*.jpg` except the hero) is Anar's own photos from real
 tours, provided 2026-08-29 and curated for the site (near-duplicate shots dropped, only
 tour-appropriate ones used).
