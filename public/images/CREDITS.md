@@ -107,6 +107,12 @@
   CC BY-SA 4.0 (resized/recompressed)
   https://commons.wikimedia.org/wiki/File:View_of_Guba_Genocide_Memorial_Complex_2.JPG
 
+- `shahdag-ski-lift.jpg` — "Ski season in Shahdag.JPG", Wikimedia Commons, CC BY-SA 3.0
+  (resized/recompressed)
+  https://commons.wikimedia.org/wiki/File:Ski_season_in_Shahdag.JPG
+- `shahdag-summer-mountains.jpg` — pulled 2026-09-01 from Anar's own Sputnik8 listing
+  (activities/41921-zimnyaya-skazka-gornolyzhnyy-tur-v-shagdag-i-tufang).
+
 Everything else (`anar-*.jpg`, `tour-*.jpg` except the hero) is Anar's own photos from real
 tours, provided 2026-08-29 and curated for the site (near-duplicate shots dropped, only
 tour-appropriate ones used).
