@@ -43,9 +43,9 @@
   Wikimedia Commons, CC BY-SA 4.0 (resized/recompressed)
   https://commons.wikimedia.org/wiki/File:Albanian_Church,_Kish_(P1090408).jpg
 
-- `old-city-heydar-aliyev-center.jpg` — "Heydar Aliyev International Conference Center Baku Azerbaijan.jpg"
-  by Fanti Salms, Wikimedia Commons, CC BY-SA 4.0 (resized/recompressed)
-  https://commons.wikimedia.org/wiki/File:Heydar_Aliyev_International_Conference_Center_Baku_Azerbaijan.jpg
+- `old-city-heydar-aliyev-center.jpg` — "Heydar Aliyev Center, Baku - HyderAliyevCenter8319.jpg",
+  Wikimedia Commons, CC0 (resized/recompressed) — exterior wave-shape night shot
+  https://commons.wikimedia.org/wiki/File:Heydar_Aliyev_Center,_Baku_-_HyderAliyevCenter8319.jpg
 - `old-city-bibi-heybat-mosque.jpg` — "Bibi Heybat Mosque Baku 1.jpg" by Emin Bashirov, Wikimedia Commons,
   CC BY-SA 3.0 (resized/recompressed)
   https://commons.wikimedia.org/wiki/File:Bibi_Heybat_Mosque_Baku_1.jpg
