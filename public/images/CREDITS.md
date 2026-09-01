@@ -43,9 +43,6 @@
   Wikimedia Commons, CC BY-SA 4.0 (resized/recompressed)
   https://commons.wikimedia.org/wiki/File:Albanian_Church,_Kish_(P1090408).jpg
 
-- `old-city-heydar-aliyev-center.jpg` — "Heydar Aliyev Center, Baku - HyderAliyevCenter8319.jpg",
-  Wikimedia Commons, CC0 (resized/recompressed) — exterior wave-shape night shot
-  https://commons.wikimedia.org/wiki/File:Heydar_Aliyev_Center,_Baku_-_HyderAliyevCenter8319.jpg
 - `old-city-bibi-heybat-mosque.jpg` — "Bibi Heybat Mosque Baku 1.jpg" by Emin Bashirov, Wikimedia Commons,
   CC BY-SA 3.0 (resized/recompressed)
   https://commons.wikimedia.org/wiki/File:Bibi_Heybat_Mosque_Baku_1.jpg
@@ -53,10 +50,16 @@
   Wikimedia Commons, CC BY-SA 4.0 (resized/recompressed)
   https://commons.wikimedia.org/wiki/File:Baku_Boulevard,_Little_Venice.jpg
 - `old-city-oil-derrick.jpg`, `old-city-icherisheher-street.jpg` — client-forwarded photos (2026-09-01),
-  low copyright-risk (casual/tourist-style framing, not stock-looking); provenance not independently
-  confirmed, kept after excluding the other 8 client-forwarded photos that looked like professional/stock
-  tourism photography (drone shots, blue-hour architecture shots, staged scenes) — those were replaced
-  with the Wikimedia-licensed images above instead.
+  low copyright-risk (casual/tourist-style framing, not stock-looking); confirmed 2026-09-01 that the
+  oil-derrick shot also appears in Anar's own Tripster listing (experience/105500) tagged `source: guide`
+  (see below), corroborating it's genuinely his.
+- `old-city-heydar-aliyev-center.jpg`, `old-city-icherisheher-lion-wall.jpg`,
+  `old-city-flame-tower-closeup.jpg`, `old-city-flag-square.jpg` — pulled 2026-09-01 directly from Anar's
+  own Tripster listing (https://experience.tripster.ru/experience/105500/) via its public gallery API
+  (`/api/web/v1/gallery/?experience_with_reviews=105500`), which tags each photo's `source` as `"guide"`
+  (uploaded by Anar) vs `"stock"` (licensed stock Tripster provides) — only `"guide"`-tagged photos were
+  used, since those are confirmed to be Anar's own. The `"stock"`-tagged and unlabeled photos on that
+  listing were left alone.
 
 Everything else (`anar-*.jpg`, `tour-*.jpg` except the hero) is Anar's own photos from real
 tours, provided 2026-08-29 and curated for the site (near-duplicate shots dropped, only
