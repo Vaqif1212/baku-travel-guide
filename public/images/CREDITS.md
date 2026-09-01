@@ -61,6 +61,15 @@
   used, since those are confirmed to be Anar's own. The `"stock"`-tagged and unlabeled photos on that
   listing were left alone.
 
+- `shamakhi-lahic-mountain-road.jpg`, `shamakhi-lahic-valley-view.jpg` — pulled 2026-09-01 directly from
+  Anar's own Sputnik8 listing (sputnik8.com/ru/baku/activities/19944-shemaha-lagich-ivanovka), real camera
+  photos (5184x3456 / 1080x578) under his real name and reviews.
+- `shamakhi-lahic-town.jpg` — "Lahic 1154.jpg", Wikimedia Commons, CC BY-SA 3.0 (resized/recompressed)
+  https://commons.wikimedia.org/wiki/File:Lahic_1154.jpg
+- `shamakhi-lahic-ivanovka.jpg` — "Ivanovka Ismailli, Azerbaijan.jpg", Wikimedia Commons,
+  CC BY-SA 4.0 (resized/recompressed)
+  https://commons.wikimedia.org/wiki/File:Ivanovka_Ismailli,_Azerbaijan.jpg
+
 Everything else (`anar-*.jpg`, `tour-*.jpg` except the hero) is Anar's own photos from real
 tours, provided 2026-08-29 and curated for the site (near-duplicate shots dropped, only
 tour-appropriate ones used).
