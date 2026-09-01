@@ -3,9 +3,21 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { prisma } from "@/lib/prisma";
+import { slugify } from "@/lib/slugify";
 
 function str(formData: FormData, key: string): string {
   return String(formData.get(key) ?? "").trim();
+}
+
+/** Turns a title into a unique slug, appending -2, -3, … if it's already taken. */
+async function uniqueSlug(title: string): Promise<string> {
+  const base = slugify(title) || "tour";
+  let slug = base;
+  let n = 2;
+  while (await prisma.tour.findUnique({ where: { slug }, select: { id: true } })) {
+    slug = `${base}-${n++}`;
+  }
+  return slug;
 }
 
 function num(formData: FormData, key: string): number {
@@ -22,11 +34,13 @@ function revalidateTourPages(slug: string) {
 }
 
 export async function createTour(formData: FormData) {
-  const slug = str(formData, "slug");
+  const slug = await uniqueSlug(str(formData, "titleRu"));
+  const last = await prisma.tour.aggregate({ _max: { order: true } });
+  const order = (last._max.order ?? 0) + 1;
   await prisma.tour.create({
     data: {
       slug,
-      order: num(formData, "order"),
+      order,
       published: formData.get("published") === "on",
       imageUrl: str(formData, "imageUrl"),
       galleryImages: formData.getAll("galleryImages").map(String),
@@ -49,12 +63,9 @@ export async function createTour(formData: FormData) {
 
 export async function updateTour(id: string, formData: FormData) {
   const existing = await prisma.tour.findUnique({ where: { id }, select: { slug: true } });
-  const slug = str(formData, "slug");
   await prisma.tour.update({
     where: { id },
     data: {
-      slug,
-      order: num(formData, "order"),
       published: formData.get("published") === "on",
       imageUrl: str(formData, "imageUrl"),
       galleryImages: formData.getAll("galleryImages").map(String),
@@ -71,8 +82,7 @@ export async function updateTour(id: string, formData: FormData) {
       priceGroupAzn: num(formData, "priceGroupAzn"),
     },
   });
-  revalidateTourPages(slug);
-  if (existing && existing.slug !== slug) revalidatePath(`/tours/${existing.slug}`);
+  if (existing) revalidateTourPages(existing.slug);
   redirect("/admin/tours");
 }
 

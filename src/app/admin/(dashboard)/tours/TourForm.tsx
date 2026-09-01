@@ -2,7 +2,6 @@ import type { Tour } from "@prisma/client";
 import type { AdminDict } from "@/lib/adminI18n";
 import { ImageUploadField } from "@/components/admin/ImageUploadField";
 import { GalleryUploadField } from "@/components/admin/GalleryUploadField";
-import { SlugField } from "@/components/admin/SlugField";
 
 function Field({ label, name, defaultValue, type = "text", required = true }: { label: string; name: string; defaultValue?: string | number; type?: string; required?: boolean }) {
   return (
@@ -91,16 +90,6 @@ export function TourForm({
         <Field label={dict.tours.priceIndividual} name="priceIndividualAzn" type="number" defaultValue={tour?.priceIndividualAzn ?? 0} />
         <Field label={dict.tours.priceGroup} name="priceGroupAzn" type="number" defaultValue={tour?.priceGroupAzn ?? 0} />
       </div>
-
-      <details className="rounded-lg border border-neutral-200 px-4 py-3">
-        <summary className="cursor-pointer select-none text-xs font-bold uppercase tracking-wide text-neutral-500">
-          {dict.common.advanced}
-        </summary>
-        <div className="mt-3 grid gap-4 sm:grid-cols-2">
-          <SlugField label={dict.tours.slug} name="slug" defaultValue={tour?.slug} watchName="titleRu" hint={dict.common.slugHint} />
-          <Field label={dict.common.order} name="order" type="number" defaultValue={tour?.order ?? 0} required={false} />
-        </div>
-      </details>
 
       <button type="submit" className="rounded-lg bg-[#1F3B2E] px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-[#16291F]">
         {dict.common.save}
