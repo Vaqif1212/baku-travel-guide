@@ -17,6 +17,8 @@ export function localizeTour(tour: Tour, locale: Locale): TourViewModel {
     title: field(tour, "title", locale),
     description: field(tour, "description", locale),
     durationHours: field(tour, "duration", locale),
+    included: field(tour, "included", locale),
+    notIncluded: field(tour, "notIncluded", locale),
     priceTiers: parsePriceTiers(tour.priceTiers),
   };
 }

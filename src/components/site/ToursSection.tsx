@@ -7,6 +7,7 @@ import type { Locale } from "@/lib/i18n";
 import { getDict } from "@/lib/i18n";
 import { convertFromAzn, formatPrice, currencies, type Currency } from "@/lib/currency";
 import { tierRangeLabel, type PriceTier } from "@/lib/priceTiers";
+import { splitParagraphs } from "@/lib/paragraphs";
 import { Reveal } from "./Reveal";
 
 export type TourViewModel = {
@@ -16,6 +17,8 @@ export type TourViewModel = {
   title: string;
   description: string;
   durationHours: string;
+  included: string;
+  notIncluded: string;
   priceTiers: PriceTier[];
 };
 
@@ -107,7 +110,7 @@ function TourCard({
       </div>
       <div className="p-7">
         <h3 className="font-display text-xl font-bold text-fg sm:text-2xl">{tour.title}</h3>
-        <p className="mt-3.5 line-clamp-3 text-sm leading-relaxed text-muted">{tour.description.split("\n\n")[0]}</p>
+        <p className="mt-3.5 line-clamp-3 text-sm leading-relaxed text-muted">{splitParagraphs(tour.description)[0]}</p>
 
         {tour.priceTiers.length > 1 && (
           <div className="mt-5 inline-flex flex-wrap overflow-hidden rounded-full border border-border text-xs">

@@ -20,17 +20,32 @@ function Field({ label, name, defaultValue, type = "text", required = true }: { 
   );
 }
 
-function TextAreaField({ label, name, defaultValue }: { label: string; name: string; defaultValue?: string }) {
+function TextAreaField({
+  label,
+  name,
+  defaultValue,
+  rows = 3,
+  required = true,
+  hint,
+}: {
+  label: string;
+  name: string;
+  defaultValue?: string;
+  rows?: number;
+  required?: boolean;
+  hint?: string;
+}) {
   return (
     <label className="block">
       <span className="mb-1.5 block text-xs font-semibold text-neutral-600">{label}</span>
       <textarea
         name={name}
         defaultValue={defaultValue}
-        rows={3}
-        required
+        rows={rows}
+        required={required}
         className="w-full rounded-lg border border-neutral-300 px-3 py-2.5 text-sm transition-colors focus:border-[#1F3B2E] focus:outline-none focus:ring-2 focus:ring-[#1F3B2E]/15"
       />
+      {hint && <span className="mt-1 block text-[11px] text-neutral-400">{hint}</span>}
     </label>
   );
 }
@@ -78,11 +93,27 @@ export function TourForm({
               label={dict.tours.description}
               name={`description${lang}`}
               defaultValue={tour?.[`description${lang}` as keyof Tour] as string}
+              rows={10}
+              hint={dict.tours.descriptionHint}
             />
             <Field
               label={dict.tours.duration}
               name={`duration${lang}`}
               defaultValue={tour?.[`duration${lang}` as keyof Tour] as string}
+            />
+            <TextAreaField
+              label={dict.tours.included}
+              name={`included${lang}`}
+              defaultValue={tour?.[`included${lang}` as keyof Tour] as string}
+              rows={4}
+              required={false}
+            />
+            <TextAreaField
+              label={dict.tours.notIncluded}
+              name={`notIncluded${lang}`}
+              defaultValue={tour?.[`notIncluded${lang}` as keyof Tour] as string}
+              rows={4}
+              required={false}
             />
           </div>
         </fieldset>

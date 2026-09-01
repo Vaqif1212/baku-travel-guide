@@ -7,6 +7,7 @@ import { localizeTour } from "@/lib/localize";
 import type { Locale } from "@/lib/i18n";
 import { getDict } from "@/lib/i18n";
 import { whatsappHref } from "@/lib/contact";
+import { splitParagraphs, splitLines } from "@/lib/paragraphs";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 import { PromoBanner } from "./PromoBanner";
@@ -21,6 +22,9 @@ export async function TourDetailPage({ locale, slug }: { locale: Locale; slug: s
   const view = localizeTour(tour, locale);
   const promoText = locale === "ru" ? settings.promoTextRu : locale === "az" ? settings.promoTextAz : settings.promoTextEn;
   const home = locale === "ru" ? "" : `/${locale}`;
+  const paragraphs = splitParagraphs(view.description);
+  const includedList = splitLines(view.included);
+  const notIncludedList = splitLines(view.notIncluded);
 
   const contact = {
     phone: settings.phone,
@@ -56,7 +60,7 @@ export async function TourDetailPage({ locale, slug }: { locale: Locale; slug: s
 
         <div className="mx-auto max-w-2xl px-5 sm:px-8">
           <div className="mt-10 space-y-8 text-base leading-relaxed text-fg/85 sm:text-lg">
-            {view.description.split("\n\n").map((para, i) => {
+            {paragraphs.map((para, i) => {
               const img = tour.galleryImages[i];
               return (
                 <div key={i}>
@@ -89,11 +93,42 @@ export async function TourDetailPage({ locale, slug }: { locale: Locale; slug: s
             />
           </Reveal>
 
-          {tour.galleryImages.length > view.description.split("\n\n").length && (
+          {(includedList.length > 0 || notIncludedList.length > 0) && (
+            <Reveal delay={130} className="mt-10 grid gap-6 sm:grid-cols-2">
+              {includedList.length > 0 && (
+                <div>
+                  <h2 className="font-display text-lg font-bold text-fg">{dict.tours.includedTitle}</h2>
+                  <ul className="mt-3 space-y-2 text-sm text-fg/85">
+                    {includedList.map((item, i) => (
+                      <li key={i} className="flex items-start gap-2">
+                        <span className="mt-1 text-gold">✓</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              {notIncludedList.length > 0 && (
+                <div>
+                  <h2 className="font-display text-lg font-bold text-fg">{dict.tours.notIncludedTitle}</h2>
+                  <ul className="mt-3 space-y-2 text-sm text-muted">
+                    {notIncludedList.map((item, i) => (
+                      <li key={i} className="flex items-start gap-2">
+                        <span className="mt-1">✕</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </Reveal>
+          )}
+
+          {tour.galleryImages.length > paragraphs.length && (
             <Reveal delay={150} className="mt-14">
               <h2 className="font-display text-xl font-bold text-fg sm:text-2xl">{dict.tours.galleryTitle}</h2>
               <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3">
-                {tour.galleryImages.slice(view.description.split("\n\n").length).map((src, i) => (
+                {tour.galleryImages.slice(paragraphs.length).map((src, i) => (
                   <div key={src} className="group relative aspect-4/3 overflow-hidden rounded-2xl border border-border">
                     <Image
                       src={src}

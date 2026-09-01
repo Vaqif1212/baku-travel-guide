@@ -30,6 +30,14 @@ model Tour {
   durationAz      String
   durationEn      String
 
+  // Admin-entered, one item per line - e.g. "Транспорт" / "Услуги гида".
+  includedRu      String @default("")
+  includedAz      String @default("")
+  includedEn      String @default("")
+  notIncludedRu   String @default("")
+  notIncludedAz   String @default("")
+  notIncludedEn   String @default("")
+
   // Flexible per-tour pricing tiers, admin-editable, e.g.:
   // [{"minPeople":1,"maxPeople":4,"priceAzn":150,"perPerson":false},
   //  {"minPeople":5,"maxPeople":null,"priceAzn":30,"perPerson":true}]
