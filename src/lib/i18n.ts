@@ -30,8 +30,8 @@ function buildDict(locale: Locale) {
       headerCta: "Написать в WhatsApp",
       hero: {
         eyebrow: "Личный гид в Баку",
-        titleLine1: "Баку — глазами того,",
-        titleLine2: "кто в нём вырос",
+        titleLine1: "Настоящий Азербайджан",
+        titleLine2: "глазами местного гида",
         subtitle: "Гид, водитель и переводчик. Покажу вам настоящий Азербайджан — от древних улиц Ичери-шехер до огненных гор Апшерона.",
         ctaPrimary: "Написать в WhatsApp",
         ctaSecondary: "Позвонить",
@@ -116,8 +116,8 @@ function buildDict(locale: Locale) {
       headerCta: "WhatsApp-a yazın",
       hero: {
         eyebrow: "Bakıda şəxsi bələdçi",
-        titleLine1: "Bakı — burada böyümüş",
-        titleLine2: "insanın gözü ilə",
+        titleLine1: "Əsl Azərbaycan",
+        titleLine2: "yerli bələdçinin gözü ilə",
         subtitle: "Bələdçi, sürücü və tərcüməçi. Sizə əsl Azərbaycanı göstərəcəyəm — İçərişəhərin qədim küçələrindən Abşeronun odlu dağlarına qədər.",
         ctaPrimary: "WhatsApp-a yazın",
         ctaSecondary: "Zəng edin",
@@ -202,8 +202,8 @@ function buildDict(locale: Locale) {
       headerCta: "Message on WhatsApp",
       hero: {
         eyebrow: "Private guide in Baku",
-        titleLine1: "Baku — through the eyes",
-        titleLine2: "of someone who grew up here",
+        titleLine1: "The real Azerbaijan",
+        titleLine2: "through a local guide's eyes",
         subtitle: "Guide, driver and translator. I'll show you the real Azerbaijan — from the ancient streets of Icherisheher to the eternal flames of Absheron.",
         ctaPrimary: "Message on WhatsApp",
         ctaSecondary: "Call",
