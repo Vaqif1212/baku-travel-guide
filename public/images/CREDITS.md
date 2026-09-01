@@ -18,6 +18,31 @@
   CC BY-SA 3.0 de (resized/recompressed) — generic tour-van photo, not Anar's actual vehicle
   https://commons.wikimedia.org/wiki/File:Mercedes-Benz_Viano_Lang_CDI_3.0_V6_BlueEFFICIENCY_Avantgarde_Edition_125_(V_639,_Facelift)_%E2%80%93_Frontansicht,_15._Juli_2012,_D%C3%BCsseldorf.jpg
 
+- `shamakhi-gabala-sheki-diri-baba.jpg` — "Mausoleo de Diri Baba, Qobustan, Azerbaiyán, 2016-09-27, DD 09.jpg"
+  by Diego Delso, Wikimedia Commons, CC BY-SA 4.0 (resized/recompressed)
+  https://commons.wikimedia.org/wiki/File:Mausoleo_de_Diri_Baba,_Qobustan,_Azerbaiy%C3%A1n,_2016-09-27,_DD_09.jpg
+- `shamakhi-gabala-sheki-juma-mosque.jpg` — "Mezquita del Viernes, Shamakhi, Azerbaiyán, 2016-09-27, DD 13-15 HDR.jpg"
+  by Diego Delso, Wikimedia Commons, CC BY-SA 4.0 (resized/recompressed)
+  https://commons.wikimedia.org/wiki/File:Mezquita_del_Viernes,_Shamakhi,_Azerbaiy%C3%A1n,_2016-09-27,_DD_13-15_HDR.jpg
+- `shamakhi-gabala-sheki-gabala-mountains.jpg` — "Azerbaijan Gabala 1.jpg" by Havin_HP, Wikimedia Commons,
+  CC BY-SA 4.0 (resized/recompressed)
+  https://commons.wikimedia.org/wiki/File:Azerbaijan_Gabala_1.jpg
+- `shamakhi-gabala-sheki-nij-village.jpg` — "Nij, Azerbaijan.JPG" by Cavid Sumqayıtlı, Wikimedia Commons,
+  CC BY-SA 3.0 (resized/recompressed)
+  https://commons.wikimedia.org/wiki/File:Nij,_Azerbaijan.JPG
+- `shamakhi-gabala-sheki-sheki-khans-palace.jpg` — "Sheki khan palace main façade.jpg" by Sefer azeri,
+  Wikimedia Commons, CC BY-SA 4.0 (resized/recompressed)
+  https://commons.wikimedia.org/wiki/File:Sheki_khan_palace_main_fa%C3%A7ade.jpg
+- `shamakhi-gabala-sheki-sheki-caravanserai.jpg` — "Upper Caravanserai, Sheki, Azerbaijan.jpg" by Fanti Salms,
+  Wikimedia Commons, CC BY-SA 4.0 (resized/recompressed)
+  https://commons.wikimedia.org/wiki/File:Upper_Caravanserai,_Sheki,_Azerbaijan.jpg
+- `shamakhi-gabala-sheki-sheki-halva.jpg` — "Shekpakhlava 01.jpg" by Pannet, Wikimedia Commons,
+  CC BY 4.0 (resized/recompressed)
+  https://commons.wikimedia.org/wiki/File:Shekpakhlava_01.jpg
+- `shamakhi-gabala-sheki-kish-church.jpg` — "Albanian Church, Kish (P1090408).jpg" by Matti Blume,
+  Wikimedia Commons, CC BY-SA 4.0 (resized/recompressed)
+  https://commons.wikimedia.org/wiki/File:Albanian_Church,_Kish_(P1090408).jpg
+
 Everything else (`anar-*.jpg`, `tour-*.jpg` except the hero) is Anar's own photos from real
 tours, provided 2026-08-29 and curated for the site (near-duplicate shots dropped, only
 tour-appropriate ones used).
