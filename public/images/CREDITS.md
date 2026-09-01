@@ -43,6 +43,21 @@
   Wikimedia Commons, CC BY-SA 4.0 (resized/recompressed)
   https://commons.wikimedia.org/wiki/File:Albanian_Church,_Kish_(P1090408).jpg
 
+- `old-city-heydar-aliyev-center.jpg` — "Heydar Aliyev International Conference Center Baku Azerbaijan.jpg"
+  by Fanti Salms, Wikimedia Commons, CC BY-SA 4.0 (resized/recompressed)
+  https://commons.wikimedia.org/wiki/File:Heydar_Aliyev_International_Conference_Center_Baku_Azerbaijan.jpg
+- `old-city-bibi-heybat-mosque.jpg` — "Bibi Heybat Mosque Baku 1.jpg" by Emin Bashirov, Wikimedia Commons,
+  CC BY-SA 3.0 (resized/recompressed)
+  https://commons.wikimedia.org/wiki/File:Bibi_Heybat_Mosque_Baku_1.jpg
+- `old-city-little-venice-canal.jpg` — "Baku Boulevard, Little Venice.jpg" by Nigar2nigarnigar,
+  Wikimedia Commons, CC BY-SA 4.0 (resized/recompressed)
+  https://commons.wikimedia.org/wiki/File:Baku_Boulevard,_Little_Venice.jpg
+- `old-city-oil-derrick.jpg`, `old-city-icherisheher-street.jpg` — client-forwarded photos (2026-09-01),
+  low copyright-risk (casual/tourist-style framing, not stock-looking); provenance not independently
+  confirmed, kept after excluding the other 8 client-forwarded photos that looked like professional/stock
+  tourism photography (drone shots, blue-hour architecture shots, staged scenes) — those were replaced
+  with the Wikimedia-licensed images above instead.
+
 Everything else (`anar-*.jpg`, `tour-*.jpg` except the hero) is Anar's own photos from real
 tours, provided 2026-08-29 and curated for the site (near-duplicate shots dropped, only
 tour-appropriate ones used).
