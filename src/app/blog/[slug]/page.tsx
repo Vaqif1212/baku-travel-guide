@@ -8,6 +8,7 @@ import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { PromoBanner } from "@/components/site/PromoBanner";
 import { whatsappHref } from "@/lib/contact";
+import { splitParagraphs } from "@/lib/paragraphs";
 
 const MONTHS_RU = [
   "января", "февраля", "марта", "апреля", "мая", "июня",
@@ -68,6 +69,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     facebook: settings.facebook,
   };
 
+  const paragraphs = splitParagraphs(post.body);
+
   return (
     <div className="min-h-screen bg-bg">
       {settings.promoEnabled && settings.promoTextRu && <PromoBanner text={settings.promoTextRu} />}
@@ -89,11 +92,45 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         )}
 
         <div className="mx-auto max-w-2xl px-5 sm:px-8">
-          <div className="mt-10 space-y-5 text-base leading-relaxed text-fg/85 sm:text-lg">
-            {post.body.split("\n\n").map((para, i) => (
-              <p key={i}>{para}</p>
-            ))}
+          <div className="mt-10 space-y-8 text-base leading-relaxed text-fg/85 sm:text-lg">
+            {paragraphs.map((para, i) => {
+              const img = post.galleryImages[i];
+              return (
+                <div key={i}>
+                  <p>{para}</p>
+                  {img && (
+                    <div className="relative mt-8 aspect-video overflow-hidden rounded-2xl border border-border">
+                      <Image
+                        src={img}
+                        alt={`${post.title} ${i + 1}`}
+                        fill
+                        sizes="(min-width: 640px) 672px, 100vw"
+                        className="object-cover"
+                      />
+                    </div>
+                  )}
+                </div>
+              );
+            })}
           </div>
+
+          {post.galleryImages.length > paragraphs.length && (
+            <div className="mt-14">
+              <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+                {post.galleryImages.slice(paragraphs.length).map((src, i) => (
+                  <div key={src} className="group relative aspect-4/3 overflow-hidden rounded-2xl border border-border">
+                    <Image
+                      src={src}
+                      alt={`${post.title} ${i + 1}`}
+                      fill
+                      sizes="(min-width: 640px) 33vw, 50vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
 
           <div className="mt-14 rounded-2xl border border-gold/30 bg-bg-alt p-7 text-center sm:p-9">
             <p className="font-display text-xl font-bold text-fg sm:text-2xl">Понравился маршрут?</p>

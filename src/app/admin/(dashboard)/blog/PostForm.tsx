@@ -1,6 +1,7 @@
 import type { Post } from "@prisma/client";
 import type { AdminDict } from "@/lib/adminI18n";
 import { ImageUploadField } from "@/components/admin/ImageUploadField";
+import { GalleryUploadField } from "@/components/admin/GalleryUploadField";
 import { SlugField } from "@/components/admin/SlugField";
 
 export function PostForm({ post, action, dict }: { post?: Post; action: (formData: FormData) => void | Promise<void>; dict: AdminDict }) {
@@ -33,7 +34,17 @@ export function PostForm({ post, action, dict }: { post?: Post; action: (formDat
       <label className="block">
         <span className="mb-1.5 block text-xs font-semibold text-neutral-600">{dict.blog.body}</span>
         <textarea name="body" defaultValue={post?.body} rows={12} required className="w-full rounded-lg border border-neutral-300 px-3 py-2.5 text-sm transition-colors focus:border-[#1F3B2E] focus:outline-none focus:ring-2 focus:ring-[#1F3B2E]/15" />
+        <span className="mt-1 block text-[11px] text-neutral-400">{dict.blog.bodyHint}</span>
       </label>
+
+      <GalleryUploadField
+        label={dict.blog.galleryImages}
+        name="galleryImages"
+        defaultValue={post?.galleryImages}
+        chooseLabel={dict.common.imageChoose}
+        uploadingLabel={dict.common.imageUploading}
+        removeLabel={dict.common.imageRemove}
+      />
 
       <label className="flex items-center gap-2 text-sm">
         <input type="checkbox" name="published" defaultChecked={post?.published ?? true} className="h-4 w-4" />

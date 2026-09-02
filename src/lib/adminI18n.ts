@@ -95,6 +95,8 @@ const dict = {
       titleField: "Заголовок",
       excerpt: "Краткое описание (для списка и SEO)",
       body: "Текст статьи (пустая строка = новый абзац)",
+      bodyHint: "Фотографии из галереи ниже автоматически появятся под абзацами по порядку — первая под первым, вторая под вторым и так далее.",
+      galleryImages: "Дополнительные фотографии",
     },
     testimonials: {
       title: "Отзывы",
@@ -226,6 +228,8 @@ const dict = {
       titleField: "Başlıq",
       excerpt: "Qısa təsvir (siyahı və SEO üçün)",
       body: "Məqalənin mətni (boş sətir = yeni abzas)",
+      bodyHint: "Aşağıdakı qalereyadan şəkillər avtomatik sırayla abzasların altına düşəcək — birinci şəkil birinci abzasın, ikinci şəkil ikinci abzasın altına və s.",
+      galleryImages: "Əlavə şəkillər",
     },
     testimonials: {
       title: "Rəylər",
@@ -357,6 +361,8 @@ const dict = {
       titleField: "Title",
       excerpt: "Excerpt (for the list and SEO)",
       body: "Post body (blank line = new paragraph)",
+      bodyHint: "Photos from the gallery below will automatically appear under paragraphs in order — the first photo under the first paragraph, the second under the second, and so on.",
+      galleryImages: "Additional photos",
     },
     testimonials: {
       title: "Reviews",
