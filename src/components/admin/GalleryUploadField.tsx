@@ -22,16 +22,25 @@ export function GalleryUploadField({
   const [error, setError] = useState<string | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  async function handleFile(file: File) {
+  async function uploadOne(file: File): Promise<string> {
+    const formData = new FormData();
+    formData.append("file", file);
+    const res = await fetch("/api/admin/upload", { method: "POST", body: formData });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || "Upload failed");
+    return data.url as string;
+  }
+
+  async function handleFiles(files: FileList) {
     setUploading(true);
     setError(null);
     try {
-      const formData = new FormData();
-      formData.append("file", file);
-      const res = await fetch("/api/admin/upload", { method: "POST", body: formData });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error || "Upload failed");
-      setImages((prev) => [...prev, data.url]);
+      // Uploaded one at a time (not Promise.all) so a slow connection
+      // doesn't fire a dozen simultaneous uploads at once.
+      for (const file of Array.from(files)) {
+        const url = await uploadOne(file);
+        setImages((prev) => [...prev, url]);
+      }
     } catch (e) {
       setError(e instanceof Error ? e.message : "Upload failed");
     } finally {
@@ -68,10 +77,11 @@ export function GalleryUploadField({
           ref={inputRef}
           type="file"
           accept="image/jpeg,image/png,image/webp,image/gif"
+          multiple
           className="hidden"
           onChange={(e) => {
-            const file = e.target.files?.[0];
-            if (file) handleFile(file);
+            const files = e.target.files;
+            if (files && files.length > 0) handleFiles(files);
             e.target.value = "";
           }}
         />
