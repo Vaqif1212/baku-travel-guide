@@ -8,6 +8,13 @@ function str(formData: FormData, key: string): string {
   return String(formData.get(key) ?? "").trim();
 }
 
+function revalidateHomepages() {
+  revalidatePath("/");
+  revalidatePath("/az");
+  revalidatePath("/en");
+  revalidatePath("/admin/testimonials");
+}
+
 export async function createTestimonial(formData: FormData) {
   await prisma.testimonial.create({
     data: {
@@ -22,8 +29,7 @@ export async function createTestimonial(formData: FormData) {
       textEn: str(formData, "textEn"),
     },
   });
-  revalidatePath("/");
-  revalidatePath("/admin/testimonials");
+  revalidateHomepages();
   redirect("/admin/testimonials");
 }
 
@@ -42,14 +48,12 @@ export async function updateTestimonial(id: string, formData: FormData) {
       textEn: str(formData, "textEn"),
     },
   });
-  revalidatePath("/");
-  revalidatePath("/admin/testimonials");
+  revalidateHomepages();
   redirect("/admin/testimonials");
 }
 
 export async function deleteTestimonial(id: string) {
   "use server";
   await prisma.testimonial.delete({ where: { id } });
-  revalidatePath("/");
-  revalidatePath("/admin/testimonials");
+  revalidateHomepages();
 }
