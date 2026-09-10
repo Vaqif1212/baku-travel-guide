@@ -31,6 +31,7 @@ export async function updateSettings(_prevState: { message?: string } | undefine
       instagram: str(formData, "instagram"),
       facebook: str(formData, "facebook"),
       googleReviewLink: str(formData, "googleReviewLink"),
+      homeGalleryImages: formData.getAll("homeGalleryImages").map(String),
     },
   });
 

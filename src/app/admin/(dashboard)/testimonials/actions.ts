@@ -33,6 +33,34 @@ export async function createTestimonial(formData: FormData) {
   redirect("/admin/testimonials");
 }
 
+/**
+ * Quick-add for pasting in a real review (e.g. one Anar just saw come in on
+ * Google) without filling out the full RU/AZ/EN form. The single name/
+ * country/text the admin types gets saved into all three language columns
+ * as-is - not translated, just a fast starting point. Anar can open the
+ * full edit form later to give AZ/EN their own wording if he wants to.
+ */
+export async function quickCreateTestimonial(formData: FormData) {
+  const name = str(formData, "name");
+  const country = str(formData, "country");
+  const text = str(formData, "text");
+  const last = await prisma.testimonial.aggregate({ _max: { order: true } });
+  await prisma.testimonial.create({
+    data: {
+      order: (last._max.order ?? 0) + 1,
+      published: true,
+      name,
+      countryRu: country,
+      countryAz: country,
+      countryEn: country,
+      textRu: text,
+      textAz: text,
+      textEn: text,
+    },
+  });
+  revalidateHomepages();
+}
+
 export async function updateTestimonial(id: string, formData: FormData) {
   await prisma.testimonial.update({
     where: { id },

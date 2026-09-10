@@ -118,4 +118,7 @@ model Setting {
   instagram         String  @default("")
   facebook          String  @default("")
   googleReviewLink  String  @default("")
+
+  // Homepage "Кадры с туров" masonry gallery - admin-managed photos.
+  homeGalleryImages String[] @default([])
 }

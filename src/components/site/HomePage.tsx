@@ -63,7 +63,7 @@ export async function HomePage({ locale }: { locale: Locale }) {
           tours={tours.map((t) => localizeTour(t, locale))}
           rates={{ usdRate: settings.usdRate, rubRate: settings.rubRate }}
         />
-        <Gallery locale={locale} />
+        <Gallery locale={locale} photos={settings.homeGalleryImages} />
         <Testimonials
           locale={locale}
           testimonials={testimonials.map((t) => localizeTestimonial(t, locale))}

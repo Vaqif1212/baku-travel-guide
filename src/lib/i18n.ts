@@ -84,6 +84,7 @@ function buildDict(locale: Locale) {
         eyebrow: "Репортаж",
         title: "Кадры с туров",
         subtitle: "Ичери-шехер, Хыналыг, Атешгях и горы Кавказа — то, что вы увидите своими глазами.",
+        photoAlt: "Фото с тура — Baku Travel Guide",
       },
       testimonials: {
         eyebrow: "Отзывы",
@@ -183,6 +184,7 @@ function buildDict(locale: Locale) {
         eyebrow: "Reportaj",
         title: "Turlardan kadrlar",
         subtitle: "İçərişəhər, Xınalıq, Atəşgah və Qafqaz dağları — öz gözünüzlə görəcəkləriniz.",
+        photoAlt: "Turdan foto — Baku Travel Guide",
       },
       testimonials: {
         eyebrow: "Rəylər",
@@ -282,6 +284,7 @@ function buildDict(locale: Locale) {
         eyebrow: "Reportage",
         title: "Moments from tours",
         subtitle: "The Old City, Khinalig, Ateshgah and the Caucasus mountains — what you'll see with your own eyes.",
+        photoAlt: "Photo from a tour — Baku Travel Guide",
       },
       testimonials: {
         eyebrow: "Reviews",

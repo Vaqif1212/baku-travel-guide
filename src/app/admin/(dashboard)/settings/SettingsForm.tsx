@@ -5,6 +5,7 @@ import type { Setting } from "@prisma/client";
 import type { AdminDict } from "@/lib/adminI18n";
 import { updateSettings } from "./actions";
 import { QrCodeCard } from "@/components/admin/QrCodeCard";
+import { GalleryUploadField } from "@/components/admin/GalleryUploadField";
 
 function Field({ label, name, defaultValue, type = "text" }: { label: string; name: string; defaultValue?: string | number; type?: string }) {
   return (
@@ -67,6 +68,18 @@ export function SettingsForm({ settings, dict }: { settings: Setting; dict: Admi
             filename="google-review-qr"
           />
         </div>
+      </fieldset>
+
+      <fieldset className="rounded-lg border border-neutral-200 p-5">
+        <legend className="px-1.5 text-xs font-bold uppercase tracking-wide text-neutral-500">{dict.settings.galleryLegend}</legend>
+        <GalleryUploadField
+          label={dict.settings.galleryHint}
+          name="homeGalleryImages"
+          defaultValue={settings.homeGalleryImages}
+          chooseLabel={dict.common.imageChoose}
+          uploadingLabel={dict.common.imageUploading}
+          removeLabel={dict.common.imageRemove}
+        />
       </fieldset>
 
       <fieldset className="rounded-lg border border-neutral-200 p-5">

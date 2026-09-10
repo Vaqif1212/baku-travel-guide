@@ -3,18 +3,20 @@ import type { Locale } from "@/lib/i18n";
 import { getDict } from "@/lib/i18n";
 import { Reveal } from "./Reveal";
 
-const PHOTOS = [
-  { src: "/images/anar-mountain-peak.jpg", tall: true, alt: "Гид Анар на вершине горы в Азербайджане" },
-  { src: "/images/tour-diri-baba-group.jpg", tall: false, alt: "Группа туристов у мавзолея Диri-баба" },
-  { src: "/images/tour-ateshgah-fire.jpg", tall: false, alt: "Вечный огонь в храме огнепоклонников Атешгях" },
-  { src: "/images/tour-xinaliq-village.jpg", tall: true, alt: "Горное село Хыналыг в Азербайджане" },
-  { src: "/images/tour-jeep-safari.jpg", tall: false, alt: "Джип-сафари по горам Азербайджана" },
-  { src: "/images/anar-canyon-river.jpg", tall: false, alt: "Каньон с рекой в горах Азербайджана" },
-  { src: "/images/tour-group-statue.jpg", tall: true, alt: "Экскурсионная группа у памятника в Баку" },
+// Fallback used only if the admin hasn't uploaded any photos yet in Settings.
+const DEFAULT_PHOTOS = [
+  "/images/anar-mountain-peak.jpg",
+  "/images/tour-diri-baba-group.jpg",
+  "/images/tour-ateshgah-fire.jpg",
+  "/images/tour-xinaliq-village.jpg",
+  "/images/tour-jeep-safari.jpg",
+  "/images/anar-canyon-river.jpg",
+  "/images/tour-group-statue.jpg",
 ];
 
-export function Gallery({ locale }: { locale: Locale }) {
+export function Gallery({ locale, photos }: { locale: Locale; photos: string[] }) {
   const dict = getDict(locale);
+  const list = photos.length > 0 ? photos : DEFAULT_PHOTOS;
   return (
     <section className="bg-bg-alt py-20 sm:py-24">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
@@ -25,14 +27,14 @@ export function Gallery({ locale }: { locale: Locale }) {
         </Reveal>
 
         <div className="mt-12 columns-2 gap-4 sm:columns-3 lg:columns-4">
-          {PHOTOS.map((photo, i) => (
-            <Reveal key={photo.src} delay={(i % 4) * 80} y={16}>
+          {list.map((src, i) => (
+            <Reveal key={src} delay={(i % 4) * 80} y={16}>
               <div
-                className={`group relative mb-4 w-full overflow-hidden rounded-2xl border border-border ${photo.tall ? "aspect-3/4" : "aspect-4/3"}`}
+                className={`group relative mb-4 w-full overflow-hidden rounded-2xl border border-border ${i % 3 === 0 ? "aspect-3/4" : "aspect-4/3"}`}
               >
                 <Image
-                  src={photo.src}
-                  alt={photo.alt}
+                  src={src}
+                  alt={dict.gallery.photoAlt}
                   fill
                   sizes="(min-width: 1024px) 25vw, 50vw"
                   className="object-cover transition-transform duration-500 group-hover:scale-110"
