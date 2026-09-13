@@ -62,7 +62,7 @@ export function ToursSection({
 
         <div className="mt-12 grid gap-8 lg:grid-cols-2">
           {tours.map((tour, i) => (
-            <Reveal key={tour.id} delay={i * 100}>
+            <Reveal key={tour.id} delay={i * 100} className="h-full">
               <TourCard tour={tour} dict={dict} currency={currency} rates={rates} locale={locale} />
             </Reveal>
           ))}
@@ -92,8 +92,8 @@ function TourCard({
   const home = locale === "ru" ? "" : `/${locale}`;
 
   return (
-    <article className="group overflow-hidden rounded-2xl border border-border bg-bg-alt transition-shadow duration-300 hover:shadow-xl">
-      <div className="relative flex h-52 items-end overflow-hidden bg-linear-to-br from-green-mid to-green-deep p-5">
+    <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-bg-alt transition-shadow duration-300 hover:shadow-xl">
+      <div className="relative flex h-52 shrink-0 items-end overflow-hidden bg-linear-to-br from-green-mid to-green-deep p-5">
         {tour.imageUrl && (
           <Image
             src={tour.imageUrl}
@@ -108,7 +108,7 @@ function TourCard({
           {dict.tours.dayTour} · {tour.durationHours}
         </span>
       </div>
-      <div className="p-7">
+      <div className="flex flex-1 flex-col p-7">
         <h3 className="font-display text-xl font-bold text-fg sm:text-2xl">{tour.title}</h3>
         <p className="mt-3.5 line-clamp-3 text-sm leading-relaxed text-muted">{splitParagraphs(tour.description)[0]}</p>
 
@@ -135,7 +135,7 @@ function TourCard({
 
         <Link
           href={`${home}/tours/${tour.slug}`}
-          className="mt-6 block rounded-full bg-gold py-3.5 text-center text-sm font-bold text-green-deep transition-all hover:scale-[1.02] hover:bg-gold-light active:scale-[0.98]"
+          className="mt-auto block rounded-full bg-gold py-3.5 text-center text-sm font-bold text-green-deep transition-all hover:scale-[1.02] hover:bg-gold-light active:scale-[0.98]"
         >
           {dict.tours.more}
         </Link>

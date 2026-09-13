@@ -27,12 +27,16 @@ export function ContactSection({ locale, contact }: { locale: Locale; contact: C
             <p>{contact.email}</p>
             <p>Баку, Азербайджан</p>
           </div>
-          <div className="mt-8 flex h-44 items-center justify-center rounded-2xl border border-border bg-bg-alt text-muted">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <path d="M12 22s7-6.5 7-12A7 7 0 0 0 5 10c0 5.5 7 12 7 12Z" />
-              <circle cx="12" cy="10" r="2.5" />
-            </svg>
-            <span className="ml-3 text-sm">Баку, Азербайджан</span>
+          <div className="mt-8 h-44 overflow-hidden rounded-2xl border border-border">
+            <iframe
+              title="Baku, Azerbaijan"
+              src="https://www.google.com/maps?q=Baku,Azerbaijan&output=embed"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
           </div>
         </Reveal>
         <Reveal delay={120}>
