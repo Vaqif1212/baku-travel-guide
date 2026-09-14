@@ -23,6 +23,9 @@ export const metadata: Metadata = {
     default: "Baku Travel Guide",
     template: "%s · Baku Travel Guide",
   },
+  other: {
+    "yandex-verification": "aa6b7ea26dd275e9",
+  },
 };
 
 // Applies the saved theme before paint, so there's no light-mode flash
