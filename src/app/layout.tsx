@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { Unbounded, Plus_Jakarta_Sans } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import Script from "next/script";
 import "./globals.css";
+
+const GA_MEASUREMENT_ID = "G-91NR79FGGB";
 
 const unbounded = Unbounded({
   variable: "--font-unbounded",
@@ -48,6 +51,15 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className={`${unbounded.variable} ${jakarta.variable} min-h-full antialiased`}>
         {children}
         <Analytics />
+        <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`} strategy="afterInteractive" />
+        <Script id="ga4-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_MEASUREMENT_ID}');
+          `}
+        </Script>
       </body>
     </html>
   );
