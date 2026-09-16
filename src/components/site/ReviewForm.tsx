@@ -3,6 +3,7 @@
 import { useState, type FormEvent } from "react";
 import type { Locale } from "@/lib/i18n";
 import { getDict } from "@/lib/i18n";
+import { StarRating } from "./StarRating";
 
 // Sayt-daxili rəy formu (Cavidin tələbi, 2026-09-11: "sayt üçün ayrıca
 // review sistemi qura biler. Qursun" — istifadəçi təsdiqi ilə). Google
@@ -15,6 +16,7 @@ import { getDict } from "@/lib/i18n";
 export function ReviewForm({ locale }: { locale: Locale }) {
   const dict = getDict(locale);
   const [open, setOpen] = useState(false);
+  const [rating, setRating] = useState(5);
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
@@ -30,12 +32,14 @@ export function ReviewForm({ locale }: { locale: Locale }) {
           name: data.get("name"),
           country: data.get("country"),
           text: data.get("text"),
+          rating,
           website: data.get("website"),
         }),
       });
       if (!res.ok) throw new Error("failed");
       setStatus("success");
       form.reset();
+      setRating(5);
     } catch {
       setStatus("error");
     }
@@ -79,6 +83,10 @@ export function ReviewForm({ locale }: { locale: Locale }) {
         placeholder={dict.testimonials.formCountry}
         className="w-full rounded-xl border border-gold/25 bg-cream/5 px-4 py-3 text-sm text-cream transition-colors placeholder:text-cream/40 focus:border-gold focus:outline-none"
       />
+      <div className="flex items-center gap-3 rounded-xl border border-gold/25 bg-cream/5 px-4 py-3">
+        <span className="text-sm text-cream/60">{dict.testimonials.formRating}</span>
+        <StarRating value={rating} onChange={setRating} />
+      </div>
       <textarea
         name="text"
         required

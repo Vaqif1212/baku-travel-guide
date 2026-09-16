@@ -47,6 +47,13 @@ export default async function AdminTestimonialsPage() {
             required
             className="w-full min-w-0 flex-1 rounded-lg border border-neutral-300 px-3 py-2.5 text-sm"
           />
+          <select name="rating" defaultValue={5} className="w-full rounded-lg border border-neutral-300 px-3 py-2.5 text-sm sm:w-auto sm:shrink-0">
+            {[5, 4, 3, 2, 1].map((n) => (
+              <option key={n} value={n}>
+                {"★".repeat(n) + "☆".repeat(5 - n)}
+              </option>
+            ))}
+          </select>
           <button
             type="submit"
             className="shrink-0 rounded-lg bg-[#1F3B2E] px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[#16291F]"
@@ -67,6 +74,7 @@ export default async function AdminTestimonialsPage() {
                 {t.name}, {t.countryRu}{" "}
                 {!t.published && <span className="ml-2 rounded-full bg-neutral-100 px-2 py-0.5 text-xs text-neutral-500">{dict.common.hidden}</span>}
               </div>
+              <div className="mt-1 text-xs tracking-wide text-[#C9A227]">{"★".repeat(t.rating) + "☆".repeat(5 - t.rating)}</div>
               <p className="mt-1.5 max-w-xl text-sm text-neutral-500">{t.textRu}</p>
             </div>
             <div className="flex shrink-0 gap-1">

@@ -21,6 +21,20 @@ export function TestimonialForm({
           <span className="mb-1.5 block text-xs font-semibold text-neutral-600">{dict.common.order}</span>
           <input name="order" type="number" defaultValue={testimonial?.order ?? 0} className="w-full rounded-lg border border-neutral-300 px-3 py-2.5 text-sm transition-colors focus:border-[#1F3B2E] focus:outline-none focus:ring-2 focus:ring-[#1F3B2E]/15" />
         </label>
+        <label className="block">
+          <span className="mb-1.5 block text-xs font-semibold text-neutral-600">{dict.testimonials.rating}</span>
+          <select
+            name="rating"
+            defaultValue={testimonial?.rating ?? 5}
+            className="w-full rounded-lg border border-neutral-300 px-3 py-2.5 text-sm transition-colors focus:border-[#1F3B2E] focus:outline-none focus:ring-2 focus:ring-[#1F3B2E]/15"
+          >
+            {[5, 4, 3, 2, 1].map((n) => (
+              <option key={n} value={n}>
+                {"★".repeat(n) + "☆".repeat(5 - n)}
+              </option>
+            ))}
+          </select>
+        </label>
       </div>
       <label className="flex items-center gap-2 text-sm">
         <input type="checkbox" name="published" defaultChecked={testimonial?.published ?? true} className="h-4 w-4" />

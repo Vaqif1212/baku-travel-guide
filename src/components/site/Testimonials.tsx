@@ -3,8 +3,9 @@ import { getDict } from "@/lib/i18n";
 import { Reveal } from "./Reveal";
 import { QrCodeBlock } from "./QrCodeBlock";
 import { ReviewForm } from "./ReviewForm";
+import { StarRating } from "./StarRating";
 
-export type TestimonialViewModel = { id: string; text: string; name: string; country: string };
+export type TestimonialViewModel = { id: string; text: string; name: string; country: string; rating: number };
 
 export function Testimonials({
   locale,
@@ -30,7 +31,8 @@ export function Testimonials({
           {testimonials.map((t, i) => (
             <Reveal key={t.id} delay={i * 100} className="h-full">
               <div className="flex h-full flex-col rounded-2xl border border-gold/25 bg-cream/5 p-8 transition-all duration-300 hover:-translate-y-1 hover:border-gold/50 hover:bg-cream/10">
-                <div className="mb-2.5 font-display text-3xl leading-none text-gold">&ldquo;</div>
+                <StarRating value={t.rating} size="sm" />
+                <div className="mb-2.5 mt-1.5 font-display text-3xl leading-none text-gold">&ldquo;</div>
                 <p className="text-sm leading-relaxed text-cream/85">{t.text}</p>
                 <div className="mt-auto pt-5 text-sm font-bold text-cream">
                   {t.name}, {t.country}

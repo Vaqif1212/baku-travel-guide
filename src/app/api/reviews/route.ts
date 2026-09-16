@@ -13,7 +13,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "invalid_json" }, { status: 400 });
   }
 
-  const { name, country, text, website } = (body ?? {}) as Record<string, unknown>;
+  const { name, country, text, rating, website } = (body ?? {}) as Record<string, unknown>;
 
   // Honeypot: normal ziyarətçilər bu sahəni görmür/doldurmur (CSS-lə
   // gizlədilib, bax ReviewForm.tsx). Botlar adətən hər sahəni doldurur —
@@ -38,12 +38,18 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "too_long" }, { status: 400 });
   }
 
+  // Ulduz sayı (1-5) — düzgün göndərilməyibsə (köhnə klient, manipulyasiya
+  // cəhdi və s.) sakitcə 5-ə (defolt) düşür, sorğunu rədd etmirik.
+  const ratingNum = Number(rating);
+  const safeRating = Number.isInteger(ratingNum) && ratingNum >= 1 && ratingNum <= 5 ? ratingNum : 5;
+
   const last = await prisma.testimonial.aggregate({ _max: { order: true } });
 
   await prisma.testimonial.create({
     data: {
       order: (last._max.order ?? 0) + 1,
       published: false,
+      rating: safeRating,
       name: name.trim(),
       countryRu: country.trim(),
       countryAz: country.trim(),

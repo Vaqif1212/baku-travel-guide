@@ -8,6 +8,11 @@ function str(formData: FormData, key: string): string {
   return String(formData.get(key) ?? "").trim();
 }
 
+function ratingOf(formData: FormData): number {
+  const n = Number(formData.get("rating"));
+  return Number.isInteger(n) && n >= 1 && n <= 5 ? n : 5;
+}
+
 function revalidateHomepages() {
   revalidatePath("/");
   revalidatePath("/az");
@@ -20,6 +25,7 @@ export async function createTestimonial(formData: FormData) {
     data: {
       order: Number(formData.get("order")) || 0,
       published: formData.get("published") === "on",
+      rating: ratingOf(formData),
       name: str(formData, "name"),
       countryRu: str(formData, "countryRu"),
       countryAz: str(formData, "countryAz"),
@@ -49,6 +55,7 @@ export async function quickCreateTestimonial(formData: FormData) {
     data: {
       order: (last._max.order ?? 0) + 1,
       published: true,
+      rating: ratingOf(formData),
       name,
       countryRu: country,
       countryAz: country,
@@ -67,6 +74,7 @@ export async function updateTestimonial(id: string, formData: FormData) {
     data: {
       order: Number(formData.get("order")) || 0,
       published: formData.get("published") === "on",
+      rating: ratingOf(formData),
       name: str(formData, "name"),
       countryRu: str(formData, "countryRu"),
       countryAz: str(formData, "countryAz"),
