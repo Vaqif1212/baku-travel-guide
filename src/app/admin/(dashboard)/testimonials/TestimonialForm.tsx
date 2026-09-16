@@ -1,5 +1,6 @@
 import type { Testimonial } from "@prisma/client";
 import type { AdminDict } from "@/lib/adminI18n";
+import { ImageUploadField } from "@/components/admin/ImageUploadField";
 
 export function TestimonialForm({
   testimonial,
@@ -40,6 +41,15 @@ export function TestimonialForm({
         <input type="checkbox" name="published" defaultChecked={testimonial?.published ?? true} className="h-4 w-4" />
         {dict.testimonials.publishedCheckbox}
       </label>
+
+      <ImageUploadField
+        label={dict.testimonials.photo}
+        name="imageUrl"
+        defaultValue={testimonial?.imageUrl}
+        chooseLabel={dict.common.imageChoose}
+        uploadingLabel={dict.common.imageUploading}
+        removeLabel={dict.common.imageRemove}
+      />
 
       <div className="grid gap-4 sm:grid-cols-3">
         {(["Ru", "Az", "En"] as const).map((lang) => (

@@ -66,9 +66,14 @@ export default async function AdminTestimonialsPage() {
       <div className="mt-6 space-y-3">
         {testimonials.map((t) => (
           <div key={t.id} className="flex items-start gap-4 rounded-xl border border-neutral-200 bg-white p-5 shadow-sm">
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#C9A227]/10 text-[#C9A227]">
-              <IconStar />
-            </div>
+            {t.imageUrl ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img src={t.imageUrl} alt="" className="h-10 w-10 shrink-0 rounded-lg object-cover" />
+            ) : (
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#C9A227]/10 text-[#C9A227]">
+                <IconStar />
+              </div>
+            )}
             <div className="min-w-0 flex-1">
               <div className="text-sm font-semibold text-neutral-900">
                 {t.name}, {t.countryRu}{" "}

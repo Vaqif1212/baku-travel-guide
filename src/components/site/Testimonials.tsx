@@ -3,9 +3,17 @@ import { getDict } from "@/lib/i18n";
 import { Reveal } from "./Reveal";
 import { QrCodeBlock } from "./QrCodeBlock";
 import { ReviewForm } from "./ReviewForm";
-import { StarRating, StarRatingAverage } from "./StarRating";
+import { StarRatingAverage } from "./StarRating";
+import { TestimonialCard } from "./TestimonialCard";
+import { TestimonialsCarousel } from "./TestimonialsCarousel";
 
-export type TestimonialViewModel = { id: string; text: string; name: string; country: string; rating: number };
+export type TestimonialViewModel = { id: string; text: string; name: string; country: string; rating: number; imageUrl: string };
+
+// İstifadəçinin tələbi (2026-09-16): "ekranda 6 dan cox rey olduqda ondan
+// sonraki reyleri surusdurmeli et saga surusdurmeli duyme ile" — 6 və ya az
+// rəy varsa adi grid (aşağıda) kifayətdir, çoxu üçün üfüqi sürüşən karusel
+// (bax TestimonialsCarousel.tsx) sağa-ox düyməsi ilə.
+const GRID_LIMIT = 6;
 
 export function Testimonials({
   locale,
@@ -37,20 +45,17 @@ export function Testimonials({
           )}
         </Reveal>
 
-        <div className="mt-12 grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
-          {testimonials.map((t, i) => (
-            <Reveal key={t.id} delay={i * 100} className="h-full">
-              <div className="flex h-full flex-col rounded-2xl border border-gold/25 bg-cream/5 p-8 transition-all duration-300 hover:-translate-y-1 hover:border-gold/50 hover:bg-cream/10">
-                <StarRating value={t.rating} size="sm" />
-                <div className="mb-2.5 mt-1.5 font-display text-3xl leading-none text-gold">&ldquo;</div>
-                <p className="text-sm leading-relaxed text-cream/85">{t.text}</p>
-                <div className="mt-auto pt-5 text-sm font-bold text-cream">
-                  {t.name}, {t.country}
-                </div>
-              </div>
-            </Reveal>
-          ))}
-        </div>
+        {testimonials.length > GRID_LIMIT ? (
+          <TestimonialsCarousel testimonials={testimonials} />
+        ) : (
+          <div className="mt-12 grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
+            {testimonials.map((t, i) => (
+              <Reveal key={t.id} delay={i * 100} className="h-full">
+                <TestimonialCard t={t} />
+              </Reveal>
+            ))}
+          </div>
+        )}
         {googleReviewLink && (
           <div className="mt-8 flex flex-col items-center text-center">
             <a

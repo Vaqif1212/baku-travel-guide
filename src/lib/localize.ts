@@ -30,5 +30,6 @@ export function localizeTestimonial(t: Testimonial, locale: Locale): Testimonial
     name: t.name,
     country: field(t, "country", locale),
     rating: t.rating,
+    imageUrl: t.imageUrl,
   };
 }

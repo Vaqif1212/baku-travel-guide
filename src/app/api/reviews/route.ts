@@ -13,7 +13,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "invalid_json" }, { status: 400 });
   }
 
-  const { name, country, text, rating, website } = (body ?? {}) as Record<string, unknown>;
+  const { name, country, text, rating, imageUrl, website } = (body ?? {}) as Record<string, unknown>;
 
   // Honeypot: normal ziyarətçilər bu sahəni görmür/doldurmur (CSS-lə
   // gizlədilib, bax ReviewForm.tsx). Botlar adətən hər sahəni doldurur —
@@ -43,6 +43,12 @@ export async function POST(request: Request) {
   const ratingNum = Number(rating);
   const safeRating = Number.isInteger(ratingNum) && ratingNum >= 1 && ratingNum <= 5 ? ratingNum : 5;
 
+  // Şəkil linki — YALNIZ bizim öz Vercel Blob storage-ımızdan gələn URL-lər
+  // qəbul olunur (bax /api/reviews/upload). Başqa domenlər/uydurma dəyərlər
+  // sakitcə boş sətrə düşür ki, kimsə keçərsiz link göndərib kartı korlamasın
+  // və ya XSS-a bənzər bir şey soxmasın.
+  const safeImageUrl = typeof imageUrl === "string" && /^https:\/\/[a-z0-9-]+\.public\.blob\.vercel-storage\.com\//.test(imageUrl) ? imageUrl : "";
+
   const last = await prisma.testimonial.aggregate({ _max: { order: true } });
 
   await prisma.testimonial.create({
@@ -50,6 +56,7 @@ export async function POST(request: Request) {
       order: (last._max.order ?? 0) + 1,
       published: false,
       rating: safeRating,
+      imageUrl: safeImageUrl,
       name: name.trim(),
       countryRu: country.trim(),
       countryAz: country.trim(),

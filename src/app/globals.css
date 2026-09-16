@@ -64,6 +64,17 @@ body {
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
+/* Testimonials karuseli (TestimonialsCarousel.tsx) — sürüşdürmə çubuğunu
+   gizlədir, öz sağa-ox düyməsi kifayətdir; barmaqla/trackpadla sürüşmə
+   toxunulmaz qalır, sadəcə vizual scrollbar-ı gizlədir. */
+.scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
 ::selection {
   background: var(--gold);
   color: var(--green-deep);
