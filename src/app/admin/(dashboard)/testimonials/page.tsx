@@ -8,7 +8,10 @@ import { deleteTestimonial, quickCreateTestimonial } from "./actions";
 
 export default async function AdminTestimonialsPage() {
   const dict = getAdminDict(await getAdminLocale());
-  const testimonials = await prisma.testimonial.findMany({ orderBy: { order: "asc" } });
+  // Moderasiyada olanlar (published: false — saytdan gələn rəylər defolt belə
+  // yaranır, bax /api/reviews) siyahının başında görünsün ki, admin onları
+  // qaçırmasın (bax dashboard-dakı "Moderasiyada rəylər" kartı da).
+  const testimonials = await prisma.testimonial.findMany({ orderBy: [{ published: "asc" }, { order: "asc" }] });
 
   return (
     <div>

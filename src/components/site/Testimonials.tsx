@@ -2,6 +2,7 @@ import type { Locale } from "@/lib/i18n";
 import { getDict } from "@/lib/i18n";
 import { Reveal } from "./Reveal";
 import { QrCodeBlock } from "./QrCodeBlock";
+import { ReviewForm } from "./ReviewForm";
 
 export type TestimonialViewModel = { id: string; text: string; name: string; country: string };
 
@@ -51,6 +52,9 @@ export function Testimonials({
             <QrCodeBlock value={googleReviewLink} hint={dict.testimonials.qrHint} downloadLabel={dict.testimonials.qrDownload} />
           </div>
         )}
+        <div className="mt-2 flex flex-col items-center text-center">
+          <ReviewForm locale={locale} />
+        </div>
         <p className="mt-6 text-center text-[10px] text-cream/25">{dict.testimonials.disclaimer}</p>
       </div>
     </section>

@@ -6,9 +6,10 @@ import { IconMap, IconStar, IconDocument, IconMail } from "@/components/admin/ic
 
 export default async function AdminOverviewPage() {
   const dict = getAdminDict(await getAdminLocale());
-  const [tourCount, testimonialCount, postCount, unreadCount] = await Promise.all([
+  const [tourCount, testimonialCount, pendingReviewCount, postCount, unreadCount] = await Promise.all([
     prisma.tour.count(),
     prisma.testimonial.count(),
+    prisma.testimonial.count({ where: { published: false } }),
     prisma.post.count(),
     prisma.message.count({ where: { read: false } }),
   ]);
@@ -16,6 +17,13 @@ export default async function AdminOverviewPage() {
   const cards = [
     { label: dict.overview.toursPublished, value: tourCount, href: "/admin/tours", icon: IconMap },
     { label: dict.overview.testimonialsCount, value: testimonialCount, href: "/admin/testimonials", icon: IconStar },
+    {
+      label: dict.overview.pendingReviews,
+      value: pendingReviewCount,
+      href: "/admin/testimonials",
+      icon: IconStar,
+      highlight: pendingReviewCount > 0,
+    },
     { label: dict.overview.postsCount, value: postCount, href: "/admin/blog", icon: IconDocument },
     { label: dict.overview.unreadMessages, value: unreadCount, href: "/admin/messages", icon: IconMail, highlight: unreadCount > 0 },
   ];
@@ -23,7 +31,7 @@ export default async function AdminOverviewPage() {
   return (
     <div>
       <h1 className="text-2xl font-bold text-neutral-900">{dict.overview.title}</h1>
-      <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
         {cards.map((c) => (
           <Link
             key={c.href}
