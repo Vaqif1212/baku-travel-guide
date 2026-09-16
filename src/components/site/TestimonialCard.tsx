@@ -12,10 +12,10 @@ export function TestimonialCard({ t }: { t: TestimonialViewModel }) {
       <StarRating value={t.rating} size="sm" />
       <div className="mb-2.5 mt-1.5 font-display text-3xl leading-none text-gold">&ldquo;</div>
       <p className="text-sm leading-relaxed text-cream/85">{t.text}</p>
-      <div className="mt-auto flex items-center gap-3 pt-5">
+      <div className={`mt-auto flex items-center gap-3.5 pt-5 ${t.imageUrl ? "border-t border-gold/10" : ""}`}>
         {t.imageUrl && (
-          <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full border border-gold/30">
-            <Image src={t.imageUrl} alt={t.name} fill sizes="40px" className="object-cover" />
+          <div className="animate-avatar-pop relative h-14 w-14 shrink-0 overflow-hidden rounded-full ring-2 ring-gold/50 ring-offset-2 ring-offset-green-deep shadow-lg shadow-black/30">
+            <Image src={t.imageUrl} alt={t.name} fill sizes="56px" className="object-cover" />
           </div>
         )}
         <div className="text-sm font-bold text-cream">
