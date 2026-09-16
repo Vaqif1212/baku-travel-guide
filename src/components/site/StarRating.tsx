@@ -48,3 +48,25 @@ export function StarRating({
     </div>
   );
 }
+
+// Rəylərin ortalama balı (məs. 4.7) üçün — beş "boş" ulduzun üstünə,
+// dəqiq faizlə (avg/5*100%) kəsilmiş beş "dolu" ulduz qatı qoyulur, ona görə
+// dəyər tam ədədə yuvarlanmadan (StarRating-dəki kimi) vizual olaraq göstərilir.
+export function StarRatingAverage({ average, size = "md" }: { average: number; size?: "sm" | "md" }) {
+  const pct = Math.max(0, Math.min(100, (average / 5) * 100));
+  const cls = size === "sm" ? "[&_svg]:h-3 [&_svg]:w-3" : "";
+  return (
+    <div className={`relative inline-flex ${cls}`} role="img" aria-label={`${average.toFixed(1)} / 5`}>
+      <div className="flex items-center gap-0.5 text-gold/30">
+        {[1, 2, 3, 4, 5].map((n) => (
+          <Star key={n} filled />
+        ))}
+      </div>
+      <div className="absolute inset-0 flex items-center gap-0.5 overflow-hidden text-gold" style={{ width: `${pct}%` }}>
+        {[1, 2, 3, 4, 5].map((n) => (
+          <Star key={n} filled />
+        ))}
+      </div>
+    </div>
+  );
+}

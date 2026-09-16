@@ -90,6 +90,7 @@ function buildDict(locale: Locale) {
       testimonials: {
         eyebrow: "Отзывы",
         title: "Что говорят туристы",
+        averageBasedOn: "{count} отзывов",
         disclaimer: "Примеры отзывов",
         leaveGoogleReview: "Оставить отзыв в Google →",
         qrHint: "Или отсканируйте QR-код телефоном",
@@ -200,6 +201,7 @@ function buildDict(locale: Locale) {
       testimonials: {
         eyebrow: "Rəylər",
         title: "Turistlər nə deyir",
+        averageBasedOn: "{count} rəy əsasında",
         disclaimer: "Nümunə rəylər",
         leaveGoogleReview: "Google-da rəy qoyun →",
         qrHint: "Və ya telefonla QR-kodu skan edin",
@@ -310,6 +312,7 @@ function buildDict(locale: Locale) {
       testimonials: {
         eyebrow: "Reviews",
         title: "What travelers say",
+        averageBasedOn: "based on {count} reviews",
         disclaimer: "Sample reviews",
         leaveGoogleReview: "Leave a review on Google →",
         qrHint: "Or scan the QR code with your phone",

@@ -3,7 +3,7 @@ import { getDict } from "@/lib/i18n";
 import { Reveal } from "./Reveal";
 import { QrCodeBlock } from "./QrCodeBlock";
 import { ReviewForm } from "./ReviewForm";
-import { StarRating } from "./StarRating";
+import { StarRating, StarRatingAverage } from "./StarRating";
 
 export type TestimonialViewModel = { id: string; text: string; name: string; country: string; rating: number };
 
@@ -17,6 +17,7 @@ export function Testimonials({
   googleReviewLink?: string;
 }) {
   const dict = getDict(locale);
+  const average = testimonials.length > 0 ? testimonials.reduce((sum, t) => sum + t.rating, 0) / testimonials.length : 0;
   return (
     <section id="reviews" className="bg-green-deep py-20 sm:py-24">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
@@ -25,6 +26,15 @@ export function Testimonials({
           <h2 className="mt-3 text-center font-display text-3xl font-bold text-cream sm:text-4xl">
             {dict.testimonials.title}
           </h2>
+          {testimonials.length > 0 && (
+            <div className="mt-4 flex items-center justify-center gap-2.5">
+              <span className="font-display text-2xl font-bold text-gold">{average.toFixed(1)}</span>
+              <StarRatingAverage average={average} />
+              <span className="text-sm text-cream/50">
+                {dict.testimonials.averageBasedOn.replace("{count}", String(testimonials.length))}
+              </span>
+            </div>
+          )}
         </Reveal>
 
         <div className="mt-12 grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
